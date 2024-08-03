@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../../public/ArchivoBlack-Regular.ttf");
+}
+@font-face {
+  font-family: "LatoLight";
+  src: url("../../public/Lato-Light.ttf");
+}
+@font-face {
+  font-family: "LatoBold";
+  src: url("../../public/Lato-Bold.ttf");
+}
+@font-face {
+  font-family: "LatoReg";
+  src: url("../../public/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "JostLight";
+  src: url("../../public/Jost-Light.ttf");
+}
+@font-face {
+  font-family: "JostBold";
+  src: url("../../public/Jost-Bold.ttf");
+}
+@font-face {
+  font-family: "JostReg";
+  src: url("../../public/Jost-Regular.ttf");
+}
+@font-face {
+  font-family: "RubikLight";
+  src: url("../../public/Rubik-Light.ttf");
+}
+@font-face {
+  font-family: "RubikBold";
+  src: url("../../public/Rubik-Bold.ttf");
+}
+@font-face {
+  font-family: "RubikReg";
+  src: url("../../public/Rubik-Regular.ttf");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+/* 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}*/
+
+:root {
+  --background-start-color: rgb(214, 219, 220);
+  --background-end-color: rgb(255, 255, 255);
+}
+
+body {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--background-end-color)
+    )
+    var(--background-start-color);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
