@@ -49,6 +49,6 @@
   }
 }
 
-.pill:active + div {
+.pill:active + ul {
   color: white;
 }

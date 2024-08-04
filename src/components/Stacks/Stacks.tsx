@@ -41,13 +41,13 @@ export function Other() {
           chevron_right
         </span>
       </div>
-      <div className="absolute inset-0 flex flex-wrap justify-between pr-40 ml-[27vw] h-20 items-center transition-all">
-        <div>Next</div>
-        <div>React Native</div>
-        <div>SCSS</div>
-        <div>API Rest</div>
-        <div>Symfony</div>
-      </div>
+      <ul className="absolute inset-0 flex flex-wrap justify-between pr-40 ml-[27vw] h-20 items-center transition-all">
+        <li>Next</li>
+        <li>React Native</li>
+        <li>SCSS</li>
+        <li>API Rest</li>
+        <li>Symfony</li>
+      </ul>
     </m.section>
   )
 }
