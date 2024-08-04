@@ -80,6 +80,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
+"@fontsource/material-icons@^5.0.18":
+  version "5.0.18"
+  resolved "https://registry.yarnpkg.com/@fontsource/material-icons/-/material-icons-5.0.18.tgz#36cc28b282cba7e0cb90b5afa5c0278233cc6e5d"
+  integrity sha512-2DL5z2yKWE+kXQrBiUTwIOMQjhs6t+EoPql8Ai4N6t2mjUhBdi2RChW44V3z1WgwupoqILXrAa4/id4/AuruMQ==
+
 "@graphql-typed-document-node/core@^3.1.1":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.2.0.tgz#5f3d96ec6b2354ad6d8a28bf216a1d97b5426861"

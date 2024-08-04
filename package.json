@@ -11,6 +11,7 @@
   "dependencies": {
     "@apollo/client": "^3.11.2",
     "@apollo/experimental-nextjs-app-support": "^0.11.2",
+    "@fontsource/material-icons": "^5.0.18",
     "framer-motion": "^11.3.21",
     "graphql": "^16.9.0",
     "i18next": "^23.12.2",

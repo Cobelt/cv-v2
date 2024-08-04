@@ -13,7 +13,7 @@ import { IPageProps } from "@/types"
 import Arrows from "@/components/Arrows"
 import Tabs from "@/components/Tabs"
 
-import "@/styles/globalicon.css"
+import "@fontsource/material-icons"
 import "@/styles/globals.css"
 import "@/styles/animations.css"
 
