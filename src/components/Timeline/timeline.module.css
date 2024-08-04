@@ -1,0 +1,97 @@
+.timeline ol {
+  position: relative;
+  --gradient: rgb(var(--rgb-gradient, 33 33 33) / 1) 50%,
+    rgb(var(--rgb-gradient, 33 33 33) / 0) 100%;
+}
+
+.timeline ol::before,
+.timeline ol::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 30px;
+  width: 100px;
+}
+
+.timeline ol::before {
+  right: 0;
+  background: linear-gradient(270deg, var(--gradient));
+}
+
+.timeline ol::after {
+  left: 0;
+  background: linear-gradient(90deg, var(--gradient));
+}
+
+.timeline ol > li > .textbubble {
+  left: calc(100% + 7px);
+  border-radius: 10px 10px 10px 0;
+  bottom: 1.75rem;
+}
+
+.timeline li:nth-child(even) > .textbubble {
+  top: 1.75rem;
+  border-radius: 0 10px 10px 10px;
+}
+
+.textbubble::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline li:nth-child(odd) .textbubble::before {
+  top: 100%;
+  border-width: 8px 8px 0 0;
+  border-color: white transparent transparent transparent;
+}
+
+.timeline li:nth-child(even) .textbubble::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent white;
+}
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 800px) {
+  .timeline {
+    display: block;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    width: 50px;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline .info {
+    display: none;
+  }
+}
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 2;
+  color: black;
+  background-color: var(--columbia-blue);
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
+}

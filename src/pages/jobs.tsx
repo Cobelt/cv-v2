@@ -9,6 +9,7 @@ import {
 } from "@/animations/pageContainer"
 import { IPageProps } from "@/types"
 import useAnimatePageProps from "@/hooks/useAnimatePageProps"
+import Timeline from "@/components/Timeline"
 
 export default function Jobs({ previousRoute, currentRoute }: IPageProps) {
   const animatePageProps = useAnimatePageProps(previousRoute, currentRoute)
@@ -31,7 +32,9 @@ export default function Jobs({ previousRoute, currentRoute }: IPageProps) {
           </m.h1>
         </div>
 
-        <div className="h-40 col-span-3"></div>
+        <div className="col-span-3">
+          <Timeline rgbGradient="147 197 253" />
+        </div>
       </main>
     </m.div>
   )
