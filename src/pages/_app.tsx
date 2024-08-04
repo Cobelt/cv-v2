@@ -1,5 +1,5 @@
 import { AppProps } from "next/app"
-import { AnimatePresence } from "framer-motion"
+import { motion as m, AnimatePresence } from "framer-motion"
 import { ApolloProvider } from "@apollo/client"
 import i18n from "i18next"
 import Backend from "i18next-http-backend"
@@ -41,13 +41,14 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
     <ApolloProvider client={client}>
       <div className="text-stone-800 font-latoBold relative h-screen overflow-hidden py-6 md:py-16 px-12 lg:px-[6vw]">
         <Tabs />
-        <AnimatePresence initial={false}>
-          <Component
-            key={router.pathname}
-            {...pageProps}
-            previousRoute={previousRoute}
-            currentRoute={currentRoute}
-          />
+        <AnimatePresence>
+          <m.div key={router.pathname}>
+            <Component
+              {...pageProps}
+              previousRoute={previousRoute}
+              currentRoute={currentRoute}
+            />
+          </m.div>
         </AnimatePresence>
         <Arrows currentRoute={currentRoute} />
       </div>

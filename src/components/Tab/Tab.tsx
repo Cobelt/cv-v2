@@ -1,8 +1,10 @@
 import Link from "next/link"
 import { motion as m } from "framer-motion"
 import { item } from "@/animations/pageContainer"
+import { EDUCTATIONS } from "@/constants"
 
 export interface TabType {
+  id: string
   url: string
   text: string
   icon: string
@@ -11,6 +13,7 @@ export interface TabType {
 }
 
 export default function Tab({
+  id,
   url,
   tabIndex,
   icon,
@@ -23,7 +26,9 @@ export default function Tab({
       className={[
         "group flex-1 flex hover:bg-opacity-10 hover:bg-indigo-950 rounded-full cursor-pointer transition-all w-16 h-16",
         currentTab === url
-          ? "text-blue-500"
+          ? id === EDUCTATIONS
+            ? "text-white"
+            : "text-blue-500"
           : "text-stone-800 hover:text-blue-900",
       ]
         .filter(Boolean)

@@ -1,5 +1,6 @@
 import { motion as m } from "framer-motion"
 import {
+  animate,
   appearFromLeft,
   appearFromRight,
   container,
@@ -16,7 +17,7 @@ export default function Stack({ previousRoute, currentRoute }: IPageProps) {
 
   return (
     <m.div
-      {...animatePageProps}
+      {...animate(animatePageProps)}
       className="absolute top-0 left-0 w-full h-full bg-pink-300 lg:px-48 px-12"
     >
       <main className="pt-12 pb-52 lg:pb-12 lg:pt-72 grid gap-10 grid-cols-3">
@@ -41,7 +42,7 @@ export default function Stack({ previousRoute, currentRoute }: IPageProps) {
             <li className="text-xl">Développer une app mobile</li>
             <li className="text-xl">Maintenir et faire évoluer un projet</li>
             <li className="text-xl">
-              Maitriser la couche métier d'un projet existant
+              Maitriser la couche métier d{"'"}un projet existant
             </li>
           </ul>
         </section>
@@ -61,7 +62,7 @@ export default function Stack({ previousRoute, currentRoute }: IPageProps) {
           <ul className="font-latoBold text-xl">
             <li className="text-xl">Travailler en équipe de tout taille</li>
             <li className="text-xl">Communiquer avec mes collègues</li>
-            <li className="text-xl">M'adapter au besoin</li>
+            <li className="text-xl">M{"'"}adapter au besoin</li>
             <li className="text-xl">Prendre du recul</li>
             <li className="text-xl">Être créatif et inventif</li>
             <li className="text-xl">Être rigoureux et précis</li>

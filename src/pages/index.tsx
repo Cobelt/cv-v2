@@ -3,6 +3,7 @@ import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
 import {
+  animate,
   appearFromLeft,
   appearFromRight,
   container,
@@ -23,7 +24,7 @@ export default function Home({ previousRoute, currentRoute }: IPageProps) {
     animatePageProps == appearFromLeft ? appearFromRight : appearFromLeft
   return (
     <m.div
-      {...animatePageProps}
+      {...animate(animatePageProps)}
       className="absolute top-0 left-0 w-full h-full bg-orange-300 pt-12 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
     >
       <Head>

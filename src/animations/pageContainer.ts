@@ -1,3 +1,13 @@
+export function animate({ transition, ...variants }: any = {}) {
+  return {
+    initial: "initial",
+    animate: "animate",
+    exit: "exit",
+    variants,
+    transition,
+  }
+}
+
 export const appearFromBottom = {
   initial: { y: "100%" },
   animate: { y: "0%" },
@@ -14,7 +24,7 @@ export const appearFromLeft = {
   exit: { opacity: 1 },
   transition: {
     duration: 0.75,
-    // ease: "easeOut",
+    ease: "easeOut",
   },
 }
 
@@ -24,7 +34,7 @@ export const appearFromRight = {
   exit: { opacity: 1 },
   transition: {
     duration: 0.75,
-    // ease: "easeOut",
+    ease: "easeOut",
   },
 }
 
@@ -38,7 +48,7 @@ export const container = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 0.75,
+      delayChildren: 0.25,
       staggerChildren: 0.15,
     },
   },

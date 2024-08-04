@@ -28,6 +28,7 @@ export default function Tabs() {
           return (
             <Tab
               key={attributes.key}
+              id={attributes.key}
               url={attributes.url ?? "/" + attributes.key}
               tabIndex={index}
               currentTab={asPath}

@@ -1,10 +1,14 @@
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
+import Lottie from "lottie-react"
 
 import { delayedContainer, fadeInItem } from "@/animations/pageContainer"
+import arrowAnimation from "@/animations/arrow.json"
 import ZigZagArrowSvg from "../icons/ZigZagArrow"
 import Linkedin from "../icons/Linkedin"
 import Github from "../icons/Github"
+
+const EMAIL = "polemil.moro@gmail.com"
 
 export default function Links() {
   const [t] = useTranslation()
@@ -18,7 +22,8 @@ export default function Links() {
     >
       <m.a
         variants={fadeInItem}
-        href="mailto:polemil.moro@gmail.com"
+        href={"mailto:" + EMAIL}
+        onClick={() => navigator.clipboard.writeText(EMAIL)}
         className="group col-span-2 flex gap-12 relative"
       >
         <div className="flex gap-4 items-center group-hover:text-white transition-colors">
@@ -30,13 +35,13 @@ export default function Links() {
               {t("profile.contact.email")}
             </span>
             <span className="absolute -bottom-3 left-0 right-0 text-center text-lg font-latoBold opacity-0 text-stone-800 group-hover:opacity-100 group-hover:translate-y-3 transition-all duration-300 delay-200">
-              polemil.moro@gmail.com
+              {EMAIL}
             </span>
           </div>
         </div>
-        <ZigZagArrowSvg
-          size={100}
-          className="group-hover:-translate-x-6 group-hover:translate-y-6 mb-10 group-hover:rotate-[350deg] -rotate-[20deg] text-blue-500 transition-transform duration-500"
+        <Lottie
+          animationData={arrowAnimation}
+          className="w-64 max-h-64 -m-10 mb-10 -rotate-[50deg] text-blue-500 transition-transform duration-500"
         />
       </m.a>
 
