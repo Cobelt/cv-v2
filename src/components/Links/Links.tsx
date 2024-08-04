@@ -1,12 +1,13 @@
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
-import Lottie from "lottie-react"
+import dynamic from "next/dynamic"
 
 import { delayedContainer, fadeInItem } from "@/animations/pageContainer"
 import arrowAnimation from "@/animations/arrow.json"
-import ZigZagArrowSvg from "../icons/ZigZagArrow"
 import Linkedin from "../icons/Linkedin"
 import Github from "../icons/Github"
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 const EMAIL = "polemil.moro@gmail.com"
 

@@ -1,5 +1,5 @@
 import { motion as m } from "framer-motion"
-import Lottie from "lottie-react"
+import dynamic from "next/dynamic"
 
 import {
   animate,
@@ -10,6 +10,8 @@ import { IPageProps } from "@/types"
 import useAnimatePageProps from "@/hooks/useAnimatePageProps"
 import Timeline, { TimelineItem } from "@/components/Timeline"
 import diplomaAnimation from "@/animations/diploma.json"
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 export default function Educations({
   previousRoute,
