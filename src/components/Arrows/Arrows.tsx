@@ -1,27 +1,19 @@
+"use client"
+
 import Link from "next/link"
 import { motion as m } from "framer-motion"
-import { GET_TABS, TabsDataType } from "@/queries/tabs"
-import { appearFromLeft, appearFromRight } from "@/animations/pageContainer"
+import { GET_TABS, TabsDataType } from "../../queries/tabs"
+import { appearFromLeft, appearFromRight } from "../../animations/pageContainer"
 import { useQuery } from "@apollo/client"
 import { useRef, useState } from "react"
-import useOnScroll from "@/hooks/useOnScroll"
+import useOnScroll from "../../hooks/useOnScroll"
 import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 
 const SCROLL_LIMIT = 5
 
-export interface TabType {
-  url: string
-  text: string
-  icon: string
-  tabIndex?: number
-  currentTab: string
-}
-
-export default function Arrows({
-  currentRoute,
-}: {
-  currentRoute: string | null
-}) {
+export default function Arrows() {
+  const currentRoute = usePathname()
   const [scrollQty, setScrollQty] = useState(0)
   const { data } = useQuery<TabsDataType>(GET_TABS)
   const tabs = data?.tabs?.data ?? []
@@ -65,7 +57,11 @@ export default function Arrows({
           {...appearFromLeft}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <Link href={previousTabUrl} onClick={() => setScrollQty(0)}>
+          <Link
+            href={previousTabUrl}
+            onClick={() => setScrollQty(0)}
+            tabIndex={10}
+          >
             <span
               className="material-icons text-4xl lg:text-6xl"
               style={{
@@ -81,13 +77,14 @@ export default function Arrows({
           </Link>
         </m.div>
       )}
+
       {nextTabUrl && (
         <m.div
           className="hidden md:block absolute right-0 top-1/2 bottom-1/2"
           {...appearFromRight}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <Link href={nextTabUrl} onClick={() => setScrollQty(0)}>
+          <Link href={nextTabUrl} onClick={() => setScrollQty(0)} tabIndex={11}>
             <span
               className="material-icons text-4xl lg:text-6xl"
               style={{
