@@ -2,7 +2,8 @@ import { CSSProperties, ReactNode } from "react"
 import { motion as m } from "framer-motion"
 
 import styles from "./timeline.module.css"
-import { container, fadeInItem } from "@/animations/pageContainer"
+import { container, fadeInItem } from "../../animations/pageContainer"
+import { cN } from "@/lib"
 
 interface ITimelineItemProps {
   title: string
@@ -22,7 +23,7 @@ export function TimelineItem({
   color = "text-red-500",
   bgColor = "bg-white",
   subTitleColor = "text-blue-600",
-  size = "w-52",
+  size = "h-52 md:w-52",
   onClick = () => {},
 }: ITimelineItemProps) {
   return (
@@ -30,39 +31,23 @@ export function TimelineItem({
       variants={fadeInItem}
       whileTap={{ scale: 0.95 }}
       onTap={onClick}
-      className={["relative flex items-center h-2", size, bgColor, color]
-        .filter(Boolean)
-        .join(" ")}
+      className={cN("relative flex items-center w-2 md:h-2", size, color)}
     >
       <span
-        className={[
+        className={cN(
           color,
-          "z-10 bg-current rounded-full absolute w-5 h-5 -left-4",
-        ]
-          .filter(Boolean)
-          .join(" ")}
+          "z-10 bg-current rounded-full absolute w-5 h-5 -left-4"
+        )}
       />
       <div
-        className={[
+        className={cN(
           styles.textbubble,
           bgColor,
-          "w-96 absolute whitespace-normal p-4",
-        ]
-          .filter(Boolean)
-          .join(" ")}
+          "z-20 w-96 absolute whitespace-normal p-4 hidden md:flex flex-col"
+        )}
       >
-        <time
-          className={[color, "text-2xl font-archivo mb-4"]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          {title}
-        </time>
-        <h4
-          className={["text-lg font-jostBold", subTitleColor]
-            .filter(Boolean)
-            .join(" ")}
-        >
+        <time className={cN(color, "text-2xl font-archivo")}>{title}</time>
+        <h4 className={cN("text-lg font-jostBold mb-2", subTitleColor)}>
           {subTitle}
         </h4>
         <div className="text-xl text-stone-800">{children}</div>
@@ -82,15 +67,13 @@ export default function Timeline({
       variants={container}
       initial="hidden"
       animate="show"
-      className={[
+      className={cN(
         styles.timeline,
-        "flex justify-center whitespace-nowrap w-full -mx-12",
-      ]
-        .filter(Boolean)
-        .join(" ")}
+        "flex justify-center whitespace-nowrap w-full -mx-12"
+      )}
       style={{ "--rgb-gradient": rgbGradient } as CSSProperties}
     >
-      <ol className="text-stone-800 flex gap-3 transition-all duration-1000 snap-x snap-mandatory">
+      <ol className="flex flex-col lg:flex-row gap-3 text-stone-800 transition-all duration-1000 snap-x snap-mandatory">
         <m.li variants={fadeInItem} className="h-2 w-40 bg-white"></m.li>
 
         {children}
