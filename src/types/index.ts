@@ -2,7 +2,7 @@ import { CSSProperties } from "react"
 
 export interface IPageProps {
   previousRoute: string
-  currentRoute: string
+  pathname: string
 }
 
 export interface IconType {
@@ -14,4 +14,8 @@ export interface IconType {
   className?: string
   style?: CSSProperties
   shouldntPreserveRatio?: boolean
+}
+
+export interface WithClassNameProps {
+  className?: string
 }

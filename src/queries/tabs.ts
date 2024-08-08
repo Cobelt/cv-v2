@@ -9,6 +9,7 @@ export interface TabsDataType {
           key: string
           icon: string
           url: string
+          order: number
         }
       }
     ]

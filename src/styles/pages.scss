@@ -1,0 +1,42 @@
+.page\:profile {
+  /* prettier-ignore */
+  --base:
+  	"photo   pagetitle"
+  	"photo   name     "
+  	"digest  digest   "
+    "digest  digest   " 1fr
+    "mailBtn mailBtn  " 1fr
+  	"links   links    "
+  "pref   pref    "
+  "other   other    "
+  / auto 1fr;
+
+  /* prettier-ignore */
+  --md:
+  "photo   pagetitle"
+  "photo   name     "
+  "digest  digest   " 1fr
+  "mailBtn mailBtn  " 1fr
+  "links   links    "
+  "pref   pref    "
+  "other   other    "
+  / auto 1fr;
+
+  /* prettier-ignore */
+  --lg:
+    "pagetitle pagetitle pagetitle pagetitle"
+    "photo digest digest digest       " 1fr
+    "links  links  mailBtn  mailBtn        " 1fr
+    "pref  pref  pref  pref        " auto
+    "other  other  other  other        " auto
+    ;
+
+  /* prettier-ignore */
+  --2xl:
+  	"mailBtn mailBtn pagetitle pagetitle"
+  	"digest  digest  digest    photo    "
+  	"links   .       .         .        " 1fr
+  	"pref    pref    pref      pref     "
+  	"other   other   other     other    "
+  /  auto    1fr     1fr       auto;
+}
