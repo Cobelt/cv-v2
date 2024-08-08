@@ -1,7 +1,7 @@
 import { IconType } from "../../../types"
 
 export default function FranceFlag({
-  size = 24,
+  size,
   height = size,
   width = size,
   className,

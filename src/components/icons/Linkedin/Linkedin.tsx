@@ -1,7 +1,7 @@
 import { IconType } from "@/types"
 
 export default function Linkedin({
-  size = 24,
+  size,
   color = "currentColor",
   textColor = "",
   className = "white",

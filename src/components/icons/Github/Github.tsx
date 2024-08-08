@@ -1,7 +1,7 @@
 import { IconType } from "../../../types"
 
 export default function Github({
-  size = 24,
+  size,
   color = "currentColor",
   className,
   style,

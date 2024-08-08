@@ -1,7 +1,7 @@
 import { IconType } from "../../../types"
 
 export default function GreatBritainFlag({
-  size = 24,
+  size,
   height = size,
   width = size,
   className,

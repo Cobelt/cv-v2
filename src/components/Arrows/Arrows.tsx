@@ -53,7 +53,7 @@ export default function Arrows() {
     <>
       {previousTabUrl && (
         <m.div
-          className="hidden md:block absolute left-0 top-1/2 bottom-1/2"
+          className="hidden lg:block absolute left-0 top-1/2 bottom-1/2"
           {...appearFromLeft}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
@@ -80,7 +80,7 @@ export default function Arrows() {
 
       {nextTabUrl && (
         <m.div
-          className="hidden md:block absolute right-0 top-1/2 bottom-1/2"
+          className="hidden lg:block absolute right-0 top-1/2 bottom-1/2"
           {...appearFromRight}
           transition={{ delay: 0.5, duration: 0.5 }}
         >

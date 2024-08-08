@@ -2,30 +2,25 @@ import Head from "next/head"
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
-import {
-  animate,
-  appearFromLeft,
-  appearFromRight,
-  container,
-  delayedContainer,
-  fadeInItem,
-} from "@/animations/pageContainer"
-import { IPageProps } from "@/types"
-import useAnimatePageProps from "@/hooks/useAnimatePageProps"
-import * as Stacks from "@/components/Stacks"
-import Links from "@/components/Links"
-import Picture from "@/components/Picture"
-import Digest from "@/components/Digest"
+import { container, fadeInItem } from "../animations/pageContainer"
 
-export default function Home({ previousRoute, currentRoute }: IPageProps) {
+import { cN, GetPreviousRouteProp } from "@/lib"
+import { type IPageProps } from "@/types"
+import Digest from "@/components/Digest"
+import Links from "@/components/Links"
+import PageTitle from "@/components/PageTitle"
+import PageTransition from "@/components/PageTransition"
+import Picture from "@/components/Picture"
+import * as Stacks from "@/components/Stacks"
+import MailMeButton from "@/components/MailMeButton"
+
+export default function Profile({ previousRoute }: IPageProps) {
   const [t] = useTranslation()
-  const animatePageProps = useAnimatePageProps(previousRoute, currentRoute)
-  const counterAnimation =
-    animatePageProps == appearFromLeft ? appearFromRight : appearFromLeft
+
   return (
-    <m.div
-      {...animate(animatePageProps)}
-      className="absolute top-0 left-0 w-full h-full bg-orange-300 pt-12 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
+    <PageTransition
+      previousRoute={previousRoute}
+      className="page:profile bg-orange-300 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
       <Head>
         <title>CV Paul-Emile Moreau</title>
@@ -37,41 +32,43 @@ export default function Home({ previousRoute, currentRoute }: IPageProps) {
         variants={container}
         initial="hidden"
         animate="show"
-        className="grid gap-x-10 gap-y-4 lg:gap-y-10 overflow-hidden h-full lg:px-[5rem] lg:pb-12"
-        style={{
-          gridTemplateColumns: "auto 1fr 1fr 1fr auto",
-          gridTemplateRows: "auto auto 1fr auto auto 1fr",
-        }}
+        className={cN(
+          "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
+          "template-[base] sm:template-[md] lg:template-[lg] 2xl:template-[2xl]",
+          "overflow-x-hidden overflow-y-auto lg:overflow-y-hidden min-h-full 2xl:px-[5rem] 2xl:pb-24"
+        )}
       >
-        <div className="font-archivo overflow-hidden row-start-1 col-span-5">
-          <m.h1
-            {...counterAnimation}
-            className="text-3xl text-center lg:text-7xl lg:text-right pb-3"
-          >
-            <div className="group flex justify-end items-center gap-3">
-              <div>{t("profile.title")}</div>
-              <div className="group-hover:tilt-shake">?</div>
-            </div>
-          </m.h1>
-        </div>
+        <PageTitle className="area-[pagetitle]">
+          <div className="group flex sm:justify-end lg:justify-start 2xl:justify-end items-center gap-3">
+            <div>{t("profile.title")}</div>
+            <div className="group-hover:tilt-shake">?</div>
+          </div>
+        </PageTitle>
 
-        <Picture />
+        <Picture className="area-[photo]" />
 
         <m.div
           variants={fadeInItem}
-          className="flex items-center lg:hidden col-start-3 col-span-3"
+          className="area-[name] flex items-center lg:hidden"
         >
-          <h2 className="font-archivo text-3xl">Paul-Emile Moreau</h2>
+          <h2 className="font-archivo text-3xl sm:text-4xl flex flex-col">
+            Paul-Emile{" "}
+            <span className="text-[2.75rem] sm:text-6xl">Moreau</span>
+          </h2>
         </m.div>
 
-        <Digest />
+        <Digest className="area-[digest]" />
 
-        <Stacks.Prefered />
+        <Stacks.Prefered className="area-[pref]" />
 
-        <Stacks.Other />
+        <Stacks.Other className="area-[other]" />
 
-        <Links />
+        <MailMeButton className="area-[mailBtn]" />
+
+        <Links className="area-[links]" />
       </m.main>
-    </m.div>
+    </PageTransition>
   )
 }
+
+export const getServerSideProps = GetPreviousRouteProp
