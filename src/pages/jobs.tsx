@@ -1,16 +1,11 @@
-import Link from "next/link"
-import { motion as m } from "framer-motion"
-import {
-  appearFromBottom,
-  appearFromLeft,
-  appearFromRight,
-  container,
-  item,
-} from "@/animations/pageContainer"
-import { IPageProps } from "@/types"
-import useAnimatePageProps from "@/hooks/useAnimatePageProps"
-import Timeline, { TimelineItem } from "@/components/Timeline"
 import { useState } from "react"
+import { motion as m } from "framer-motion"
+
+import { type IPageProps } from "@/types"
+import { appearFromBottom } from "@/animations/pageContainer"
+import Timeline, { TimelineItem } from "@/components/Timeline"
+import PageTitle from "@/components/PageTitle"
+import PageTransition from "@/components/PageTransition"
 
 const TMP_DATA = [
   {
@@ -60,32 +55,23 @@ const TMP_DATA = [
   },
 ]
 
-export default function Jobs({ previousRoute, currentRoute }: IPageProps) {
-  const animatePageProps = useAnimatePageProps(previousRoute, currentRoute)
+export default function Jobs({ previousRoute }: IPageProps) {
   const [selectedJob, selectJob] = useState("")
 
-  const counterAnimation =
-    animatePageProps == appearFromLeft ? appearFromRight : appearFromLeft
-
   return (
-    <m.div
-      {...animatePageProps}
-      className="absolute top-0 left-0 w-full h-full bg-blue-300 pt-12 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
+    <PageTransition
+      previousRoute={previousRoute}
+      className="bg-blue-300 pt-8 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
     >
       <main
-        className="h-full lg:px-[5rem] lg:pb-12 grid gap-10 grid-cols-2 xl:grid-cols-3"
+        className="h-full w-full lg:px-[5rem] lg:pb-12 grid gap-10 grid-cols-[auto 1fr] xl:grid-cols-3"
         style={{ gridTemplateRows: "auto auto 1fr" }}
       >
-        <div className="p-1 font-archivo overflow-hidden col-span-3">
-          <m.h1
-            {...counterAnimation}
-            className="text-3xl text-center lg:text-7xl lg:text-right"
-          >
-            Mes expériences pro.
-          </m.h1>
-        </div>
+        <PageTitle className="col-span-2 md:col-span-3">
+          Mes expériences pro.
+        </PageTitle>
 
-        <div className="col-span-3 flex flex-wrap">
+        <div className="col-span-2 md:col-span-3 flex flex-wrap">
           <Timeline rgbGradient="147 197 253">
             {TMP_DATA.map(({ id, children, ...rest }) => (
               <TimelineItem key={id} onClick={() => selectJob(id)} {...rest}>
@@ -121,6 +107,6 @@ export default function Jobs({ previousRoute, currentRoute }: IPageProps) {
           </m.div>
         )}
       </main>
-    </m.div>
+    </PageTransition>
   )
 }

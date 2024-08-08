@@ -1,34 +1,16 @@
 import { motion as m } from "framer-motion"
-import {
-  animate,
-  appearFromLeft,
-  appearFromRight,
-  container,
-  item,
-} from "@/animations/pageContainer"
-import useAnimatePageProps from "@/hooks/useAnimatePageProps"
 import { IPageProps } from "@/types"
+import PageTitle from "@/components/PageTitle"
+import PageTransition from "@/components/PageTransition"
 
-export default function Stack({ previousRoute, currentRoute }: IPageProps) {
-  const animatePageProps = useAnimatePageProps(previousRoute, currentRoute)
-
-  const counterAnimation =
-    animatePageProps == appearFromLeft ? appearFromRight : appearFromLeft
-
+export default function Stack({ previousRoute }: IPageProps) {
   return (
-    <m.div
-      {...animate(animatePageProps)}
-      className="absolute top-0 left-0 w-full h-full bg-pink-300 lg:px-48 px-12"
+    <PageTransition
+      previousRoute={previousRoute}
+      className="bg-pink-300 lg:px-48 px-12"
     >
-      <main className="pt-12 pb-52 lg:pb-12 lg:pt-72 grid gap-10 grid-cols-3">
-        <div className="p-1 font-archivo overflow-hidden col-span-3">
-          <m.h1
-            {...counterAnimation}
-            className="text-3xl text-center lg:text-7xl lg:text-right"
-          >
-            Mes compétences
-          </m.h1>
-        </div>
+      <main className="pt-8 pb-52 lg:pb-12 lg:pt-72 grid gap-10 grid-cols-3">
+        <PageTitle className="col-span-3">Mes compétences</PageTitle>
 
         <section>
           <h2 className="font-jostBold text-2xl">Mes savoirs faire</h2>
@@ -74,6 +56,6 @@ export default function Stack({ previousRoute, currentRoute }: IPageProps) {
 
         <div className="h-40 col-span-3"></div>
       </main>
-    </m.div>
+    </PageTransition>
   )
 }
