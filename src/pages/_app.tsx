@@ -6,7 +6,7 @@ import Backend from "i18next-http-backend"
 import { initReactI18next } from "react-i18next"
 
 import client from "@/apollo"
-import { API_BASE_URL } from "@/constants"
+import { API_URL } from "@/lib"
 import usePreviousRoute from "@/hooks/usePreviousRoute"
 import { IPageProps } from "@/types"
 
@@ -14,8 +14,9 @@ import Arrows from "@/components/Arrows"
 import Tabs from "@/components/Tabs"
 
 import "@fontsource/material-icons"
-import "@/styles/globals.css"
-import "@/styles/animations.css"
+import "@/styles/globals.scss"
+import "@/styles/animations.scss"
+import "@/styles/pages.scss"
 
 i18n
   .use(Backend)
@@ -29,28 +30,27 @@ i18n
     },
 
     backend: {
-      loadPath: `${API_BASE_URL}/i18n/{{lng}}`,
+      loadPath: `${API_URL}/i18n/{{lng}}`,
       crossDomain: true,
     },
   })
 
 function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
-  const [previousRoute, currentRoute] = usePreviousRoute()
+  const previousRoute = usePreviousRoute()
 
   return (
     <ApolloProvider client={client}>
       <div className="text-stone-800 font-latoBold relative h-screen overflow-hidden py-6 md:py-16 px-12 lg:px-[6vw]">
         <Tabs />
-        <AnimatePresence>
-          <m.div key={router.pathname}>
-            <Component
-              {...pageProps}
-              previousRoute={previousRoute}
-              currentRoute={currentRoute}
-            />
-          </m.div>
+        <AnimatePresence initial={false}>
+          <Component
+            {...pageProps}
+            previousRoute={previousRoute}
+            pathname={router.pathname}
+            key={router.pathname}
+          />
         </AnimatePresence>
-        <Arrows currentRoute={currentRoute} />
+        <Arrows />
       </div>
     </ApolloProvider>
   )

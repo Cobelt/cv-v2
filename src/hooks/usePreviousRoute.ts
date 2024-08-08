@@ -1,16 +1,16 @@
-import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 import { useEffect, useRef } from "react"
 
-const usePreviousRoute = () => {
-  const { asPath } = useRouter()
+function usePreviousRoute(): string {
+  const pathname = usePathname()
 
   const ref = useRef<string | null>(null)
 
   useEffect(() => {
-    ref.current = asPath
-  }, [asPath])
+    ref.current = pathname
+  }, [pathname])
 
-  return [ref.current, asPath]
+  return ref.current ?? "/"
 }
 
 export default usePreviousRoute

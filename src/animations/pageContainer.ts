@@ -8,34 +8,44 @@ export function animate({ transition, ...variants }: any = {}) {
   }
 }
 
+export const appearFromTop = {
+  initial: { y: "-100%", x: "0%" },
+  animate: {
+    y: "0%",
+    x: "0%",
+    transition: { duration: 0.75, ease: "easeOut" },
+  },
+  exit: { y: "0%", x: "0%", transition: { delay: 0.75, duration: 0 } },
+}
+
 export const appearFromBottom = {
-  initial: { y: "100%" },
-  animate: { y: "0%" },
-  exit: { opacity: 1 },
-  // transition: {
-  //   duration: 0.75,
-  //   ease: "easeOut",
-  // },
+  initial: { y: "100%", x: "0%" },
+  animate: {
+    y: "0%",
+    x: "0%",
+    transition: { duration: 0.75, ease: "easeOut" },
+  },
+  exit: { y: "0%", x: "0%", transition: { delay: 0.75, duration: 0 } },
 }
 
 export const appearFromLeft = {
-  initial: { x: "-100%" },
-  animate: { x: "0%" },
-  exit: { opacity: 1 },
-  transition: {
-    duration: 0.75,
-    ease: "easeOut",
+  initial: { x: "-100%", y: "0%" },
+  animate: {
+    x: "0%",
+    y: "0%",
+    transition: { duration: 0.75, ease: "easeOut" },
   },
+  exit: { x: "0%", y: "0%", transition: { delay: 0.75, duration: 0 } },
 }
 
 export const appearFromRight = {
-  initial: { x: "100%" },
-  animate: { x: "0%" },
-  exit: { opacity: 1 },
-  transition: {
-    duration: 0.75,
-    ease: "easeOut",
+  initial: { x: "100%", y: "0%" },
+  animate: {
+    x: "0%",
+    y: "0%",
+    transition: { duration: 0.75, ease: "easeOut" },
   },
+  exit: { x: "0%", y: "0%", transition: { delay: 0.75, duration: 0 } },
 }
 
 export const fadeInItem = {
