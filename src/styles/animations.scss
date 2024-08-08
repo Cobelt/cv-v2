@@ -24,31 +24,33 @@
   box-shadow: 0 0 25rem #333333;
 }
 
-@media (width > 1024px) {
+@media screen and (width > 1536px) {
   .hover\:put-forward {
     position: relative;
     transition: padding-right 0.4s;
-  }
-  .hover\:put-forward:before {
-    content: "";
-    width: 0;
-    height: 4px;
-    border-radius: 50rem;
-    background-color: #333333;
-    position: absolute;
-    top: 50%;
-    bottom: 50%;
-    right: 0;
-    transition: width 0.4s;
-  }
-  .hover\:put-forward:hover {
-    padding-right: 8rem;
-  }
-  .hover\:put-forward:hover:before {
-    width: 7rem;
+
+    &:before {
+      content: "";
+      width: 0;
+      height: 4px;
+      border-radius: 50rem;
+      background-color: #333333;
+      position: absolute;
+      top: 50%;
+      bottom: 50%;
+      right: 0;
+      transition: width 0.4s;
+    }
+
+    &:hover {
+      padding-right: 8rem;
+
+      &:before {
+        width: 7rem;
+      }
+    }
   }
 }
-
 .pill:active + ul {
   color: white;
 }

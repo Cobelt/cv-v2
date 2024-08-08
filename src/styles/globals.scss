@@ -103,3 +103,34 @@ body {
   /* Support for IE. */
   font-feature-settings: "liga";
 }
+
+@media screen and (width < 1024px) {
+  .tabs {
+    .tab {
+      display: none;
+
+      &.order-1,
+      &.order-2,
+      &.order-3,
+      &.order-4,
+      &.order-5 {
+        display: flex;
+      }
+      &.order-3 {
+        flex: 4;
+      }
+      &.order-2,
+      &.order-4 {
+        flex: 3;
+        transform: scale(0.85);
+      }
+      &.order-1,
+      &.order-5 {
+        flex: 2;
+        a {
+          transform: scale(0.7);
+        }
+      }
+    }
+  }
+}
