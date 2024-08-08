@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client"
-import { GRAPHQL_BASE_URL } from "@/constants"
+import { GRAPHQL_URL } from "@/lib"
 
 const client = new ApolloClient({
-  uri: GRAPHQL_BASE_URL,
+  uri: GRAPHQL_URL,
   cache: new InMemoryCache(),
 })
 

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import plugin from "tailwindcss/plugin"
 
 const config: Config = {
   content: [
@@ -30,6 +31,56 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  safelist: [
+    "order-1",
+    "order-2",
+    "order-3",
+    "order-4",
+    "order-5",
+    "order-6",
+    "order-7",
+    "order-8",
+    "order-9",
+    "order-10",
+    "lg:order-1",
+    "lg:order-2",
+    "lg:order-3",
+    "lg:order-4",
+    "lg:order-5",
+    "lg:order-6",
+    "lg:order-7",
+    "lg:order-8",
+    "lg:order-9",
+    "lg:order-10",
+  ],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          area: (value) => {
+            const [v1, v2, v3, v4] = value.split(/_?\/_?/)
+            if (v2) {
+              if (v3 && v4) {
+                return {
+                  gridArea: `${v1} / ${v2} / ${v3} / ${v4}`,
+                }
+              }
+              return { gridArea: `${v1} / ${v1} / ${v2} / ${v2}` }
+            }
+            return { gridArea: value }
+          },
+          "g-row": (value) => ({ gridRow: value }),
+          "g-col": (value) => ({ gridCol: value }),
+          template: (cssVarName) => ({
+            gridTemplate: `var(--${cssVarName})`,
+          }),
+        },
+        // Default values.
+        // `flattenColorPalette` required to support native Tailwind color classes like `red-500`, `amber-300`, etc.
+        // In most cases you may just pass `theme('config-key')`, where `config-key` could be any (`spacing`, `fontFamily`, `foo`, `bar`)
+        { values: theme("config-key") }
+      )
+    }),
+  ],
 }
 export default config

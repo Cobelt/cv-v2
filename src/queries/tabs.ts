@@ -17,10 +17,11 @@ export interface TabsDataType {
 
 export const GET_TABS = gql`
   query findTabs {
-    tabs {
+    tabs(sort: "order") {
       data {
         id
         attributes {
+          order
           key
           icon
           url

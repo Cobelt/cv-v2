@@ -1,3 +1,5 @@
-export function cN(...args: Array<string | undefined | null>): string {
+export function cN(
+  ...args: Array<string | boolean | number | undefined | null>
+): string {
   return args.filter(Boolean).join(" ")
 }
