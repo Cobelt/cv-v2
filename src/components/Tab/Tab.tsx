@@ -30,8 +30,8 @@ export default function Tab({
       className={cN(
         orderOnMobile && `order-${orderOnMobile}`,
         `lg:order-${index + 1}`,
-        "lg:flex flex-1 w-16 h-16 rounded-full transition-all duration-300",
-        "tab group hover:bg-opacity-10 hover:bg-indigo-950 cursor-pointer",
+        "lg:flex flex-1 w-16 rounded-full transition-all duration-300",
+        "tab group hover:bg-opacity-10 hover:bg-stone-950 cursor-pointer",
         className
       )}
     >

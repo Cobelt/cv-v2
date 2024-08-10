@@ -10,30 +10,18 @@ export default function Hobbies({ previousRoute }: IPageProps) {
   return (
     <PageTransition
       previousRoute={previousRoute}
-      className="bg-teal-200 pt-8 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
+      className="bg-green-200 pt-8 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
     >
       <main
         className="h-full lg:px-[5rem] lg:pb-12 grid gap-10 grid-cols-2 xl:grid-cols-3"
         style={{ gridTemplateRows: "auto auto 1fr" }}
       >
-        <PageTitle className=" row-start-1 col-start-1 col-span-3">
+        <PageTitle
+          className="row-start-1 col-start-1 col-span-3"
+          subTitle="En dehors du développement"
+        >
           Mes passions
         </PageTitle>
-
-        <div className="p-1 font-archivo overflow-hidden">
-          <m.h1
-            {...appearFromRight}
-            className="text-3xl text-center lg:text-7xl lg:text-right"
-          >
-            Mes passions
-          </m.h1>
-          <m.h4
-            {...appearFromRight}
-            className="text-lg text-center lg:text-2xl font-rubikBold lg:text-right"
-          >
-            En dehors du développement
-          </m.h4>
-        </div>
 
         <div className="row-start-1 row-span-3 col-start-1 col-span-2 flex max-w-full">
           <CircularCarousel

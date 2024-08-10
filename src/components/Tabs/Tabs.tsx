@@ -28,7 +28,7 @@ export default function Tabs() {
       initial="hidden"
       animate="show"
       className={cN(
-        "tabs lg:w-full mb-6 lg:px-8 shadow-around z-20 overflow-hidden",
+        "tabs lg:w-full mb-6 lg:px-8 shadow-around z-30",
         "absolute left-0 right-0 bottom-0 lg:sticky",
         "flex lg:gap-x-12 justify-evenly lg:justify-between"
       )}
@@ -55,7 +55,7 @@ export default function Tabs() {
             className={cN(
               activeTab === order
                 ? cN("active", "text-white")
-                : "text-stone-800 hover:text-blue-900"
+                : "text-stone-800 hover:text-stone-600"
             )}
             icon={icon}
             text={t(`tab.${key}`)}

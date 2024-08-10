@@ -10,6 +10,7 @@ import { cN } from "@/lib"
 
 interface IPageTitleProps {
   children: ReactNode
+  subTitle?: ReactNode
   className?: string
   pageAnimation?:
     | typeof appearFromTop
@@ -30,6 +31,7 @@ export default function PageTitle({
   className,
   children,
   pageAnimation = appearFromLeft,
+  subTitle,
   textAlign = "text-right",
 }: IPageTitleProps) {
   const counterAnimation =
@@ -47,6 +49,14 @@ export default function PageTitle({
       >
         {children}
       </m.h1>
+      {subTitle && (
+        <m.h4
+          {...counterAnimation}
+          className="text-lg text-center lg:text-2xl font-rubikBold lg:text-right"
+        >
+          {subTitle}
+        </m.h4>
+      )}
     </div>
   )
 }
