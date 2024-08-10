@@ -31,20 +31,21 @@ export default function Dev({ className }: { className: string }) {
   return (
     <section className={className}>
       <h2 className="font-jostBold text-2xl">Projets liés au dev</h2>
-      <Carousel>
+      {/* <Carousel>
         {CAROUSEL_DATA.map((item) => (
-          <div key={item.id} className="bg-white p-4 rounded-xl">
+          <div key={item.id} className="bg-white p-4 rounded-xl ">
             <Image
               src={item.imageUrl}
               alt={item.imageAlt}
-              width={200}
-              height={200}
+              width={2000}
+              height={2000}
+              className="aspect-square max-h-[30rem] max-w-[30rem]"
             />
             <h2>{item.title}</h2>
             <p className="legend">{item.text}</p>
           </div>
         ))}
-      </Carousel>
+      </Carousel> */}
     </section>
   )
 }

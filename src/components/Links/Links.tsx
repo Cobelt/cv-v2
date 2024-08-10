@@ -38,7 +38,7 @@ export default function Links({ className }: WithClassNameProps) {
         className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
       >
         <Github className="w-8 md:w-15" />
-        <span>Cobelt</span>
+        <span>Polemil</span>
       </m.a>
 
       <m.a
