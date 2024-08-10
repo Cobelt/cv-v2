@@ -9,6 +9,26 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        beige: {
+          300: "#EADBBD",
+        },
+        purplish: {
+          500: "#d4aab6",
+          600: "#BD98A2",
+          700: "#9B4185",
+          800: "#582C4D",
+          900: "#594157",
+        },
+        khaki: {
+          400: "#C4C0AB",
+          500: "#B4AE93",
+          600: "#A39C7B",
+          700: "#908965",
+          800: "#716D59",
+          900: "#5C573E",
+        },
+      },
       screens: {
         "3xl": "1780px",
       },

@@ -20,7 +20,7 @@ export default function Profile({ previousRoute }: IPageProps) {
   return (
     <PageTransition
       previousRoute={previousRoute}
-      className="page:profile bg-orange-300 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
+      className="page:profile bg-orange-300 pt-8 px-8 pb-32 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
       <Head>
         <title>CV Paul-Emile Moreau</title>
@@ -35,7 +35,8 @@ export default function Profile({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] sm:template-[md] lg:template-[lg] 2xl:template-[2xl]",
-          "overflow-x-hidden overflow-y-auto lg:overflow-y-hidden min-h-full 2xl:px-[5rem] 2xl:pb-24"
+          "h-full overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden no-scrollbar",
+          "2xl:px-[5rem] 2xl:pb-24"
         )}
       >
         <PageTitle className="area-[pagetitle]">

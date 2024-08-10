@@ -1,28 +1,27 @@
-import Carousel from "@/components/Carousel"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
+import { cN } from "@/lib"
 import { type IPageProps } from "@/types"
+import ProjectsList from "@/components/Projects"
 
 export default function Projects({ previousRoute }: IPageProps) {
   return (
     <PageTransition
       previousRoute={previousRoute}
-      className="bg-lime-200 lg:px-48 px-12"
+      className="page:projects bg-beige-300 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
-      <main className="pt-8 pb-52 lg:pb-12 lg:pt-72 flex flex-col gap-10">
-        <PageTitle className="col-span-3">Mes projets</PageTitle>
+      <main
+        className={cN(
+          "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
+          "template-[base]",
+          "overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden min-h-full 2xl:px-[5rem] 2xl:pb-24"
+        )}
+      >
+        <PageTitle className="area-[pagetitle]">Mes projets</PageTitle>
 
-        <section>
-          <h2 className="font-jostBold text-2xl">Projets liés au dev</h2>
-          <Carousel />
-        </section>
+        <ProjectsList.Dev className="area-[dev]" />
 
-        <section>
-          <h2 className="font-jostBold text-2xl">Projets hors dev</h2>
-          Carousel
-        </section>
-
-        <div className="h-40 col-span-3"></div>
+        <ProjectsList.NonDev className="area-[nondev]" />
       </main>
     </PageTransition>
   )

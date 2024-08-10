@@ -104,6 +104,18 @@ body {
   font-feature-settings: "liga";
 }
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 @media screen and (width < 1024px) {
   .tabs {
     .tab {
@@ -132,5 +144,21 @@ body {
         }
       }
     }
+  }
+}
+
+body:has(.anchor:hover) .linked\:text-white {
+  color: white;
+}
+body:has(.anchor:hover) .linked.bubbles,
+body:has(.anchor-2:hover) .linked-2.bubbles {
+  color: white;
+  &:before {
+    display: block;
+    animation: topBubbles ease-in-out 0.75s forwards;
+  }
+  &:after {
+    display: block;
+    animation: bottomBubbles ease-in-out 0.75s forwards;
   }
 }
