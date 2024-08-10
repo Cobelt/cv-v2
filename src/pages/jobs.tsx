@@ -6,6 +6,7 @@ import { appearFromBottom } from "@/animations/pageContainer"
 import Timeline, { TimelineItem } from "@/components/Timeline"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
+import { cN } from "@/lib"
 
 const TMP_DATA = [
   {
@@ -47,7 +48,7 @@ const TMP_DATA = [
   },
   {
     id: "next",
-    size: "w-80",
+    size: "flex-1",
     title: "Dans le futur !",
     children: [
       "Désormais, je suis à la recherche d'un CDI, en full remote ou en hybride dans une petite ville. Bien que je reste ouvert à des missions freelance.",
@@ -61,18 +62,20 @@ export default function Jobs({ previousRoute }: IPageProps) {
   return (
     <PageTransition
       previousRoute={previousRoute}
-      className="bg-blue-300 pt-8 pb-40 lg:pb-0 lg:pt-52 px-10 lg:px-[8vw]"
+      className="page:timeline bg-purplish-500 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
       <main
-        className="h-full w-full lg:px-[5rem] lg:pb-12 grid gap-10 grid-cols-[auto 1fr] xl:grid-cols-3"
+        className={cN(
+          "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
+          "template-[base]",
+          "overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden min-h-full 2xl:px-[5rem] 2xl:pb-24"
+        )}
         style={{ gridTemplateRows: "auto auto 1fr" }}
       >
-        <PageTitle className="col-span-2 md:col-span-3">
-          Mes expériences pro.
-        </PageTitle>
+        <PageTitle className="area-[pagetitle]">Mes expériences pro.</PageTitle>
 
-        <div className="col-span-2 md:col-span-3 flex flex-wrap">
-          <Timeline rgbGradient="147 197 253">
+        <div className="area-[timeline] flex flex-wrap">
+          <Timeline rgbGradient="212 170 182" beforeSize="flex-1">
             {TMP_DATA.map(({ id, children, ...rest }) => (
               <TimelineItem key={id} onClick={() => selectJob(id)} {...rest}>
                 {children.map((child) => (
@@ -89,7 +92,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
             {...appearFromBottom}
             transition={{ duration: 0.3 }}
             exit={{ y: "100%" }}
-            className="bg-white col-span-3"
+            className="area-[details] bg-white"
           >
             Artprice
           </m.div>
@@ -101,7 +104,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
             {...appearFromBottom}
             transition={{ duration: 0.3 }}
             exit={{ y: "100%" }}
-            className="bg-white col-span-3"
+            className="area-[details] bg-white"
           >
             Soluti
           </m.div>

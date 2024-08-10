@@ -18,7 +18,41 @@
   inherits: false;
 }
 
-@media screen and (width > 1240px) {
+/* TEMPORARY WAITING SCREEN */
+@media screen and (width < 1240px) {
+  .timeline {
+    width: 100%;
+    min-height: 20rem;
+    padding: 2.5rem 0 0;
+    margin: 0;
+    flex-direction: column;
+  }
+  .timeline:before {
+    margin-top: 4rem;
+    order: 2;
+    font-family: RubikBold;
+    font-size: 1.75rem;
+    content: "Désolé, cette page est encore sous le jougs des coups de marteaux qui lui forgeront un responsive adéquat. ⚒️";
+
+    background-color: rgb(var(--rgb-gradient));
+    white-space: initial;
+  }
+  .timeline:after {
+    margin-top: 1rem;
+    order: 3;
+    font-family: RubikBold;
+    font-size: 1.25rem;
+    content: "En revanche elle est accessible sur pc ou tablette !";
+
+    background-color: rgb(var(--rgb-gradient));
+    white-space: initial;
+  }
+  .timeline ol {
+    display: none;
+  }
+}
+
+@media screen and (width >= 1240px) {
   .timeline {
     --timeline-padding: 20rem;
     --gradient: rgb(var(--rgb-gradient, 33 33 33) / 1) 50%,
@@ -38,15 +72,14 @@
     top: 0;
     bottom: 0;
     width: 10%;
-    z-index: 2;
   }
 
-  .timeline ol::before {
+  .timeline ol::after {
     right: 0;
     background: linear-gradient(270deg, var(--gradient));
   }
 
-  .timeline ol::after {
+  .timeline ol::before {
     left: 0;
     background: linear-gradient(90deg, var(--gradient));
   }
@@ -55,6 +88,7 @@
     --gradient-percent-1: 0%;
     --gradient-percent-2: 0%;
     transition: --gradient-percent-1 0.5s, --gradient-percent-2 1s;
+    cursor: pointer;
 
     background-image: linear-gradient(
       90deg,
@@ -69,7 +103,7 @@
 
   .textbubble {
     left: -7px;
-    transition: all 0.3s;
+    transition: all 0.3s, transform 0.15s;
   }
 
   .timeline li:not(:first-child) {
@@ -98,9 +132,11 @@
 
   .timeline li:nth-child(even):hover .textbubble {
     bottom: 2.5rem;
+    box-shadow: 0.4rem 0.4rem 1rem rgb(33 33 33 / 0.2);
   }
   .timeline li:nth-child(odd):hover .textbubble {
     top: 2.5rem;
+    box-shadow: 0.4rem -0.4rem 1rem rgb(33 33 33 / 0.2);
   }
 
   .textbubble::before {

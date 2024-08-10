@@ -13,9 +13,9 @@ export const appearFromTop = {
   animate: {
     y: "0%",
     x: "0%",
-    transition: { duration: 0.75, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-  exit: { y: "0%", x: "0%", transition: { delay: 0.75, duration: 0 } },
+  exit: { y: "0%", x: "0%", transition: { delay: 0.5, duration: 0 } },
 }
 
 export const appearFromBottom = {
@@ -23,9 +23,9 @@ export const appearFromBottom = {
   animate: {
     y: "0%",
     x: "0%",
-    transition: { duration: 0.75, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-  exit: { y: "0%", x: "0%", transition: { delay: 0.75, duration: 0 } },
+  exit: { y: "0%", x: "0%", transition: { delay: 0.5, duration: 0 } },
 }
 
 export const appearFromLeft = {
@@ -33,9 +33,9 @@ export const appearFromLeft = {
   animate: {
     x: "0%",
     y: "0%",
-    transition: { duration: 0.75, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-  exit: { x: "0%", y: "0%", transition: { delay: 0.75, duration: 0 } },
+  exit: { x: "0%", y: "0%", transition: { delay: 0.5, duration: 0 } },
 }
 
 export const appearFromRight = {
@@ -43,9 +43,9 @@ export const appearFromRight = {
   animate: {
     x: "0%",
     y: "0%",
-    transition: { duration: 0.75, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-  exit: { x: "0%", y: "0%", transition: { delay: 0.75, duration: 0 } },
+  exit: { x: "0%", y: "0%", transition: { delay: 0.5, duration: 0 } },
 }
 
 export const fadeInItem = {
