@@ -5,6 +5,7 @@ import { fadeInItem } from "../../animations/pageContainer"
 import FranceFlag from "../icons/FranceFlag"
 import GreatBritainFlag from "../icons/GreatBritainFlag"
 import RussiaFlag from "../icons/RussiaFlag"
+import { cN } from "@/lib"
 
 export default function Languages() {
   const [t] = useTranslation()
@@ -12,13 +13,16 @@ export default function Languages() {
   return (
     <m.h4
       variants={fadeInItem}
-      className="order-6 flex items-center gap-y-2 mt-6 gap-x-12 md:gap-x-20 justify-between"
+      className="order-6 flex items-center gap-y-2 mt-2 lg:mt-6 gap-x-12 lg:gap-x-20 justify-between"
     >
       <div className="flex-1 relative group flex items-center gap-4 justify-center hover:justify-center hover:gap-0 w-[unset] md:w-48 h-12 cursor-help">
         <span title="Drapeau Français">
           <FranceFlag
             shouldntPreserveRatio
-            className="h-8 w-12 md:h-8 md:w-8 group-hover:h-12 group-hover:w-24 rounded-lg transition-all"
+            className={cN(
+              "h-[1.6rem] w-[2.4rem] group-hover:h-[2.4rem] group-hover:w-[3.6rem] rounded-lg transition-all",
+              "sm:h-8 sm:w-8 sm:group-hover:h-12 sm:group-hover:w-24"
+            )}
           />
         </span>
         <span className="hidden md:inline text-left w-36 group-hover:w-0 group-hover:opacity-0 transition-all overflow-hidden">
@@ -34,7 +38,10 @@ export default function Languages() {
         <span title="Drapeau Anglais">
           <GreatBritainFlag
             shouldntPreserveRatio
-            className="h-8 w-12 md:h-8 md:w-8 group-hover:h-12 group-hover:w-24 rounded-lg transition-all"
+            className={cN(
+              "h-[1.6rem] w-[2.4rem] group-hover:h-[2.4rem] group-hover:w-[3.6rem] rounded-lg transition-all",
+              "sm:h-8 sm:w-8 sm:group-hover:h-12 sm:group-hover:w-24"
+            )}
           />
         </span>
         <span className="hidden md:inline text-left w-36 group-hover:w-0 group-hover:opacity-0 transition-all overflow-hidden">
@@ -50,7 +57,10 @@ export default function Languages() {
         <span title="Drapeau Russe">
           <RussiaFlag
             shouldntPreserveRatio
-            className="h-8 w-12 md:h-8 md:w-8 group-hover:h-12 group-hover:w-24 rounded-lg transition-all"
+            className={cN(
+              "h-[1.6rem] w-[2.4rem] group-hover:h-[2.4rem] group-hover:w-[3.6rem] rounded-lg transition-all",
+              "sm:h-8 sm:w-8 sm:group-hover:h-12 sm:group-hover:w-24"
+            )}
           />
         </span>
         <span className="hidden md:inline text-left w-36 group-hover:w-0 group-hover:opacity-0 transition-all overflow-hidden">

@@ -19,11 +19,11 @@ export default function MailMeButton({ className }: WithClassNameProps) {
       variants={fadeInItem}
       className={cN(
         className,
-        "flex mb-6 md:mb-0 mt-12 lg:mt-0 justify-center lg:justify-start"
+        "flex mb-4 md:mb-0 mt-8 lg:mt-0 justify-center lg:justify-start self-start"
       )}
     >
       <a
-        className="group relative flex flex-col gap-4"
+        className="group relative flex flex-col"
         href={"mailto:" + EMAIL}
         onClick={() => navigator.clipboard.writeText(EMAIL)}
       >
@@ -45,7 +45,7 @@ export default function MailMeButton({ className }: WithClassNameProps) {
           className={cN(
             "order-2 lg:order-1 2xl:order-2 self-end",
             "w-36 lg:w-48 2xl:56 3xl:w-60 max-h-48",
-            "lg:rotate-180 2xl:rotate-0 lg:-mt-6 2xl:mt-0 lg:mb-0 2xl:-mb-12 3xl:-mb-16 lg:mr-[calc(20rem_-_15vw)]"
+            "lg:rotate-180 2xl:rotate-0 lg:-mt-6 2xl:mt-0 lg:mb-0 2xl:-mb-12 3xl:-mb-16 mr-12 lg:mr-[calc(20rem_-_15vw)]"
           )}
         />
       </a>

@@ -17,7 +17,7 @@ export default function Links({ className }: WithClassNameProps) {
       animate="show"
       className={cN(
         className,
-        "flex lg:flex-col 2xl:flex-row gap-6 justify-evenly lg:justify-center 2xl:py-16 w-full sm:mb-12 lg:mb-0",
+        "flex lg:flex-col 2xl:flex-row w-full gap-6 justify-evenly lg:justify-center 2xl:py-16 mt-4 sm:mt-0 sm:mb-12 lg:mb-0",
         "font-rubikBold text-lg md:text-2xl"
       )}
     >
@@ -33,7 +33,7 @@ export default function Links({ className }: WithClassNameProps) {
       </m.a>
       <m.a
         variants={fadeInItem}
-        href="https://github.com/Cobelt"
+        href="https://github.com/Le-Polemil"
         target="_blank"
         className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
       >

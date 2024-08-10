@@ -42,8 +42,9 @@ export default function Digest({ className }: WithClassNameProps) {
       <m.h4 variants={fadeInItem} className="order-4 hover:put-forward">
         <span className="hidden sm:inline">{t("profile.expert.0")}</span>{" "}
         <span className="inline sm:hidden">{t("profile.expert.1")}</span>{" "}
-        <span className="text-blue-500">React</span> {t("common.and")}{" "}
-        <span className="text-blue-500">Typescript</span>
+        <span className="text-blue-500 anchor cursor-help">React</span>{" "}
+        {t("common.and")}{" "}
+        <span className="text-blue-500 anchor-2 cursor-help">Typescript</span>
       </m.h4>
       <m.h4
         variants={fadeInItem}
