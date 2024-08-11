@@ -39,12 +39,12 @@ export default function PageTitle({
       ?.counter ?? appearFromLeft
 
   return (
-    <div className={cN(className, "font-archivo")}>
+    <div className={cN(className, "font-archivo pb-3")}>
       <m.h1
         {...counterAnimation}
         className={cN(
           textAlign,
-          "text-3xl lg:text-5xl 2xl:text-7xl pb-3 whitespace-nowrap"
+          "text-3xl lg:text-5xl 2xl:text-7xl whitespace-nowrap"
         )}
       >
         {children}
