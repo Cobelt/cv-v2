@@ -1,6 +1,6 @@
 import { CSSProperties, useEffect, useRef, useState } from "react"
 import { motion as m } from "framer-motion"
-import { findMinimalDiff } from "@/lib"
+import { cN, findMinimalDiff } from "@/lib"
 
 const START_ANGLE = 360
 
@@ -13,12 +13,14 @@ interface ICarouselItem {
 
 interface ICircularCarouselProps {
   items: Array<ICarouselItem>
+  className?: string
   counterClockwise?: boolean
   onActiveChange?(active: number): void
 }
 
 export default function CircularCarousel({
   items,
+  className,
   counterClockwise,
   onActiveChange,
 }: ICircularCarouselProps) {
@@ -51,7 +53,7 @@ export default function CircularCarousel({
 
   return (
     <div
-      className="flex max-w-full"
+      className={cN("max-h-full aspect-square", className)}
       style={
         {
           "--item-width": "8rem",
@@ -61,7 +63,7 @@ export default function CircularCarousel({
     >
       <div
         ref={ref}
-        className="max-w-full order-2 relative transition-transform duration-300 border-2 border-stone-800 rounded-full aspect-square"
+        className="w-full h-full order-2 relative transition-transform duration-300 border-2 border-stone-800 rounded-full aspect-square"
         style={{
           transform: `rotate(${
             (counterClockwise ? -1 : 1) * stackedRotation
