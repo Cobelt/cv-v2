@@ -2,17 +2,13 @@ import Head from "next/head"
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
-import { container, fadeInItem } from "../animations/pageContainer"
+import { container, fadeInItem } from "@/animations/pageContainer"
 
 import { cN, GetPreviousRouteProp } from "@/lib"
 import { type IPageProps } from "@/types"
-import Digest from "@/components/Digest"
-import Links from "@/components/Links"
+import Feat from "@/features/Profile"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
-import Picture from "@/components/Picture"
-import * as Stacks from "@/components/Stacks"
-import MailMeButton from "@/components/MailMeButton"
 
 export default function Profile({ previousRoute }: IPageProps) {
   const [t] = useTranslation()
@@ -44,7 +40,7 @@ export default function Profile({ previousRoute }: IPageProps) {
           </div>
         </PageTitle>
 
-        <Picture className="area-[photo]" />
+        <Feat.Picture className="area-[photo]" />
 
         <m.div
           variants={fadeInItem}
@@ -56,15 +52,15 @@ export default function Profile({ previousRoute }: IPageProps) {
           </h2>
         </m.div>
 
-        <Digest className="area-[digest]" />
+        <Feat.Digest className="area-[digest]" />
 
-        <Stacks.Prefered className="area-[pref]" />
+        <Feat.Stacks.Prefered className="area-[pref]" />
 
-        <Stacks.Other className="area-[other]" />
+        <Feat.Stacks.Other className="area-[other]" />
 
-        <MailMeButton className="area-[mailBtn]" />
+        <Feat.MailMeButton className="area-[mailBtn]" />
 
-        <Links className="area-[links]" />
+        <Feat.Links className="area-[links]" />
       </m.main>
     </PageTransition>
   )

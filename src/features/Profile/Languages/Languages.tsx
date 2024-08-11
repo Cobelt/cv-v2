@@ -1,10 +1,10 @@
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
-import { fadeInItem } from "../../animations/pageContainer"
-import FranceFlag from "../icons/FranceFlag"
-import GreatBritainFlag from "../icons/GreatBritainFlag"
-import RussiaFlag from "../icons/RussiaFlag"
+import { fadeInItem } from "../../../animations/pageContainer"
+import FranceFlag from "../../../components/icons/FranceFlag"
+import GreatBritainFlag from "../../../components/icons/GreatBritainFlag"
+import RussiaFlag from "../../../components/icons/RussiaFlag"
 import { cN } from "@/lib"
 
 export default function Languages() {

@@ -1,10 +1,10 @@
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
-import { delayedContainer, fadeInItem } from "../../animations/pageContainer"
-import Linkedin from "../icons/Linkedin"
-import Github from "../icons/Github"
-import { WithClassNameProps } from "../../types"
+import { delayedContainer, fadeInItem } from "../../../animations/pageContainer"
+import Linkedin from "../../../components/icons/Linkedin"
+import Github from "../../../components/icons/Github"
+import { WithClassNameProps } from "../../../types"
 import { cN } from "@/lib"
 
 export default function Links({ className }: WithClassNameProps) {

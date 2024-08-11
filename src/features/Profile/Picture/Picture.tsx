@@ -4,7 +4,7 @@ import Image from "next/image"
 
 import { fadeInItem } from "@/animations/pageContainer"
 import pictureOfMe from "@/../public/me.jpg"
-import ZigZagArrowSvg from "../icons/ZigZagArrow"
+import ZigZagArrowSvg from "../../../components/icons/ZigZagArrow"
 import { WithClassNameProps } from "@/types"
 import { cN } from "@/lib"
 
