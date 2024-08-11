@@ -20,6 +20,10 @@ const config: Config = {
           800: "#582C4D",
           900: "#594157",
         },
+        greenish: {
+          400: "#97A58D",
+          500: "#7F9172",
+        },
         khaki: {
           400: "#C4C0AB",
           500: "#B4AE93",
@@ -89,8 +93,6 @@ const config: Config = {
             }
             return { gridArea: value }
           },
-          "g-row": (value) => ({ gridRow: value }),
-          "g-col": (value) => ({ gridCol: value }),
           template: (cssVarName) => ({
             gridTemplate: `var(--${cssVarName})`,
           }),

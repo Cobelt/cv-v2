@@ -1,12 +1,13 @@
 import { useState } from "react"
 import { motion as m } from "framer-motion"
+import Head from "next/head"
 
+import { cN } from "@/lib"
 import { type IPageProps } from "@/types"
 import { appearFromBottom } from "@/animations/pageContainer"
-import Timeline, { TimelineItem } from "@/components/Timeline"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
-import { cN } from "@/lib"
+import Timeline, { TimelineItem } from "@/components/Timeline"
 
 const TMP_DATA = [
   {
@@ -64,6 +65,9 @@ export default function Jobs({ previousRoute }: IPageProps) {
       previousRoute={previousRoute}
       className="page:timeline bg-purplish-500 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
+      <Head>
+        <title>Mes expériences pro - polemil.dev</title>
+      </Head>
       <main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",

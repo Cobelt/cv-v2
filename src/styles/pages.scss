@@ -70,3 +70,11 @@
   	"dev       dev      " 1fr
   	"nondev    nondev   " 1fr;
 }
+
+.page\:hobbies {
+  /* prettier-ignore */
+  --base:
+  	"wheel pagetitle"
+  	"wheel about    " 1fr
+  / 1fr    1fr;
+}

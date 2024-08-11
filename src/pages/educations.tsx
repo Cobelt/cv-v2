@@ -6,6 +6,7 @@ import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import { type IPageProps } from "@/types"
 import { cN } from "@/lib"
+import Head from "next/head"
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
@@ -15,6 +16,9 @@ export default function Educations({ previousRoute }: IPageProps) {
       previousRoute={previousRoute}
       className="page:timeline bg-indigo-400 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
+      <Head>
+        <title>Mes formations - polemil.dev</title>
+      </Head>
       <main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",

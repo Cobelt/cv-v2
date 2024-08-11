@@ -17,6 +17,7 @@ import "@fontsource/material-icons"
 import "@/styles/globals.scss"
 import "@/styles/animations.scss"
 import "@/styles/pages.scss"
+import Head from "next/head"
 
 i18n
   .use(Backend)
@@ -40,6 +41,10 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
 
   return (
     <ApolloProvider client={client}>
+      <Head>
+        <meta name="description" content="CV de Paul-Emile Moreau" />
+        <link rel="shortcut icon" href="/icon/favicon.ico" />
+      </Head>
       <div className="text-stone-800 font-latoBold relative h-screen overflow-hidden py-6 md:py-16 px-12 lg:px-[6vw]">
         <Tabs />
         <AnimatePresence initial={false}>

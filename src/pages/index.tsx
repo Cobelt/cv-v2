@@ -23,9 +23,7 @@ export default function Profile({ previousRoute }: IPageProps) {
       className="page:profile bg-orange-300 pt-8 px-8 pb-32 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
       <Head>
-        <title>CV Paul-Emile Moreau</title>
-        <meta name="description" content="CV de Paul-Emile Moreau" />
-        <link rel="icon" href="/icon/favicon.ico" />
+        <title>Qui suis-je ? - polemil.dev</title>
       </Head>
 
       <m.main
