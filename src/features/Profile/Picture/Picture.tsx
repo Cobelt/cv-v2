@@ -27,8 +27,8 @@ export default function Picture({ className }: WithClassNameProps) {
         style={{
           width: "calc(3em + 12vw)",
           maxWidth: "14rem",
-          minHeight: "5rem",
-          minWidth: "5rem",
+          minHeight: "8.5rem",
+          minWidth: "8.5rem",
         }}
       />
       <div className="hidden lg:flex group-hover:opacity-100 opacity-0 transition-opacity flex-col-reverse absolute -top-16 left-0 2xl:left-2/3 z-10 w-auto text-nowrap text-lg font-rubikBold">

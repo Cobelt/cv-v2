@@ -6,6 +6,7 @@ import { cN } from "@/lib"
 import { type WithClassNameProps } from "@/types"
 import arrowAnimation from "@/animations/arrow.json"
 import { fadeInItem } from "@/animations/pageContainer"
+import Link from "next/link"
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
@@ -22,10 +23,10 @@ export default function MailMeButton({ className }: WithClassNameProps) {
         "flex mb-4 md:mb-0 mt-8 lg:mt-0 justify-center lg:justify-start self-start"
       )}
     >
-      <a
+      <Link
         className="group relative flex flex-col"
-        href={"mailto:" + EMAIL}
-        onClick={() => navigator.clipboard.writeText(EMAIL)}
+        href="/contact"
+        // onClick={() => navigator.clipboard.writeText(EMAIL)}
       >
         <div className="order-1 lg:order-2 2xl:order-1 flex gap-4 items-center group-hover:text-white transition-colors">
           <span className="material-icons" style={{ fontSize: 64 }}>
@@ -48,7 +49,7 @@ export default function MailMeButton({ className }: WithClassNameProps) {
             "lg:rotate-180 2xl:rotate-0 lg:-mt-6 2xl:mt-0 lg:mb-0 2xl:-mb-12 3xl:-mb-16 mr-12 lg:mr-[calc(20rem_-_15vw)]"
           )}
         />
-      </a>
+      </Link>
     </m.div>
   )
 }

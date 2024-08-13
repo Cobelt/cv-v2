@@ -29,7 +29,7 @@ export default function Links({ className }: WithClassNameProps) {
         className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
       >
         <Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-15" />
-        <span>Linkedin</span>
+        <span className="hidden lg:inline">Linkedin</span>
       </m.a>
       <m.a
         variants={fadeInItem}
@@ -38,10 +38,10 @@ export default function Links({ className }: WithClassNameProps) {
         className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
       >
         <Github className="w-8 md:w-15" />
-        <span>Polemil</span>
+        <span className="hidden lg:inline">Github</span>
       </m.a>
 
-      <m.a
+      {/* <m.a
         variants={fadeInItem}
         href="https://github.com/mue-js"
         target="_blank"
@@ -49,7 +49,7 @@ export default function Links({ className }: WithClassNameProps) {
       >
         <Github className="w-8 md:w-15" />
         <span>MueJS</span>
-      </m.a>
+      </m.a> */}
     </m.div>
   )
 }

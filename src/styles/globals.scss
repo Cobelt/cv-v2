@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Bukhari";
+  src: url("../../public/BukhariScript.ttf");
+}
+@font-face {
+  font-family: "BukhariAlt";
+  src: url("../../public/BukhariScriptAlternates.ttf");
+}
+@font-face {
   font-family: "Archivo";
   src: url("../../public/ArchivoBlack-Regular.ttf");
 }

@@ -28,25 +28,25 @@ export default function Digest({ className }: WithClassNameProps) {
       </m.h2>
       <m.h4 variants={fadeInItem} className="order-2 hover:put-forward">
         {t("profile.xp.webdev.0")}{" "}
-        <span className="hidden sm:inline">{t("profile.xp.webdev.1")} </span>
-        {t("common.with")}{" "}
+        <span className="hidden sm:inline">{t("profile.xp.webdev.1")}</span>,
+        spécialisé <span className="text-blue-500">Front-End</span>
+        {/* {t("common.with")}{" "}
         <span className="text-blue-500">
           {t("profile.xp.years.0")}
           <span className="inline">{t("profile.xp.years.1")}</span>
-        </span>
+        </span> */}
       </m.h4>
       <m.h4 variants={fadeInItem} className="order-3 hover:put-forward">
-        Diplômé d{"'"}un <span className="text-blue-500">BAC+3</span> en
-        informatique
-      </m.h4>
-      <m.h4 variants={fadeInItem} className="order-4 hover:put-forward">
-        <span className="hidden sm:inline">{t("profile.expert.0")}</span>{" "}
-        <span className="inline sm:hidden">{t("profile.expert.1")}</span>{" "}
+        <span className="">{t("profile.expert.1")}</span>{" "}
         <span className="text-blue-500 anchor cursor-help">React</span>{" "}
         {t("common.and")}{" "}
         <span className="text-blue-500 anchor-2 cursor-help">Typescript</span>
       </m.h4>
-      <m.h4
+      <m.h4 variants={fadeInItem} className="order-4 hover:put-forward">
+        Diplômé d{"'"}un <span className="text-blue-500">BAC+3</span> en
+        informatique
+      </m.h4>
+      {/* <m.h4
         variants={fadeInItem}
         className="order-1 lg:order-5 hover:put-forward mb-6 lg:mb-0"
       >
@@ -70,7 +70,7 @@ export default function Digest({ className }: WithClassNameProps) {
         ) : (
           <span>{t("profile.available.false")}</span>
         )}
-      </m.h4>
+      </m.h4> */}
 
       <Languages />
     </div>
