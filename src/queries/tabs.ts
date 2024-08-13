@@ -18,7 +18,7 @@ export interface TabsDataType {
 
 export const GET_TABS = gql`
   query findTabs {
-    tabs(sort: "order") {
+    tabs(sort: "order", filters: { order: { gte: 0 } }) {
       data {
         id
         attributes {

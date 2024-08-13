@@ -1,6 +1,21 @@
 import { gql } from "@apollo/client"
 
 export interface JobsDataType {
+  educations: {
+    data: [
+      {
+        id: string
+        attributes: {
+          grade: string
+          name: string
+          yearStart: number
+          yearEnd: number
+          school: string
+          city: string
+        }
+      }
+    ]
+  }
   jobs: {
     data: [
       {
@@ -24,7 +39,22 @@ export interface JobsDataType {
   }
 }
 
-export const GET_JOBS = gql`
+export const GET_TIMELINE = gql`
+  query findEducations {
+    educations {
+      data {
+        id
+        attributes {
+          grade
+          name
+          yearStart
+          yearEnd
+          school
+          city
+        }
+      }
+    }
+  }
   query findJobs {
     jobs {
       data {

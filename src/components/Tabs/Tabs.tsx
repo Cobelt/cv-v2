@@ -16,9 +16,8 @@ export default function Tabs() {
 
   const tabs = data?.tabs?.data ?? []
 
-  const activeTab =
-    tabs.find(({ attributes }) => attributes.url === pathname)?.attributes
-      ?.order ?? 0
+  const activeTab = tabs.find(({ attributes }) => attributes.url === pathname)
+    ?.attributes?.order
 
   if (loading) return null
 
@@ -28,8 +27,7 @@ export default function Tabs() {
       initial="hidden"
       animate="show"
       className={cN(
-        "tabs lg:w-full mb-6 lg:px-8 shadow-around z-30",
-        "absolute left-0 right-0 bottom-0 lg:sticky",
+        "tabs mb-12 lg:px-8 shadow-around",
         "flex lg:gap-x-12 justify-evenly lg:justify-between"
       )}
     >
@@ -37,7 +35,7 @@ export default function Tabs() {
         if (!attributes) return null
         const { key, order, url, icon } = attributes
 
-        const minimalDiff = findMinimalDiff(tabs, activeTab, order)
+        const minimalDiff = findMinimalDiff(tabs, activeTab ?? 0, order)
         const absoluteDiff = Math.abs(minimalDiff)
 
         let orderOnMobile
@@ -55,10 +53,10 @@ export default function Tabs() {
             className={cN(
               activeTab === order
                 ? cN("active", "text-white")
-                : "text-stone-800 hover:text-stone-600"
+                : "text-stone-800 hover:text-stone-300"
             )}
             icon={icon}
-            text={t(`tab.${key}`)}
+            text={t(`tab.v2.${key}`, t(`tab.${key}`))}
           />
         )
       })}

@@ -16,6 +16,9 @@ interface ITimelineItemProps {
   color?: string
   bgColor?: string
   subTitleColor?: string
+  className?: string
+  padding?: string
+  length?: string
   size?: string
   onClick?(): void
 }
@@ -27,13 +30,16 @@ export function TimelineItem({
   color = "text-red-500",
   bgColor = "bg-white",
   subTitleColor = "text-blue-500",
-  size = "h-52 md:w-52",
+  length = "h-52 md:w-52",
+  padding = "p-4",
+  size = "w-96",
+  className = "",
   onClick = () => {},
 }: ITimelineItemProps) {
   return (
     <m.li
       variants={fadeInItem}
-      className={cN("relative flex items-center w-2 md:h-2", size, color)}
+      className={cN("relative flex items-center w-2 md:h-2", length, color)}
     >
       <span
         className={cN(
@@ -46,8 +52,11 @@ export function TimelineItem({
         onTap={onClick}
         className={cN(
           styles.textbubble,
+          "absolute whitespace-normal hidden md:flex flex-col",
           bgColor,
-          "w-96 absolute whitespace-normal p-4 hidden md:flex flex-col"
+          size,
+          padding,
+          className
         )}
       >
         <time className={cN(color, "text-2xl font-archivo")}>{title}</time>
@@ -62,12 +71,12 @@ export function TimelineItem({
 export default function Timeline({
   rgbGradient,
   children,
-  beforeSize = "w-40",
+  beforeLength = "w-40",
   containerClassName,
 }: {
   rgbGradient?: string
   children: ReactNode
-  beforeSize?: string
+  beforeLength?: string
   containerClassName?: string
 }) {
   return (
@@ -89,7 +98,7 @@ export default function Timeline({
       >
         <m.li
           variants={fadeInItem}
-          className={cN(beforeSize, "h-2 bg-white text-white")}
+          className={cN(beforeLength, "h-2 bg-white text-white")}
         ></m.li>
 
         {children}

@@ -37,13 +37,15 @@ export default function Tab({
     >
       <Link
         href={url}
-        className="flex-1 flex flex-col 2xl:flex-row items-center justify-center"
+        className="flex-1 flex flex-col xl:flex-row items-center justify-center"
         tabIndex={index + 1}
       >
         <span className="material-icons group-hover:tilt-shake p-2 text-2xl md:text-4xl">
           {icon}
         </span>
-        <span className="inline-block text-sm 2xl:text-xl">{text}</span>
+        <span className="inline-block text-sm sm:text-base 2xl:text-xl">
+          {text}
+        </span>
       </Link>
     </m.div>
   )
