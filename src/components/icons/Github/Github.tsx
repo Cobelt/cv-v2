@@ -1,11 +1,11 @@
-import { IconType } from "../../../types"
+import { IIcon } from "../../../types"
 
 export default function Github({
   size,
   color = "currentColor",
   className,
   style,
-}: IconType) {
+}: IIcon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

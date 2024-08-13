@@ -1,4 +1,4 @@
-import { IconType } from "@/types"
+import { IIcon } from "@/types"
 
 export default function Linkedin({
   size,
@@ -6,7 +6,7 @@ export default function Linkedin({
   textColor = "",
   className = "white",
   style,
-}: IconType) {
+}: IIcon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,11 +1,11 @@
-import { IconType } from "@/types"
+import { IIcon } from "@/types"
 
 export default function ZigZagArrowSvg({
   size = 24,
   color = "currentColor",
   className = "white",
   style,
-}: IconType) {
+}: IIcon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

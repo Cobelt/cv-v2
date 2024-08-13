@@ -5,7 +5,7 @@ export interface IPageProps {
   pathname: string
 }
 
-export interface IconType {
+export interface IIcon {
   size?: string | number
   width?: string | number
   height?: string | number
@@ -18,4 +18,15 @@ export interface IconType {
 
 export interface WithClassNameProps {
   className?: string
+}
+
+export interface ICard {
+  image: {
+    url: string
+    alt: string
+    width: number
+    height: number
+  }
+  title: string
+  description: string
 }
