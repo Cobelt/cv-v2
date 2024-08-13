@@ -1,4 +1,3 @@
-import Head from "next/head"
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
@@ -15,13 +14,10 @@ export default function Profile({ previousRoute }: IPageProps) {
 
   return (
     <PageTransition
+      headTitle={t("profile.title") + " ?"}
       previousRoute={previousRoute}
-      className="page:profile bg-orange-300 pt-8 px-8 pb-32 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
+      className="page:profile bg-orange-300 overflow-hidden"
     >
-      <Head>
-        <title>Qui suis-je ? - polemil.dev</title>
-      </Head>
-
       <m.main
         variants={container}
         initial="hidden"
@@ -30,11 +26,11 @@ export default function Profile({ previousRoute }: IPageProps) {
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] sm:template-[md] lg:template-[lg] 2xl:template-[2xl]",
           "h-full overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden no-scrollbar",
-          "2xl:px-[5rem] 2xl:pb-24"
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
       >
-        <PageTitle className="area-[pagetitle]">
-          <div className="group flex sm:justify-end lg:justify-start 2xl:justify-end items-center gap-3">
+        <PageTitle className="area-[pagetitle] -mb-3 sm:mb-0">
+          <div className="group flex justify-end lg:justify-start 2xl:justify-end items-center gap-3">
             <div>{t("profile.title")}</div>
             <div className="group-hover:tilt-shake">?</div>
           </div>
@@ -44,7 +40,7 @@ export default function Profile({ previousRoute }: IPageProps) {
 
         <m.div
           variants={fadeInItem}
-          className="area-[name] flex items-center lg:hidden"
+          className="area-[name] flex items-end lg:hidden"
         >
           <h2 className="font-archivo text-3xl sm:text-4xl flex flex-col">
             Paul-Emile{" "}
@@ -65,5 +61,3 @@ export default function Profile({ previousRoute }: IPageProps) {
     </PageTransition>
   )
 }
-
-export const getServerSideProps = GetPreviousRouteProp

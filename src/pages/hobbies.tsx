@@ -9,12 +9,10 @@ import PageTransition from "@/components/PageTransition"
 export default function Hobbies({ previousRoute }: IPageProps) {
   return (
     <PageTransition
+      headTitle="Mes passions"
       previousRoute={previousRoute}
       className="page:hobbies bg-greenish-400 pt-8 px-8 pb-32 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
-      <Head>
-        <title>Mes passions - polemil.dev</title>
-      </Head>
       <main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",

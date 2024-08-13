@@ -2,18 +2,14 @@ import { IPageProps } from "@/types"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import { cN } from "@/lib"
-import Head from "next/head"
 
 export default function Stack({ previousRoute }: IPageProps) {
   return (
     <PageTransition
+      headTitle="Mes compétences"
       previousRoute={previousRoute}
       className="page:stack bg-blue-500 pt-8 px-8 pb-40 lg:pb-16 lg:pt-52 lg:px-[8vw] overflow-hidden"
     >
-      <Head>
-        <title>Mes compétences - polemil.dev</title>
-      </Head>
-
       <main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
