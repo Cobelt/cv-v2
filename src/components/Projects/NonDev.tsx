@@ -1,5 +1,4 @@
-import { Carousel } from "react-responsive-carousel"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
+
 
 const CAROUSEL_DATA = [
   {
@@ -29,7 +28,7 @@ export default function Dev({ className }: { className: string }) {
   return (
     <section className={className}>
       <h2 className="font-jostBold text-2xl">Projets hors dev</h2>
-      <Carousel />
+      {/* <Carousel /> */}
     </section>
   )
 }
