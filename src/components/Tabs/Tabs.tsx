@@ -1,13 +1,12 @@
 import { useQuery } from "@apollo/client"
-import { usePathname } from "next/navigation"
 import { motion as m } from "framer-motion"
+import { usePathname } from "next/navigation"
 import { useTranslation } from "react-i18next"
 
-import Tab from "../Tab"
-import { GET_TABS, TabsDataType } from "@/queries/tabs"
 import { container } from "@/animations/pageContainer"
 import { cN, findMinimalDiff } from "@/lib"
-import { EDUCATIONS } from "@/constants"
+import { GET_TABS, TabsDataType } from "@/queries/tabs"
+import Tab from "../Tab"
 
 export default function Tabs() {
   const pathname = usePathname()
@@ -27,7 +26,7 @@ export default function Tabs() {
       initial="hidden"
       animate="show"
       className={cN(
-        "tabs mb-12 lg:px-8 shadow-around",
+        "tabs lg:px-8 shadow-around",
         "flex lg:gap-x-12 justify-evenly lg:justify-between"
       )}
     >
@@ -52,8 +51,8 @@ export default function Tabs() {
             orderOnMobile={orderOnMobile}
             className={cN(
               activeTab === order
-                ? cN("active", "text-white")
-                : "text-stone-800 hover:text-stone-300"
+                ? cN("active", "text-stone-50")
+                : "text-stone-800 hover:text-stone-200"
             )}
             icon={icon}
             text={t(`tab.v2.${key}`, t(`tab.${key}`))}

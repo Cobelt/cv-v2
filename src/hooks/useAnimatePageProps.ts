@@ -11,7 +11,7 @@ import { useQuery } from "@apollo/client"
 import { usePathname } from "next/navigation"
 
 const useAnimatePageProps = (previousRoute: string) => {
-  const matches = useMediaQuery("(min-width: 768px)")
+  const isNotMobile = useMediaQuery("(min-width: 768px)")
   const { data } = useQuery<TabsDataType>(GET_TABS)
   const currentRoute = usePathname()
 
@@ -24,7 +24,10 @@ const useAnimatePageProps = (previousRoute: string) => {
     (tab) => tab.attributes.url === previousRoute
   )
 
-  if (matches) {
+  if (currentTabIndex === -1) return appearFromBottom
+  if (previousTabIndex === -1) return appearFromTop
+
+  if (isNotMobile) {
     return currentTabIndex > previousTabIndex ? appearFromRight : appearFromLeft
   }
   return currentTabIndex > previousTabIndex ? appearFromBottom : appearFromTop

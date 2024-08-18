@@ -1,14 +1,14 @@
 "use client"
 
-import Link from "next/link"
-import { motion as m } from "framer-motion"
-import { GET_TABS, TabsDataType } from "../../queries/tabs"
-import { appearFromLeft, appearFromRight } from "../../animations/pageContainer"
 import { useQuery } from "@apollo/client"
-import { useRef, useState } from "react"
-import useOnScroll from "../../hooks/useOnScroll"
-import { useRouter } from "next/router"
+import { motion as m } from "framer-motion"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import { appearFromLeft, appearFromRight } from "../../animations/pageContainer"
+import useOnScroll from "../../hooks/useOnScroll"
+import { GET_TABS, TabsDataType } from "../../queries/tabs"
 
 const SCROLL_LIMIT = 5
 
@@ -53,7 +53,7 @@ export default function Arrows() {
     <>
       {previousTabUrl && (
         <m.div
-          className="hidden lg:block absolute left-0 top-1/2 bottom-1/2"
+          className="hidden lg:block absolute left-0 top-1/2 bottom-1/2 z-20"
           {...appearFromLeft}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
@@ -80,7 +80,7 @@ export default function Arrows() {
 
       {nextTabUrl && (
         <m.div
-          className="hidden lg:block absolute right-0 top-1/2 bottom-1/2"
+          className="hidden lg:block absolute right-0 top-1/2 bottom-1/2 z-20"
           {...appearFromRight}
           transition={{ delay: 0.5, duration: 0.5 }}
         >

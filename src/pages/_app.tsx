@@ -7,7 +7,7 @@ import { initReactI18next } from "react-i18next"
 import Head from "next/head"
 
 import client from "@/apollo"
-import { API_URL } from "@/lib"
+import { API_URL, cN } from "@/lib"
 import usePreviousRoute from "@/hooks/usePreviousRoute"
 import { IPageProps } from "@/types"
 
@@ -19,6 +19,10 @@ import "@fontsource/material-icons-rounded"
 import "@/styles/globals.scss"
 import "@/styles/animations.scss"
 import "@/styles/pages.scss"
+import FranceFlag from "@/components/icons/FranceFlag"
+import RussiaFlag from "@/components/icons/RussiaFlag"
+import GreatBritainFlag from "@/components/icons/GreatBritainFlag"
+import { animate, container, fadeInItem } from "@/animations/pageContainer"
 
 i18n
   .use(Backend)
@@ -46,12 +50,29 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
         <meta name="description" content="CV de Paul-Emile Moreau" />
         <link rel="shortcut icon" href="/icon/favicon.ico" />
       </Head>
-      <div className="text-stone-800 font-latoBold relative h-screen overflow-hidden py-6 md:py-16 px-8 lg:px-[8vw] 2xl:px-[calc(5rem_+_3vw)] 3xl:px-[8vw]">
-        <div className="flex sticky z-30">
-          <Logo className="flex xl:hidden" />
+      <div
+        className={cN(
+          "relative text-stone-800 font-rubikReg h-screen overflow-hidden",
+          "py-6 lg:py-16 px-8 lg:px-[8vw] 2xl:px-[calc(5rem_+_3vw)] 3xl:px-[8vw]"
+        )}
+      >
+        <div className="flex justify-between lg:hidden sticky z-30">
+          <Logo />
+
+          <m.details variants={container}>
+            <m.summary variants={fadeInItem} className="list-none">
+              <FranceFlag className="h-8 w-8 rounded-lg" />
+            </m.summary>
+            <m.span variants={fadeInItem}>
+              <GreatBritainFlag className="h-8 w-8 rounded-lg" />
+            </m.span>
+            <m.span variants={fadeInItem}>
+              <RussiaFlag className="h-8 w-8 rounded-lg" />
+            </m.span>
+          </m.details>
         </div>
-        <div className="flex lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30">
-          <Logo className="hidden xl:flex" />
+        <div className="flex items-center lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30 mb-8 lg:mb-0">
+          <Logo className="hidden lg:flex" />
           <div className="flex-1">
             <Tabs />
           </div>
