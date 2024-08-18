@@ -1,4 +1,6 @@
 .page\:profile {
+  --picture-clamp: clamp(7.5rem, 15vw, 18rem);
+
   /* prettier-ignore */
   --base:
   	"photo   pagetitle"
