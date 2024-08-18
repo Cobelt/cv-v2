@@ -8,6 +8,7 @@ import { fadeInItem } from "@/animations/pageContainer"
 import ZigZagArrowSvg from "@/components/icons/ZigZagArrow"
 import { cN } from "@/lib"
 import { WithClassNameProps } from "@/types"
+import { CSSProperties } from "react"
 import css from "./Picture.module.scss"
 
 export default function Picture({ className }: WithClassNameProps) {
@@ -22,7 +23,12 @@ export default function Picture({ className }: WithClassNameProps) {
         className
       )}
     >
-      <div className="relative group">
+      <div
+        className="relative group"
+        style={
+          { "--picture-clamp": "clamp(7.5rem, 15vw, 18rem)" } as CSSProperties
+        }
+      >
         <Image
           className={cN(
             css.picture,
