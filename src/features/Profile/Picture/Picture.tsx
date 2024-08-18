@@ -8,8 +8,6 @@ import { fadeInItem } from "@/animations/pageContainer"
 import ZigZagArrowSvg from "@/components/icons/ZigZagArrow"
 import { cN } from "@/lib"
 import { WithClassNameProps } from "@/types"
-import { CSSProperties } from "react"
-import css from "./Picture.module.scss"
 
 export default function Picture({ className }: WithClassNameProps) {
   const [t] = useTranslation()
@@ -19,19 +17,14 @@ export default function Picture({ className }: WithClassNameProps) {
       variants={fadeInItem}
       className={cN(
         "flex items-end md:items-center sm:justify-end",
-        "mt-auto lg:mb-auto relative font-rubikBold",
+        "mt-auto lg:mb-auto font-rubikBold",
         className
       )}
     >
-      <div
-        className="relative group"
-        style={
-          { "--picture-clamp": "clamp(7.5rem, 15vw, 18rem)" } as CSSProperties
-        }
-      >
+      <div className="relative group">
         <Image
           className={cN(
-            css.picture,
+            "flex-1 rounded-full aspect-square object-cover transition-all overflow-hidden max-w-[20vw]",
             "min-w-28 min-h-28 blur-0 group-hover:blur",
             "lg:flex-[initial] duration-300"
           )}
@@ -51,8 +44,8 @@ export default function Picture({ className }: WithClassNameProps) {
 
         <Image
           className={cN(
-            css.picture,
-            css.noBg,
+            "flex-1 rounded-full aspect-square object-cover transition-all overflow-hidden max-w-[20vw]",
+            "absolute left-0 top-0 w-full h-full duration-200 [clip-path:ellipse(43.5%_48%_at_50%_50%)]",
             "min-w-28 min-h-28 z-[4] group-hover:scale-110 origin-bottom group-hover:z-[6]",
             "lg:flex-[initial]"
           )}
