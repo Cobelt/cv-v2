@@ -3,43 +3,41 @@
 
   /* prettier-ignore */
   --base:
-  	"photo   pagetitle"
-  	"photo   name     "
-    "digest  digest   " 1fr
-    "mailBtn mailBtn  " 1fr
-    "pref    pref     "
-  	"links   links    "
-    "other   other    "
+  	"pagetitle pagetitle"
+  	"photo     .        "
+  	"photo     name     "
+    "digest    digest   " 1fr
+    "stats     stats    "
+    "mailBtn   mailBtn  "
   / auto 1fr;
 
   /* prettier-ignore */
-  --md:
+  --sm:
   "photo   pagetitle"
   "photo   name     "
   "digest  digest   " 1fr
   "mailBtn mailBtn  " 1fr
-  "links   links    "
-  "pref   pref    "
-  "other   other    "
+  "stats     stats    "
   / auto 1fr;
 
   /* prettier-ignore */
   --lg:
-    "pagetitle pagetitle pagetitle pagetitle"
-    "photo digest digest digest       " 1fr
-    "links  links  mailBtn  mailBtn        " 1fr
-    "pref  pref  pref  pref        " auto
-    "other  other  other  other        " auto
+    "mailBtn .      pagetitle pagetitle"
+    "photo   digest digest    digest   " 1fr
+    "stats   stats  stats     stats    " auto
     ;
 
   /* prettier-ignore */
   --2xl:
-  	"mailBtn mailBtn pagetitle pagetitle"
-  	"digest  digest  digest    photo    "
-  	"links   .       .         .        " 1fr
-  	"pref    pref    pref      pref     "
-  	"other   other   other     other    "
-  /  auto    1fr     1fr       auto;
+  	"mailBtn overlap pagetitle"
+  	"photo   digest .        "
+  	"stats   stats  stats    "
+  	".       .      .        "
+  / 1fr minmax(50rem, 1fr)  1fr;
+
+  main > div {
+    z-index: 2;
+  }
 }
 
 .page\:stack {

@@ -1,9 +1,9 @@
+import { fadeInItem } from "@/animations/pageContainer"
+import TextWithTooltip from "@/components/TextWithTooltip"
+import { cN } from "@/lib"
+import { WithClassNameProps } from "@/types"
 import { motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
-import { fadeInItem } from "@/animations/pageContainer"
-import { WithClassNameProps } from "@/types"
-import { cN } from "@/lib"
-import TextWithTooltip from "@/components/TextWithTooltip"
 
 export default function Prefered({ className }: WithClassNameProps) {
   const [t] = useTranslation()
@@ -21,9 +21,9 @@ export default function Prefered({ className }: WithClassNameProps) {
         <div
           className={cN(
             "pill group flex justify-left items-center justify-items-center gap-4",
-            "pl-8 pr-4 cursor-pointer bg-blue-500 text-white rounded-full",
+            "pl-8 pr-4 cursor-pointer bg-blue-500 text-stone-50 rounded-full",
             "h-12 lg:h-20 min-w-[20rem] 3xl:min-w-[25rem] w-full lg:w-[18vw] lg:hover:w-[20vw] 2xl:hover:w-[25vw] lg:active:w-[100%_!important] transition-all",
-            "active:bg-white active:text-stone-800 lg:active:bg-blue-500 lg:active:text-white"
+            "active:bg-stone-50 active:text-stone-800 lg:active:bg-blue-500 lg:active:text-stone-50"
           )}
         >
           <h4 className="flex-1 whitespace-nowrap text-ellipsis overflow-hidden">

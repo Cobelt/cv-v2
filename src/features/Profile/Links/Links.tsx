@@ -1,14 +1,27 @@
 import { motion as m } from "framer-motion"
-import { useTranslation } from "react-i18next"
+import { useEffect, useRef, useState } from "react"
 
+import DashBorder from "@/components/DashBorder/DashBorder"
+import { CV_URL, cN } from "@/lib"
 import { delayedContainer, fadeInItem } from "../../../animations/pageContainer"
-import Linkedin from "../../../components/icons/Linkedin"
 import Github from "../../../components/icons/Github"
+import Linkedin from "../../../components/icons/Linkedin"
 import { WithClassNameProps } from "../../../types"
-import { cN } from "@/lib"
-
 export default function Links({ className }: WithClassNameProps) {
-  const [t] = useTranslation()
+  const ref = useRef<HTMLAnchorElement>(null)
+  const [refWidth, setWidth] = useState<number>()
+  const [refHeight, setHeight] = useState<number>()
+
+  useEffect(() => {
+    if (!ref.current) return
+    const resizeObserver = new ResizeObserver(() => {
+      console.log("resize")
+      setWidth(ref?.current?.clientWidth)
+      setHeight(ref?.current?.clientHeight)
+    })
+    resizeObserver.observe(ref.current)
+    return () => resizeObserver.disconnect() // clean up
+  }, [])
 
   return (
     <m.div
@@ -17,35 +30,66 @@ export default function Links({ className }: WithClassNameProps) {
       animate="show"
       className={cN(
         className,
-        "flex lg:flex-col 2xl:flex-row w-full gap-6 justify-evenly lg:justify-center 2xl:py-16 mt-4 sm:mt-0 sm:mb-12 lg:mb-0",
-        "font-rubikBold text-lg md:text-2xl"
+        "flex flex-wrap gap-x-16 gap-y-6",
+        "font-rubikBold text-lg lg:text-xl xl:text-2xl"
       )}
     >
-      {/* <span className="px-4 pb-8 place-self-center">ou sur</span> */}
       <m.a
+        ref={ref}
         variants={fadeInItem}
-        href="https://www.linkedin.com/in/paul-emile-moreau/"
+        href={CV_URL}
         target="_blank"
-        className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
+        className={cN(
+          "relative group flex items-center",
+          "order-2 sm:order-1",
+          // "before:absolute before:inset-0 before:rounded-full before:border-2 before:border-dashed before:border-current",
+          "py-3 pl-6 pr-8",
+          "flex gap-2 items-center hover:text-stone-50 transition-all"
+        )}
       >
-        <Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-15" />
-        <span className="hidden lg:inline">Linkedin</span>
-      </m.a>
-      <m.a
-        variants={fadeInItem}
-        href="https://github.com/Le-Polemil"
-        target="_blank"
-        className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
-      >
-        <Github className="w-8 md:w-15" />
-        <span className="hidden lg:inline">Github</span>
+        <DashBorder
+          width={refWidth}
+          height={refHeight}
+          rectClassName="[stroke-dashoffset:0] group-hover:[stroke-dashoffset:-75]"
+        />
+
+        <div className="overflow-hidden group-hover:-translate-y-2.5 transition-tran">
+          <m.span className="group-hover:translate-y-4 transition-transform flex items-center">
+            <span className="material-icons text-4xl">arrow_downward</span>
+          </m.span>
+        </div>
+        <span className="whitespace-nowrap">Télécharger mon CV</span>
       </m.a>
 
+      <div className="order-1 sm:order-2 flex gap-x-16 gap-y-6">
+        <m.a
+          variants={fadeInItem}
+          href="https://www.linkedin.com/in/paul-emile-moreau/"
+          target="_blank"
+          className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-color"
+        >
+          <Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-15" />
+          <span className="group-hover:translate-x-2 transition-transform">
+            Linkedin
+          </span>
+        </m.a>
+        <m.a
+          variants={fadeInItem}
+          href="https://github.com/Le-Polemil"
+          target="_blank"
+          className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-all"
+        >
+          <Github className="w-8 md:w-15" />
+          <span className="group-hover:translate-x-2 transition-transform">
+            Github
+          </span>
+        </m.a>
+      </div>
       {/* <m.a
         variants={fadeInItem}
         href="https://github.com/mue-js"
         target="_blank"
-        className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-white transition-all"
+        className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-stone-50 transition-all"
       >
         <Github className="w-8 md:w-15" />
         <span>MueJS</span>

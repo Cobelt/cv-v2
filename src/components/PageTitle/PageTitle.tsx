@@ -1,5 +1,3 @@
-import { ReactNode } from "react"
-import { motion as m } from "framer-motion"
 import {
   appearFromBottom,
   appearFromLeft,
@@ -7,6 +5,8 @@ import {
   appearFromTop,
 } from "@/animations/pageContainer"
 import { cN } from "@/lib"
+import { motion as m } from "framer-motion"
+import { ReactNode } from "react"
 
 interface IPageTitleProps {
   children: ReactNode
@@ -18,6 +18,7 @@ interface IPageTitleProps {
     | typeof appearFromLeft
     | typeof appearFromRight
   textAlign?: string
+  titlePlacement?: string
 }
 
 const COUNTER_ANIMATIONS = [
@@ -33,18 +34,20 @@ export default function PageTitle({
   pageAnimation = appearFromLeft,
   subTitle,
   textAlign = "text-right",
+  titlePlacement = "items-center justify-end",
 }: IPageTitleProps) {
   const counterAnimation =
     COUNTER_ANIMATIONS.find(({ normal }) => pageAnimation === normal)
       ?.counter ?? appearFromLeft
 
   return (
-    <div className={cN(className, "font-archivo")}>
+    <span className={cN("flex flex-col justify-center", className)}>
       <m.h1
         {...counterAnimation}
         className={cN(
+          "font-archivo flex text-3xl lg:text-5xl 2xl:text-6xl whitespace-nowrap",
           textAlign,
-          "text-3xl lg:text-5xl 2xl:text-7xl whitespace-nowrap"
+          titlePlacement
         )}
       >
         {children}
@@ -57,6 +60,6 @@ export default function PageTitle({
           {subTitle}
         </m.h4>
       )}
-    </div>
+    </span>
   )
 }

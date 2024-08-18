@@ -18,7 +18,7 @@ export default function Picture({ className }: WithClassNameProps) {
       variants={fadeInItem}
       className={cN(
         "flex items-end md:items-center sm:justify-end",
-        "mt-auto lg:mb-auto relative font-rubikBold ",
+        "mt-auto lg:mb-auto relative font-rubikBold",
         className
       )}
     >
@@ -54,31 +54,25 @@ export default function Picture({ className }: WithClassNameProps) {
           src={pictureWithoutBg}
           alt={t("profile.photo.floki")}
         />
-      </div>
 
-      <div
-        className={cN(
-          "hidden lg:flex flex-col-reverse group-hover:fade-in z-10 w-auto text-nowrap text-lg",
-          "absolute -top-16 left-0 2xl:left-2/3"
-        )}
-      >
-        <ZigZagArrowSvg
-          className="ml-10 2xl:ml-0 -rotate-[135deg] 2xl:-rotate-45"
-          size={30}
-        />
-        <span>{t("profile.photo.me")}</span>
-      </div>
-      <div
-        className={cN(
-          "hidden lg:flex flex-col group-hover:fade-in z-10 w-auto text-nowrap text-lg",
-          "absolute -bottom-16 left-0 2xl:left-2/3"
-        )}
-      >
-        <ZigZagArrowSvg
-          className="ml-10 2xl:ml-0 rotate-[135deg] 2xl:rotate-45"
-          size={30}
-        />
-        <span>{t("profile.photo.floki")}</span>
+        <div
+          className={cN(
+            "hidden lg:flex flex-col-reverse group-hover:fade-in z-10 w-auto text-nowrap text-lg",
+            "absolute -top-16 left-0 2xl:right-2/3"
+          )}
+        >
+          <ZigZagArrowSvg className="ml-10 -rotate-[135deg]" size={30} />
+          <span>{t("profile.photo.me")}</span>
+        </div>
+        <div
+          className={cN(
+            "hidden lg:flex flex-col group-hover:fade-in z-10 w-auto text-nowrap text-lg",
+            "absolute -bottom-16 left-0 2xl:right-2/3"
+          )}
+        >
+          <ZigZagArrowSvg className="ml-10 rotate-[135deg]" size={30} />
+          <span>{t("profile.photo.floki")}</span>
+        </div>
       </div>
     </m.div>
   )

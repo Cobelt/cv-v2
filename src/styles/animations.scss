@@ -24,33 +24,23 @@
   box-shadow: 0 0 25rem #333333;
 }
 
-@media screen and (width > 1536px) {
-  .hover\:put-forward {
-    position: relative;
-    transition: padding-right 0.4s;
-
-    &:before {
-      content: "";
-      width: 0;
-      height: 4px;
-      border-radius: 50rem;
-      background-color: #333333;
-      position: absolute;
-      top: 50%;
-      bottom: 50%;
-      right: 0;
-      transition: width 0.4s;
+.group {
+  .group-hover\:push-forward {
+    filter: blur(0px);
+    transition: filter 0.5s;
     }
 
     &:hover {
-      padding-right: 8rem;
+    .group-hover\:push-forward {
+      filter: blur(3px);
+    }
 
-      &:before {
-        width: 7rem;
+    .group-hover\:push-forward:hover {
+      filter: blur(0px);
       }
     }
   }
-}
+
 .pill:active + ul li {
   color: white;
   transition: color 0.15s;
@@ -215,4 +205,8 @@
   transform: scaleX(1);
   transform-origin: right;
   transition: transform 0.2s ease-out 0.25s;
+}
+
+.group-hover\:fade-in {
+  @apply opacity-0 group-hover:opacity-100 transition-opacity;
 }
