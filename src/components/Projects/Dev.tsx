@@ -1,6 +1,3 @@
-import { cN } from "@/lib"
-import Image from "next/image"
-
 const CAROUSEL_DATA = [
   {
     id: 1,
@@ -29,9 +26,30 @@ export default function Dev({ className }: { className: string }) {
   return (
     <section className={className}>
       <h2 className="font-jostBold text-2xl">Projets liés au dev</h2>
+
+      {/* <Slider dots infinite speed={500} slidesToShow={1} slidesToScroll={1}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider> */}
       {/* <Carousel>
         {CAROUSEL_DATA.map((item) => (
-          <div key={item.id} className="bg-white p-4 rounded-xl ">
+          <div key={item.id} className="bg-stone-50 p-4 rounded-xl ">
             <Image
               src={item.imageUrl}
               alt={item.imageAlt}

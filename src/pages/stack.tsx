@@ -25,10 +25,10 @@ export default function Stack({ previousRoute }: IPageProps) {
         </PageTitle>
 
         <section className="area-[know-how]">
-          <h2 className="font-jostBold text-2xl">Concrètement</h2>
+          <h2 className="font-archivo text-2xl">Concrètement</h2>
 
           <h4>Je sais ...</h4>
-          <ul className="font-latoBold text-lg">
+          <ul className="font-rubikReg text-lg">
             <li>Développer un site vitrine</li>
             <li>Développer un site marchand</li>
             <li>Développer un backoffice</li>
@@ -39,9 +39,9 @@ export default function Stack({ previousRoute }: IPageProps) {
           </ul>
         </section>
         <section className="area-[techs]">
-          <h2 className="font-jostBold text-2xl">Mes technos</h2>
+          <h2 className="font-archivo text-2xl">Mes technos</h2>
 
-          <ul className="font-latoBold text-lg">
+          <ul className="font-rubikReg text-lg">
             <h4 className="text-xl">Languages</h4>
             <li>JavaScript/TypeScript/EcmaScript 6+</li>
             <li>PHP</li>
@@ -67,10 +67,10 @@ export default function Stack({ previousRoute }: IPageProps) {
         </section>
 
         <section className="area-[soft-skills]">
-          <h2 className="font-jostBold text-2xl">Mes savoirs être</h2>
+          <h2 className="font-archivo text-2xl">Mes savoirs être</h2>
 
           <h4>Je sais ...</h4>
-          <ul className="font-latoBold text-lg">
+          <ul className="font-rubikReg text-lg">
             <li>Travailler en équipe de tout taille</li>
             <li>Communiquer avec mes collègues</li>
             <li>M{"'"}adapter au besoin</li>

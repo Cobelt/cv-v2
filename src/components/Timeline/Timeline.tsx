@@ -1,10 +1,10 @@
-import { CSSProperties, ReactNode } from "react"
-import dynamic from "next/dynamic"
 import { motion as m } from "framer-motion"
+import dynamic from "next/dynamic"
+import { CSSProperties, ReactNode } from "react"
 
-import { cN } from "@/lib"
-import { container, fadeInItem } from "@/animations/pageContainer"
 import hammerAnimation from "@/animations/hammer.json"
+import { container, fadeInItem } from "@/animations/pageContainer"
+import { cN } from "@/lib"
 import styles from "./timeline.module.css"
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
@@ -28,7 +28,7 @@ export function TimelineItem({
   subTitle,
   children,
   color = "text-red-500",
-  bgColor = "bg-white",
+  bgColor = "bg-stone-50",
   subTitleColor = "text-blue-500",
   length = "h-52 md:w-52",
   padding = "p-4",
@@ -98,7 +98,7 @@ export default function Timeline({
       >
         <m.li
           variants={fadeInItem}
-          className={cN(beforeLength, "h-2 bg-white text-white")}
+          className={cN(beforeLength, "h-2 bg-stone-50 text-stone-50")}
         ></m.li>
 
         {children}

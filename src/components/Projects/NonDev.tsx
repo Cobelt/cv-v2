@@ -1,4 +1,4 @@
-
+import Carousel from "../Carousel"
 
 const CAROUSEL_DATA = [
   {
@@ -27,8 +27,9 @@ const CAROUSEL_DATA = [
 export default function Dev({ className }: { className: string }) {
   return (
     <section className={className}>
-      <h2 className="font-jostBold text-2xl">Projets hors dev</h2>
-      {/* <Carousel /> */}
+      {/* <h2 className="font-jostBold text-2xl">Projets hors dev</h2> */}
+
+      <Carousel />
     </section>
   )
 }

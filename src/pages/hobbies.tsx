@@ -1,10 +1,8 @@
-import Head from "next/head"
-
-import { cN } from "@/lib"
-import { type IPageProps } from "@/types"
 import CircularCarousel from "@/components/CircularCarousel"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
+import { cN } from "@/lib"
+import { type IPageProps } from "@/types"
 
 export default function Hobbies({ previousRoute }: IPageProps) {
   return (
@@ -40,7 +38,7 @@ export default function Hobbies({ previousRoute }: IPageProps) {
           ]}
         />
 
-        <div className="area-[about] bg-white m-20 p-12 rounded-xl">
+        <div className="area-[about] bg-stone-50 m-20 p-12 rounded-xl">
           Détail du hobby actif
         </div>
       </main>

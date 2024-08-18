@@ -1,14 +1,14 @@
-import { useState } from "react"
 import { motion as m } from "framer-motion"
 import dynamic from "next/dynamic"
+import { useState } from "react"
 
-import { cN } from "@/lib"
-import { type IPageProps } from "@/types"
-import { appearFromBottom } from "@/animations/pageContainer"
 import diplomaAnimation from "@/animations/diploma.json"
+import { appearFromBottom } from "@/animations/pageContainer"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import Timeline, { TimelineItem } from "@/components/Timeline"
+import { cN } from "@/lib"
+import { type IPageProps } from "@/types"
 import Link from "next/link"
 
 const TMP_DATA = [
@@ -60,7 +60,7 @@ const TMP_DATA = [
           href="/contact"
           className={cN(
             "text-indigo-700 border-4 border-indigo-700 dark:border-indigo-500 dark:text-indigo-500",
-            "hover:text-white hover:bg-indigo-800 dark:hover:text-white dark:hover:bg-indigo-500",
+            "hover:text-stone-50 hover:bg-indigo-800 dark:hover:text-stone-50 dark:hover:bg-indigo-500",
             "focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:focus:ring-indigo-800",
             "font-archivo rounded-lg px-5 py-2.5 flex justify-center items-center gap-2 transition-colors"
           )}
@@ -153,7 +153,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
             {...appearFromBottom}
             transition={{ duration: 0.3 }}
             exit={{ y: "100%" }}
-            className="area-[details] bg-white"
+            className="area-[details] bg-stone-50"
           >
             Artprice
           </m.div>
@@ -165,7 +165,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
             {...appearFromBottom}
             transition={{ duration: 0.3 }}
             exit={{ y: "100%" }}
-            className="area-[details] bg-white"
+            className="area-[details] bg-stone-50"
           >
             Soluti
           </m.div>
