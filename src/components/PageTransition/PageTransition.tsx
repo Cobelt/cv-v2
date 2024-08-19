@@ -20,7 +20,7 @@ export default function PageTransition({
   headTitle,
   paddingTop = "pt-20 md:pt-24 lg:pt-52",
   paddingBottom = "pb-32 lg:pb-16",
-  paddingHorizontal = "2xl:px-[3vw] 3xl:px-[15vw]",
+  paddingHorizontal = "2xl:px-[3vw] 3xl:px-[calc(20vw-10rem)]",
   previousRoute,
 }: IPageTransition) {
   const animation = useAnimatePageProps(previousRoute)

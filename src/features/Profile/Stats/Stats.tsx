@@ -8,6 +8,7 @@ interface IStat {
   count: number
   text: string
   href?: string
+  arrowColor?: string
   counterAnimDuration?: number
   animateFrom?: number
 }
@@ -18,6 +19,7 @@ export function Stat({
   count,
   text,
   href,
+  arrowColor,
 }: IStat) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true })
@@ -71,7 +73,13 @@ export function Stat({
           )}
         />
         {href && (
-          <div className="text-5xl md:text-6xl absolute top-full right-full material-icons opacity-0 group-hover:opacity-100 group-hover:top-0 transition-all font-bold">
+          <div
+            className={cN(
+              "text-5xl md:text-6xl absolute material-icons font-bold",
+              "top-1/2 right-[150%] group-hover:top-0 group-hover:right-full opacity-0 group-hover:opacity-100 transition-all",
+              arrowColor
+            )}
+          >
             north_east
           </div>
         )}
@@ -90,9 +98,24 @@ export default function Stats({ className }: WithClassNameProps) {
     <div
       className={cN("w-full gap-12 grid grid-cols-2 lg:grid-cols-4", className)}
     >
-      <Stat href="/timeline" count={6} text="ans d'expérience" />
-      <Stat href="/projects" count={12} text="projets web" />
-      <Stat href="/stack" count={25} text="technos domptées" />
+      <Stat
+        href="/timeline"
+        arrowColor="text-indigo-400"
+        count={6}
+        text="ans d'expérience"
+      />
+      <Stat
+        href="/projects"
+        arrowColor="text-purplish-500"
+        count={12}
+        text="projets web"
+      />
+      <Stat
+        href="/stack"
+        arrowColor="text-blue-500"
+        count={25}
+        text="technos domptées"
+      />
       <Stat count={42} text="machin chose" />
     </div>
   )

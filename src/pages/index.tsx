@@ -5,6 +5,7 @@ import { container, fadeInItem } from "@/animations/pageContainer"
 
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
+import Title, { Tags } from "@/components/Title"
 import Feat from "@/features/Profile"
 import { cN } from "@/lib"
 import { type IPageProps } from "@/types"
@@ -45,10 +46,9 @@ export default function Profile({ previousRoute }: IPageProps) {
           variants={fadeInItem}
           className="area-[name] flex items-end lg:hidden"
         >
-          <h2 className="font-archivo text-3xl sm:text-4xl flex flex-col">
-            Paul-Emile{" "}
-            <span className="text-[2.75rem] sm:text-6xl">Moreau</span>
-          </h2>
+          <Title tag={Tags.h1} className="flex flex-col">
+            Paul-Emile <span className="text-5xl sm:text-6xl">Moreau</span>
+          </Title>
         </m.div>
 
         <Feat.Digest className="area-[digest]" />

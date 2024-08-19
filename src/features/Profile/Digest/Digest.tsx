@@ -15,32 +15,33 @@ export default function Digest({ className }: WithClassNameProps) {
     <div className={cN(className, "flex self-center sm:justify-center")}>
       <section
         className={cN(
-          "gap-1 self-center sm:justify-center",
+          "gap-2 self-center sm:justify-center",
           "font-rubikReg font-semibold text-xl lg:text-3xl text-left"
         )}
       >
-        <m.h2
-          variants={fadeInItem}
-          className="hidden lg:block font-archivo text-7xl mb-1"
-        >
-          {AUTHOR}
+        <m.h2 variants={fadeInItem} className="hidden lg:block text-7xl mb-1">
+          {AUTHOR.firstname}{" "}
+          <span className="text-stone-50">{AUTHOR.lastname}</span>
         </m.h2>
 
-        <div className="group">
-          <m.h4
+        <div className="flex flex-col gap-2 group">
+          <m.h6
             variants={fadeInItem}
             className="order-3 group-hover:push-forward"
           >
             {t("profile.xp.webdev.0")}
-            <span className="hidden sm:inline">{t("profile.xp.webdev.1")}</span>
+            <span className="hidden sm:inline">
+              {" "}
+              {t("profile.xp.webdev.1")}
+            </span>
             , spécialisé <span className="text-stone-50">Front-End</span>
             {/* {t("common.with")}{" "}
         <span className="text-stone-50">
           {t("profile.xp.years.0")}
           <span className="inline">{t("profile.xp.years.1")}</span>
         </span> */}
-          </m.h4>
-          <m.h4
+          </m.h6>
+          <m.h6
             variants={fadeInItem}
             className="order-4 group-hover:push-forward"
           >
@@ -50,17 +51,17 @@ export default function Digest({ className }: WithClassNameProps) {
             <span className="text-stone-50 anchor-2 cursor-help">
               Typescript
             </span>
-          </m.h4>
-          <m.h4
+          </m.h6>
+          <m.h6
             variants={fadeInItem}
             className="order-5 group-hover:push-forward"
           >
             Diplômé d{"'"}un <span className="text-stone-50">BAC+3</span> en
             informatique
-          </m.h4>
+          </m.h6>
         </div>
         <Feat.Links className="order-6 mt-2 mb-4 sm:mb-0 sm:mt-4" />
-        {/* <m.h4
+        {/* <m.h6
         variants={fadeInItem}
         className="order-2 lg:order-5 group-hover:push-forward mb-6 lg:mb-0"
       >
@@ -84,7 +85,7 @@ export default function Digest({ className }: WithClassNameProps) {
         ) : (
           <span>{t("profile.available.false")}</span>
         )}
-      </m.h4> */}
+      </m.h6> */}
 
         {/* <Languages className="order-6 sm:order-7 mr-auto 2xl:mr-0 2xl:ml-auto" /> */}
       </section>

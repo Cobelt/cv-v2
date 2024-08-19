@@ -1,9 +1,7 @@
-import Link from "next/link"
-import { motion as m } from "framer-motion"
 import { item } from "@/animations/pageContainer"
-import { EDUCATIONS } from "@/constants"
 import { cN } from "@/lib"
-import { CSSProperties } from "react"
+import { motion as m } from "framer-motion"
+import Link from "next/link"
 
 export interface TabType {
   id: string
@@ -30,7 +28,7 @@ export default function Tab({
       className={cN(
         orderOnMobile && `order-${orderOnMobile}`,
         `lg:order-${index + 1}`,
-        "lg:flex flex-1 w-16 rounded-full transition-all duration-300",
+        "lg:flex flex-1 w-16 rounded-full",
         "tab group hover:bg-opacity-10 hover:bg-stone-950 cursor-pointer",
         className
       )}

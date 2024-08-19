@@ -22,8 +22,8 @@
 
   /* prettier-ignore */
   --lg:
-    "mailBtn .      pagetitle pagetitle"
-    "photo   digest digest    digest   " 1fr
+    "mailBtn mailBtn      pagetitle pagetitle"
+    "photo   digest digest    .   " 1fr
     "stats   stats  stats     stats    " auto
     ;
 
@@ -66,9 +66,15 @@
 .page\:projects {
   /* prettier-ignore */
   --base:
-  	"pagetitle pagetitle"
-  	"nondev    nondev   " 1fr
-  	"dev       dev      " 1fr;
+  	"pagetitle"
+  	"desc     " 
+  	"image    " 1fr;
+
+  /* prettier-ignore */
+  --lg:
+  	"index pagetitle"
+  	"desc    image   " 1fr
+    / 1fr 1fr;
 }
 
 .page\:hobbies {

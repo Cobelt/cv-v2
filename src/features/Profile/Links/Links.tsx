@@ -68,7 +68,7 @@ export default function Links({ className }: WithClassNameProps) {
           target="_blank"
           className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-color"
         >
-          <Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-15" />
+          <Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-10" />
           <span className="group-hover:translate-x-2 transition-transform">
             Linkedin
           </span>
@@ -79,7 +79,7 @@ export default function Links({ className }: WithClassNameProps) {
           target="_blank"
           className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-all"
         >
-          <Github className="w-8 md:w-15" />
+          <Github className="w-8 md:w-10" />
           <span className="group-hover:translate-x-2 transition-transform">
             Github
           </span>
