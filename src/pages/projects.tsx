@@ -1,30 +1,106 @@
+import { useQuery } from "@apollo/client"
+import { motion as m } from "framer-motion"
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+
+import { container, fadeInItem } from "@/animations/pageContainer"
+import Carousel from "@/components/Carousel"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
-import { cN } from "@/lib"
+import { BO_URL, cN } from "@/lib"
+import { GET_PROJECTS, ProjectsDataType } from "@/queries/projects"
 import { type IPageProps } from "@/types"
-import ProjectsList from "@/components/Projects"
+
+import Feat from "@/features/Projects"
+
+// const projects: IProject[] = [
+//   {
+//     image: {
+//       url: "https://www.wildnatureimages.com/images/xl/070620-014-The-Tetons.jpg",
+//       alt: "Image card X",
+//       width: 800,
+//       height: 400,
+//     },
+//     title: "Card 1",
+//     description: "This is the description for card 1.",
+//   },
+//   {
+//     image: {
+//       url: "https://www.wildnatureimages.com/images/xl/130728-026-Denali-Reflection.webp",
+//       alt: "Image card X",
+//       width: 800,
+//       height: 400,
+//     },
+//     title: "Card 2",
+//     description: "This is the description for card 2.",
+//   },
+//   {
+//     image: {
+//       url: "https://www.wildnatureimages.com/images/xl/070926-017-Grand-Teton-Mountain.webp",
+//       alt: "Image card X",
+//       width: 800,
+//       height: 400,
+//     },
+//     title: "Card 3",
+//     description: "This is the description for card 3.",
+//   },
+// ]
 
 export default function Projects({ previousRoute }: IPageProps) {
+  const [t] = useTranslation()
+  const [index, setIndex] = useState(0)
+
+  const { data, loading } = useQuery<ProjectsDataType>(GET_PROJECTS)
+  const projects = data?.projects?.data ?? []
+
+  const { name, description, skills, dates, subTitle, link, githubLink } =
+    projects?.[index]?.attributes ?? {}
+
   return (
     <PageTransition
       headTitle="Mes projets"
       previousRoute={previousRoute}
-      className="page:projects bg-purplish-500 overflow-hidden"
+      className="page:projects bg-purplish-400 overflow-hidden"
     >
-      <main
+      <m.main
+        variants={container}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
         className={cN(
-          "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
-          "template-[base]",
-          "overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden min-h-full",
+          "grid gap-x-6 md:gap-x-24 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
+          "template-[base] lg:template-[lg]",
+          "h-full overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden no-scrollbar",
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
       >
         <PageTitle className="area-[pagetitle]">Mes projets</PageTitle>
 
-        <ProjectsList.Dev className="area-[dev]" />
+        <m.div
+          variants={fadeInItem}
+          className="hidden lg:block area-[index] font-bukhari text-8xl text-stone-50"
+        >
+          {index + 1 > 9 ? index + 1 : `0${index + 1}`}
+        </m.div>
 
-        <ProjectsList.NonDev className="area-[nondev]" />
-      </main>
+        <Feat.Details className="area-[desc]" index={index} />
+
+        <Carousel
+          className="area-[image]"
+          cards={projects?.map(({ attributes }) => ({
+            title: attributes?.name,
+            description: attributes?.description,
+            image: {
+              ...attributes?.image?.data?.attributes,
+              url: BO_URL + attributes?.image?.data?.attributes?.url,
+            },
+          }))}
+          index={index}
+          setIndex={setIndex}
+          link={link}
+          githubLink={githubLink}
+        />
+      </m.main>
     </PageTransition>
   )
 }

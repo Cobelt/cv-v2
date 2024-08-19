@@ -9,13 +9,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'media.istockphoto.com',
+        hostname: 'bo.polemil.dev',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
+        hostname: 'www.wildnatureimages.com',
         port: '',
         pathname: '/**',
       },

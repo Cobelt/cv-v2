@@ -215,6 +215,30 @@
   transition: transform 0.2s ease-out 0.25s;
 }
 
+.hover\:custom-underline {
+  position: relative;
+}
+
+.hover\:custom-underline:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: right 0.5s;
+  height: 3px;
+  transform: scaleX(0);
+  border-radius: 100vw;
+  transform-origin: right;
+  background-color: currentColor;
+  transition: transform 0.2s ease-out;
+}
+
+.hover\:custom-underline:hover:before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .group-hover\:fade-in {
   @apply opacity-0 group-hover:opacity-100 transition-opacity;
 }

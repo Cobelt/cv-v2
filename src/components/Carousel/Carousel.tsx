@@ -1,6 +1,13 @@
+import { AnimatePresence, motion as m } from "framer-motion"
+import { CSSProperties, useEffect, useState } from "react"
+
+import { container, fadeInItem } from "@/animations/pageContainer"
+import { cN } from "@/lib"
 import { type ICard } from "@/types"
-import { useState } from "react"
+import Button, { Colors } from "../Button"
 import Card from "../Card"
+import Github from "../icons/Github"
+
 // export default function Carousel({ children }: { children: ReactNode }) {
 //   return (
 //     <m.div
@@ -22,60 +29,119 @@ import Card from "../Card"
 //   )
 // }
 
-const cards: ICard[] = [
-  {
-    image: {
-      url: "https://media.istockphoto.com/id/1672317574/photo/ama-dablam-mountain-peak.webp?b=1&s=170667a&w=0&k=20&c=Ea8yDEHpUemrRuMZUKGPDBE11YTWVksIupMN8FkEBf8=",
-      alt: "Image card X",
-      width: 800,
-      height: 400,
-    },
-    title: "Card 1",
-    description: "This is the description for card 1.",
-  },
-  {
-    image: {
-      url: "https://via.placeholder.com/800x400/00FF00/FFFFFF?text=Card+2",
-      alt: "Image card X",
-      width: 800,
-      height: 400,
-    },
-    title: "Card 2",
-    description: "This is the description for card 2.",
-  },
-  {
-    image: {
-      url: "https://via.placeholder.com/800x400/0000FF/FFFFFF?text=Card+3",
-      alt: "Image card X",
-      width: 800,
-      height: 400,
-    },
-    title: "Card 3",
-    description: "This is the description for card 3.",
-  },
-]
+interface ICarousel {
+  cards: ICard[]
+  className?: string
+  index?: number
+  setIndex?(index: number): void
+  link?: string
+  githubLink?: string
+}
 
-export default function Carousel() {
-  const [index, setIndex] = useState(0)
+export default function Carousel({
+  className,
+  cards,
+  index,
+  setIndex,
+  link,
+  githubLink,
+}: ICarousel) {
+  const [_index, _setIndex] = useState(0)
+
+  useEffect(() => {
+    if (index !== undefined) _setIndex(index)
+  }, [index])
+
+  useEffect(() => {
+    if (_index !== undefined) setIndex?.(_index)
+  }, [_index, setIndex])
 
   const nextSlide = () => {
-    setIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1))
+    _setIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1))
   }
 
   const prevSlide = () => {
-    setIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1))
+    _setIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1))
   }
 
   return (
-    <div className="flex items-center justify-between">
-      <Card {...cards[0]} />
-      {/* <button
-        className="bg-black bg-opacity-50 text-stone-50 rounded-full p-2 hover:bg-opacity-75 focus:outline-none"
-        onClick={prevSlide}
-      >
-        <span className="material-icons">chevron_left</span>
-      </button>
-      <AnimatePresence initial={false}>
+    <div className={className}>
+      <m.div variants={fadeInItem} className="w-full overflow-hidden">
+        <div
+          className={cN(
+            "flex items-stretch justify-between transition-all duration-300"
+          )}
+          style={
+            {
+              "--index": index,
+              transform: "translateX(calc(-100% * var(--index))",
+            } as CSSProperties
+          }
+        >
+          {cards?.map((card) => (
+            <Card
+              key={card.title}
+              className="min-w-full min-h-full border-4 border-stone-50 border-dashed"
+              noOverlay
+              {...card}
+            />
+          ))}
+        </div>
+      </m.div>
+
+      <AnimatePresence>
+        <div className="flex justify-between mt-4">
+          <m.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="flex gap-8"
+          >
+            {link && (
+              <m.a
+                variants={fadeInItem}
+                href={link}
+                target="_blank"
+                className={cN(
+                  "group w-10 h-10 xl:w-12 xl:h-12 aspect-square",
+                  "flex items-center justify-center",
+                  "bg-stone-800 hover:bg-stone-50 text-purplish-400 rounded-full transition-colors"
+                )}
+              >
+                <span
+                  className={cN(
+                    "material-icons font-bold transition-transform",
+                    "text-[2.75rem] xl:text-[3.25rem]",
+                    "-translate-x-1 translate-y-1 group-hover:-translate-x-1.5 group-hover:translate-y-1.5",
+                    "xl:-translate-x-1.5 xl:translate-y-1.5 xl:group-hover:-translate-x-2.5 xl:group-hover:translate-y-2.5"
+                  )}
+                >
+                  north_east
+                </span>
+              </m.a>
+            )}
+            {githubLink && (
+              <m.a
+                variants={fadeInItem}
+                href={githubLink}
+                target="_blank"
+                className="hover:text-stone-50 transition-colors"
+              >
+                <Github className="w-10 xl:w-12" />
+              </m.a>
+            )}
+          </m.div>
+          <m.div className="flex gap-8">
+            <Button
+              color={Colors.BLACK}
+              className="bg-black bg-opacity-50 text-stone-50 rounded-full p-2 hover:bg-opacity-75 focus:outline-none"
+              onClick={prevSlide}
+              icon="chevron_left"
+              notRounded
+              borderless
+            />
+            {/* <AnimatePresence initial={false}>
         <div
           className="relative grid rounded-lg"
           style={{
@@ -89,17 +155,22 @@ export default function Carousel() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, width: "0%" }}
             transition={{ duration: 0.5 }}
-          >
+          > 
             
           </m.div>
         </div>
+      </AnimatePresence> */}
+            <Button
+              color={Colors.BLACK}
+              className="bg-black bg-opacity-50 text-stone-50 rounded-full p-2 hover:bg-opacity-75 focus:outline-none"
+              onClick={nextSlide}
+              icon="chevron_right"
+              notRounded
+              borderless
+            />
+          </m.div>
+        </div>
       </AnimatePresence>
-      <button
-        className="bg-black bg-opacity-50 text-stone-50 rounded-full p-2 hover:bg-opacity-75 focus:outline-none"
-        onClick={nextSlide}
-      >
-        <span className="material-icons">chevron_right</span>
-      </button> */}
     </div>
   )
 }

@@ -23,9 +23,10 @@ export interface WithClassNameProps {
 export interface ICard {
   image: {
     url: string
-    alt: string
+    alternativeText?: string
     width: number
     height: number
+    name: string
   }
   title: string
   description: string

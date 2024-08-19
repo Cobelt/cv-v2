@@ -1,4 +1,12 @@
 import { gql } from "@apollo/client"
+import { type ImageDataType } from "."
+
+export interface ProjectSkillDataType {
+  attributes: {
+    skill: string
+    link: string
+  }
+}
 
 export interface ProjectsDataType {
   projects: {
@@ -6,13 +14,24 @@ export interface ProjectsDataType {
       {
         id: string
         attributes: {
+          order: number
           name: string
-          details?: string
-          dateInfos?: string
+          description: string
+          subTitle?: string
+          dates?: string
           link?: string
+          githubLink?: string
           isPaused?: boolean
           isDone?: boolean
           isDev?: boolean
+
+          skills?: {
+            data: ProjectSkillDataType[]
+          }
+
+          image: {
+            data: ImageDataType
+          }
         }
       }
     ]
@@ -21,17 +40,45 @@ export interface ProjectsDataType {
 
 export const GET_PROJECTS = gql`
   query findProjects {
-    projects {
+    projects(
+      sort: "order"
+      filters: { order: { gte: 0 } }
+      pagination: { limit: 50 }
+    ) {
       data {
         id
         attributes {
+          order
           name
-          details
-          dateInfos
+          subTitle
+          description
+          dates
           link
           isPaused
           isDone
           isDev
+          githubLink
+          skills {
+            data {
+              attributes {
+                skill
+                link
+              }
+            }
+          }
+
+          image {
+            data {
+              attributes {
+                name
+                alternativeText
+                width
+                height
+                caption
+                url
+              }
+            }
+          }
         }
       }
     }

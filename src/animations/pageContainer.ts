@@ -53,6 +53,11 @@ export const fadeInItem = {
   show: { opacity: 1, transition: { duration: 1 } },
 }
 
+export const fadeInItemRapid = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.5 } },
+}
+
 export const container = {
   hidden: { opacity: 0 },
   show: {
