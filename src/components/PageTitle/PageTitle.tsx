@@ -5,8 +5,8 @@ import {
   appearFromTop,
 } from "@/animations/pageContainer"
 import { cN } from "@/lib"
-import { motion as m } from "framer-motion"
 import { ReactNode } from "react"
+import Title, { Tags } from "../Title"
 
 interface IPageTitleProps {
   children: ReactNode
@@ -41,24 +41,26 @@ export default function PageTitle({
       ?.counter ?? appearFromLeft
 
   return (
-    <span className={cN("flex flex-col justify-center", className)}>
-      <m.h1
+    <span
+      className={cN(
+        "flex flex-col justify-center self-center justify-self-end",
+        className
+      )}
+    >
+      <Title
         {...counterAnimation}
-        className={cN(
-          "font-archivo flex text-3xl lg:text-5xl 2xl:text-6xl whitespace-nowrap",
-          textAlign,
-          titlePlacement
-        )}
+        className={cN("flex whitespace-nowrap", textAlign, titlePlacement)}
       >
         {children}
-      </m.h1>
+      </Title>
       {subTitle && (
-        <m.h4
+        <Title
+          tag={Tags.h4}
+          className="text-center lg:text-right"
           {...counterAnimation}
-          className="text-lg text-center lg:text-2xl font-rubikBold lg:text-right"
         >
           {subTitle}
-        </m.h4>
+        </Title>
       )}
     </span>
   )

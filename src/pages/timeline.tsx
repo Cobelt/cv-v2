@@ -4,6 +4,7 @@ import { useState } from "react"
 
 import diplomaAnimation from "@/animations/diploma.json"
 import { appearFromBottom } from "@/animations/pageContainer"
+import Button from "@/components/Button"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import Timeline, { TimelineItem } from "@/components/Timeline"
@@ -56,17 +57,8 @@ const TMP_DATA = [
     title: "Peut-être chez vous ?",
     children: [
       <div key="hire-me" className="flex justify-center items-center">
-        <Link
-          href="/contact"
-          className={cN(
-            "text-indigo-700 border-4 border-indigo-700 dark:border-indigo-500 dark:text-indigo-500",
-            "hover:text-stone-50 hover:bg-indigo-800 dark:hover:text-stone-50 dark:hover:bg-indigo-500",
-            "focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:focus:ring-indigo-800",
-            "font-archivo rounded-lg px-5 py-2.5 flex justify-center items-center gap-2 transition-colors"
-          )}
-        >
-          M{"'"}embaucher
-          <span className="material-icons text-3xl font-bold">north_east</span>
+        <Link href="/contact">
+          <Button role="link" text="M'embaucher" icon="north_east" />{" "}
         </Link>
       </div>,
     ],
