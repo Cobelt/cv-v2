@@ -13,39 +13,6 @@ import { type IPageProps } from "@/types"
 
 import Feat from "@/features/Projects"
 
-// const projects: IProject[] = [
-//   {
-//     image: {
-//       url: "https://www.wildnatureimages.com/images/xl/070620-014-The-Tetons.jpg",
-//       alt: "Image card X",
-//       width: 800,
-//       height: 400,
-//     },
-//     title: "Card 1",
-//     description: "This is the description for card 1.",
-//   },
-//   {
-//     image: {
-//       url: "https://www.wildnatureimages.com/images/xl/130728-026-Denali-Reflection.webp",
-//       alt: "Image card X",
-//       width: 800,
-//       height: 400,
-//     },
-//     title: "Card 2",
-//     description: "This is the description for card 2.",
-//   },
-//   {
-//     image: {
-//       url: "https://www.wildnatureimages.com/images/xl/070926-017-Grand-Teton-Mountain.webp",
-//       alt: "Image card X",
-//       width: 800,
-//       height: 400,
-//     },
-//     title: "Card 3",
-//     description: "This is the description for card 3.",
-//   },
-// ]
-
 export default function Projects({ previousRoute }: IPageProps) {
   const [t] = useTranslation()
   const [index, setIndex] = useState(0)
@@ -53,14 +20,13 @@ export default function Projects({ previousRoute }: IPageProps) {
   const { data, loading } = useQuery<ProjectsDataType>(GET_PROJECTS)
   const projects = data?.projects?.data ?? []
 
-  const { name, description, skills, dates, subTitle, link, githubLink } =
-    projects?.[index]?.attributes ?? {}
+  const { link, githubLink } = projects?.[index]?.attributes ?? {}
 
   return (
     <PageTransition
       headTitle="Mes projets"
       previousRoute={previousRoute}
-      className="page:projects bg-purplish-400 overflow-hidden"
+      className="page:projects bg-purplish-600 overflow-hidden"
     >
       <m.main
         variants={container}
