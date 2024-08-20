@@ -19,7 +19,7 @@ export default function PageTransition({
   className,
   headTitle,
   paddingTop = "pt-20 md:pt-24 lg:pt-52",
-  paddingBottom = "pb-32 lg:pb-16",
+  paddingBottom = "pb-32 2xl:pb-0",
   paddingHorizontal = "2xl:px-[3vw] 3xl:px-[calc(20vw-10rem)]",
   previousRoute,
 }: IPageTransition) {

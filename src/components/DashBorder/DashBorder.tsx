@@ -8,6 +8,8 @@ interface IDashBorder {
   className?: string
   style?: CSSProperties
   circle?: boolean
+  rx?: string
+  ry?: string
   rectClassName?: string
 }
 export default function DashBorder({
@@ -17,6 +19,8 @@ export default function DashBorder({
   width,
   height,
   circle,
+  rx = "2",
+  ry = "2",
   rectClassName,
 }: IDashBorder) {
   return (
@@ -33,8 +37,8 @@ export default function DashBorder({
       <rect
         x={weight / 2}
         y={weight / 2}
-        rx={circle ? "50%" : "30"}
-        ry={circle ? "50%" : "30"}
+        rx={circle ? "50%" : rx}
+        ry={circle ? "50%" : ry}
         fill="none"
         strokeLinecap="round"
         stroke="currentColor"

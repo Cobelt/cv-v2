@@ -30,15 +30,16 @@ export default function Tab({
         `lg:order-${index + 1}`,
         "lg:flex flex-1 w-16 rounded-full",
         "tab group hover:bg-opacity-10 hover:bg-stone-950 cursor-pointer",
+        "overflow-hidden text-ellipsis whitespace-nowrap",
         className
       )}
     >
       <Link
         href={url}
-        className="flex-1 flex flex-col xl:flex-row items-center justify-center"
+        className="py-2 px-4 gap-2 flex-1 flex flex-col xl:flex-row items-center justify-center"
         tabIndex={index + 1}
       >
-        <span className="material-icons group-hover:tilt-shake p-2 text-2xl md:text-4xl">
+        <span className="material-icons group-hover:tilt-shake text-2xl md:text-4xl">
           {icon}
         </span>
         <span className="inline-block text-sm sm:text-base 2xl:text-xl">

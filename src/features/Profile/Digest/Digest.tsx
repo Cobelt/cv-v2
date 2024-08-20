@@ -34,9 +34,9 @@ export default function Digest({ className }: WithClassNameProps) {
               {" "}
               {t("profile.xp.webdev.1")}
             </span>
-            , spécialisé <span className="text-stone-50">Front-End</span>
+            , spécialisé <span className="text-blue-500">Front-End</span>
             {/* {t("common.with")}{" "}
-        <span className="text-stone-50">
+        <span className="text-blue-500">
           {t("profile.xp.years.0")}
           <span className="inline">{t("profile.xp.years.1")}</span>
         </span> */}
@@ -46,9 +46,9 @@ export default function Digest({ className }: WithClassNameProps) {
             className="order-4 group-hover:push-forward"
           >
             <span className="">{t("profile.expert.1")}</span>{" "}
-            <span className="text-stone-50 anchor cursor-help">React</span>{" "}
+            <span className="text-blue-500 anchor cursor-help">React</span>{" "}
             {t("common.and")}{" "}
-            <span className="text-stone-50 anchor-2 cursor-help">
+            <span className="text-blue-500 anchor-2 cursor-help">
               Typescript
             </span>
           </m.h6>
@@ -56,7 +56,7 @@ export default function Digest({ className }: WithClassNameProps) {
             variants={fadeInItem}
             className="order-5 group-hover:push-forward"
           >
-            Diplômé d{"'"}un <span className="text-stone-50">BAC+3</span> en
+            Diplômé d{"'"}un <span className="text-blue-500">BAC+3</span> en
             informatique
           </m.h6>
         </div>

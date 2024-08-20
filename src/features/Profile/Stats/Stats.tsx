@@ -106,7 +106,7 @@ export default function Stats({ className }: WithClassNameProps) {
       />
       <Stat
         href="/projects"
-        arrowColor="text-purplish-500"
+        arrowColor="text-purplish-600"
         count={12}
         text="projets web"
       />

@@ -6,7 +6,7 @@ import {
 } from "@/animations/pageContainer"
 import { cN } from "@/lib"
 import { ReactNode } from "react"
-import Title, { Tags } from "../Title"
+import Title from "../Title"
 
 interface IPageTitleProps {
   children: ReactNode
@@ -47,20 +47,16 @@ export default function PageTitle({
         className
       )}
     >
-      <Title
+      <Title.h1
         {...counterAnimation}
         className={cN("flex whitespace-nowrap", textAlign, titlePlacement)}
       >
         {children}
-      </Title>
+      </Title.h1>
       {subTitle && (
-        <Title
-          tag={Tags.h4}
-          className="text-center lg:text-right"
-          {...counterAnimation}
-        >
+        <Title.h4 className="text-center lg:text-right" {...counterAnimation}>
           {subTitle}
-        </Title>
+        </Title.h4>
       )}
     </span>
   )

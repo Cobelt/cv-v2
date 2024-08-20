@@ -116,14 +116,12 @@ export default function Carousel({
               color={Colors.BLACK}
               onClick={prevSlide}
               icon="chevron_left"
-              notRounded
               borderless
             />
             <Button
               color={Colors.BLACK}
               onClick={nextSlide}
               icon="chevron_right"
-              notRounded
               borderless
             />
           </m.div>

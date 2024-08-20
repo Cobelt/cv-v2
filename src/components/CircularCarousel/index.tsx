@@ -1,6 +1,6 @@
-import { CSSProperties, useEffect, useRef, useState } from "react"
-import { motion as m } from "framer-motion"
 import { cN, findMinimalDiff } from "@/lib"
+import { motion as m } from "framer-motion"
+import { CSSProperties, useEffect, useRef, useState } from "react"
 
 const START_ANGLE = 360
 
@@ -53,7 +53,7 @@ export default function CircularCarousel({
 
   return (
     <div
-      className={cN("max-h-full aspect-square", className)}
+      className={cN("aspect-square", className)}
       style={
         {
           "--item-width": "8rem",
@@ -89,7 +89,7 @@ export default function CircularCarousel({
               }}
               transition={{ duration: 0.75 }}
               onTap={() => setActive(index)}
-              className="absolute flex items-center justify-center duration-300 top-1/2 left-1/2 aspect-square bg-teal-700 text-white rounded-full"
+              className="absolute flex items-center justify-center duration-300 top-1/2 left-1/2 aspect-square bg-teal-700 text-stone-50 rounded-full"
               style={{
                 width: "var(--item-width)",
                 margin: "calc(-1 * var(--item-width) / 2)",
