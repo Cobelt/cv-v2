@@ -43,15 +43,16 @@
   /* prettier-ignore */
   --base:
   	"pagetitle  "
-  	"know-how   " 1fr
-    "techs      " 1fr
-    "soft-skills" 1fr;
+  	"tabs   " 
+    "details      " 1fr
+    / 1fr;
 
   /* prettier-ignore */
-  --2xl:
-  	"pagetitle pagetitle pagetitle  "
-  	"know-how  techs     soft-skills" 1fr
-  / 1fr        1fr       1fr;
+  --md:
+  	"pagetitle pagetitle"
+  	"tabs      details  " 1fr
+    ".         .        "
+  / 1fr        2fr;
 }
 
 .page\:timeline {
@@ -82,4 +83,24 @@
   	"wheel pagetitle"
   	"wheel about    " 1fr
   / 1fr    1fr;
+}
+
+.page\:contact {
+  /* prettier-ignore */
+  --base:
+  	"pagetitle"
+  	"form    " 1fr;
+
+  /* prettier-ignore */
+  form {
+    --form: 
+    	"title     title    " auto
+    	"infos     infos    " auto
+    	"firstname lastname " auto
+    	"email     email    " auto
+    	"phone     phone    " auto
+    	"message   message  " 1fr
+    	"submit    submit   " auto
+      /1fr       1fr     ;
+  }
 }
