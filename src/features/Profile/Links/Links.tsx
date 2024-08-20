@@ -1,12 +1,12 @@
 import { motion as m } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 
+import { delayedContainer, fadeInItem } from "@/animations/pageContainer"
 import DashBorder from "@/components/DashBorder/DashBorder"
+import SVG from "@/components/svg"
 import { CV_URL, cN } from "@/lib"
-import { delayedContainer, fadeInItem } from "../../../animations/pageContainer"
-import Github from "../../../components/icons/Github"
-import Linkedin from "../../../components/icons/Linkedin"
-import { WithClassNameProps } from "../../../types"
+import { WithClassNameProps } from "@/types"
+
 export default function Links({ className }: WithClassNameProps) {
   const ref = useRef<HTMLAnchorElement>(null)
   const [refWidth, setWidth] = useState<number>()
@@ -68,7 +68,7 @@ export default function Links({ className }: WithClassNameProps) {
           target="_blank"
           className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-color"
         >
-          <Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-10" />
+          <SVG.Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-10" />
           <span className="group-hover:translate-x-2 transition-transform">
             Linkedin
           </span>
@@ -79,21 +79,12 @@ export default function Links({ className }: WithClassNameProps) {
           target="_blank"
           className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-all"
         >
-          <Github className="w-8 md:w-10" />
+          <SVG.Github className="w-8 md:w-10" />
           <span className="group-hover:translate-x-2 transition-transform">
             Github
           </span>
         </m.a>
       </div>
-      {/* <m.a
-        variants={fadeInItem}
-        href="https://github.com/mue-js"
-        target="_blank"
-        className="flex gap-2 hover:gap-4 md:gap-4 md:hover:gap-6 items-center hover:text-stone-50 transition-all"
-      >
-        <Github className="w-8 md:w-15" />
-        <span>MueJS</span>
-      </m.a> */}
     </m.div>
   )
 }

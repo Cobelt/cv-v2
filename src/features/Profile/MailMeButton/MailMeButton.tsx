@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"
 import { useTranslation } from "react-i18next"
 
 import { fadeInItem } from "@/animations/pageContainer"
-import Title, { Tags } from "@/components/Title"
+import Title from "@/components/Title"
 import { cN } from "@/lib"
 import { type WithClassNameProps } from "@/types"
 import Link from "next/link"
@@ -31,12 +31,9 @@ export default function MailMeButton({ className }: WithClassNameProps) {
           >
             north_east
           </m.span>
-          <Title
-            tag={Tags.h1}
-            className="group-hover:text-stone-50 transition-colors"
-          >
-            {t("profile.contact.email")}
-          </Title>
+          <Title.h1 className="group-hover:text-stone-50 transition-colors">
+            {t("contact.me")}
+          </Title.h1>
         </div>
       </Link>
     </m.div>

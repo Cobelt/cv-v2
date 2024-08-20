@@ -11,7 +11,7 @@ export enum Tags {
   h6 = "h6",
 }
 
-interface ITitle {
+export interface ITitle {
   tag?: Tags
   text?: string
   children?: ReactNode
@@ -24,7 +24,7 @@ const TITLE_SIZE = {
   [Tags.h3]: "text-xl md:text-2xl xl:text-3xl",
   [Tags.h4]: "text-lg lg:text-2xl",
   [Tags.h5]: "text-lg lg:text-2xl",
-  [Tags.h6]: "",
+  [Tags.h6]: "text-base lg:text-xl",
 }
 
 export default function Title({

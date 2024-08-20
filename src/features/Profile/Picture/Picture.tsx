@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 import pictureOfMe from "@/../public/picture.jpg"
 import pictureWithoutBg from "@/../public/pictureWithoutBg.png"
 import { fadeInItem } from "@/animations/pageContainer"
-import ZigZagArrowSvg from "@/components/icons/ZigZagArrow"
+import SVG from "@/components/svg"
 import { cN } from "@/lib"
 import { WithClassNameProps } from "@/types"
 
@@ -57,7 +57,7 @@ export default function Picture({ className }: WithClassNameProps) {
             "absolute -top-16 left-0 2xl:right-2/3"
           )}
         >
-          <ZigZagArrowSvg className="ml-10 -rotate-[135deg]" size={30} />
+          <SVG.ZigZagArrow className="ml-10 -rotate-[135deg]" size={30} />
           <span>{t("profile.photo.me")}</span>
         </div>
         <div
@@ -66,7 +66,7 @@ export default function Picture({ className }: WithClassNameProps) {
             "absolute -bottom-16 left-0 2xl:right-2/3"
           )}
         >
-          <ZigZagArrowSvg className="ml-10 rotate-[135deg]" size={30} />
+          <SVG.ZigZagArrow className="ml-10 rotate-[135deg]" size={30} />
           <span>{t("profile.photo.floki")}</span>
         </div>
       </div>

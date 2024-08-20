@@ -5,7 +5,7 @@ import { container, fadeInItem } from "@/animations/pageContainer"
 
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
-import Title, { Tags } from "@/components/Title"
+import Title from "@/components/Title"
 import Feat from "@/features/Profile"
 import { cN } from "@/lib"
 import { type IPageProps } from "@/types"
@@ -26,7 +26,7 @@ export default function Profile({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] sm:template-[sm] lg:template-[lg] 2xl:template-[2xl]",
-          "h-full overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden no-scrollbar",
+          "h-full overflow-x-hidden overflow-y-auto xl:overflow-y-hidden no-scrollbar",
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
       >
@@ -46,9 +46,9 @@ export default function Profile({ previousRoute }: IPageProps) {
           variants={fadeInItem}
           className="area-[name] flex items-end lg:hidden"
         >
-          <Title tag={Tags.h1} className="flex flex-col">
-            Paul-Emile <span className="text-5xl sm:text-6xl">Moreau</span>
-          </Title>
+          <Title.h1 className="flex flex-col">
+            Paul-Emile <span className="text-5xl sm:text-6xl ">Moreau</span>
+          </Title.h1>
         </m.div>
 
         <Feat.Digest className="area-[digest]" />

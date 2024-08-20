@@ -1,12 +1,10 @@
 import { motion as m } from "framer-motion"
+import { ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 
-import { fadeInItem } from "../../../animations/pageContainer"
-import FranceFlag from "../../../components/icons/FranceFlag"
-import GreatBritainFlag from "../../../components/icons/GreatBritainFlag"
-import RussiaFlag from "../../../components/icons/RussiaFlag"
+import { fadeInItem } from "@/animations/pageContainer"
+import SVG from "@/components/svg"
 import { cN } from "@/lib"
-import { ReactNode } from "react"
 import { WithClassNameProps } from "@/types"
 
 interface ILanguageProps {
@@ -54,21 +52,28 @@ export default function Languages({ className }: WithClassNameProps) {
       <Language
         label={t("profile.langs.fr")}
         language="Français"
-        flag={<FranceFlag shouldntPreserveRatio className={flagClassName} />}
+        flag={
+          <SVG.flags.France shouldntPreserveRatio className={flagClassName} />
+        }
       />
 
       <Language
         label={t("profile.langs.en")}
         language="Anglais"
         flag={
-          <GreatBritainFlag shouldntPreserveRatio className={flagClassName} />
+          <SVG.flags.GreatBritain
+            shouldntPreserveRatio
+            className={flagClassName}
+          />
         }
       />
 
       <Language
         label={t("profile.langs.ru")}
         language="Russe"
-        flag={<RussiaFlag shouldntPreserveRatio className={flagClassName} />}
+        flag={
+          <SVG.flags.Russia shouldntPreserveRatio className={flagClassName} />
+        }
       />
     </m.h4>
   )

@@ -3,7 +3,7 @@ import { AnimatePresence, motion as m } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
 import { container, fadeInItemRapid } from "@/animations/pageContainer"
-import Title, { Tags } from "@/components/Title"
+import Title from "@/components/Title"
 import { cN } from "@/lib"
 import { GET_PROJECTS, type ProjectsDataType } from "@/queries/projects"
 
@@ -32,10 +32,10 @@ export default function Details({ className, index }: IDetails) {
         className={cN(className, "overflow-hidden flex flex-col gap-4")}
       >
         <m.div variants={fadeInItemRapid}>
-          <Title tag={Tags.h1} text={t(name)} />
+          <Title.h1 text={t(name)} />
         </m.div>
         <m.div variants={fadeInItemRapid}>
-          <Title tag={Tags.h3} text={t(subTitle ?? "")} />
+          <Title.h3 text={t(subTitle ?? "")} />
         </m.div>
         {/* TODO : Chips isDev / isPaused / isDone */}
 
@@ -45,7 +45,7 @@ export default function Details({ className, index }: IDetails) {
 
         <m.p
           variants={fadeInItemRapid}
-          className="max-h-[30vh] overflow-auto no-scrollbar text-sm sm:text-base 2xl:text-xl"
+          className="max-h-[30vh] overflow-auto text-sm sm:text-base 2xl:text-xl pr-1.5"
         >
           {t(description)}
         </m.p>
