@@ -19,6 +19,7 @@ import SVG from "@/components/svg"
 
 import "@/styles/_globals.scss"
 import "@/styles/animations.scss"
+import "@/styles/inputs.scss"
 import "@/styles/pages.scss"
 import "@/styles/transitions.scss"
 import "@fontsource/material-icons-rounded"

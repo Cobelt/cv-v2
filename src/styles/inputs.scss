@@ -1,0 +1,34 @@
+.input-group {
+  --spacing: 0.5rem;
+
+  .input {
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    padding: 16px 12px 0 12px;
+    background-color: transparent;
+    transition: all 0.15s ease;
+    padding: calc(var(--spacing) * 1.5) var(--spacing);
+    outline: none;
+    min-height: 3.5rem;
+
+    &:focus {
+      border-color: var(--color-accent);
+    }
+  }
+
+  .label {
+    min-height: calc(3.5rem - 2 * calc(var(--spacing) * 0.75 + 3px));
+    padding: calc(var(--spacing) * 0.75) calc(var(--spacing));
+    margin: calc(var(--spacing) * 0.75 + 3px) calc(var(--spacing));
+    display: flex;
+    align-items: center;
+  }
+
+  &:has(.input:focus) .label,
+  &:has(.input:not(:placeholder-shown)) .label,
+  .label.active {
+    transform: translate(0.25rem, -60%) scale(0.8);
+    color: var(--color-accent);
+  }
+}

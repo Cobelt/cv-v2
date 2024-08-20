@@ -5,6 +5,7 @@ export const SITE_URL = "https://" + DOMAIN
 export const AUTHOR = {
   firstname: "Paul-Emile",
   lastname: "Moreau",
+  email: "polemil.moro@gmail.com",
 }
 export const AUTHOR_URL = "https://polemil.dev"
 export const BO_URL = "https://bo.polemil.dev"
