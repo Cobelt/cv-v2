@@ -4,6 +4,7 @@
     rgb(var(--rgb-gradient, 33 33 33) / 0) 100%;
 
   padding: 0 var(--timeline-padding) 0 0;
+  display: flex !important;
 }
 
 @property --gradient-percent-1 {
@@ -19,7 +20,7 @@
 }
 
 /* TEMPORARY WAITING SCREEN */
-@media screen and (width < 1240px) {
+@media screen and (width < 1280px) {
   .timeline {
     width: 100%;
     min-height: 20rem;
@@ -52,7 +53,7 @@
   }
 }
 
-@media screen and (width >= 1240px) {
+@media screen and (width >= 1280px) {
   .timeline {
     --timeline-padding: 20rem;
     --gradient: rgb(var(--rgb-gradient, 33 33 33) / 1) 50%,

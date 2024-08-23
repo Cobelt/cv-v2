@@ -209,8 +209,8 @@ export default function Stack({ previousRoute }: IPageProps) {
             text={t("stack.category." + tab)}
           />
 
-          <div className="pt-4 pb-8 w-full h-full">
-            <div className="px-6 md:px-8 flex flex-wrap items-center gap-4 h-[calc(100%_-_3rem)] overflow-x-hidden">
+          <div className="pb-8 w-full h-full">
+            <div className="py-2 px-6 md:px-8 flex flex-wrap items-center gap-4 h-[calc(100%_-_3rem)] overflow-x-hidden">
               {SKILLS.filter((skill) => skill.category === tab).map((skill) => (
                 <span
                   key={skill.text}

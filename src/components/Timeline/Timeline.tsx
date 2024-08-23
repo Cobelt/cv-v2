@@ -30,9 +30,9 @@ export function TimelineItem({
   color = "text-red-500",
   bgColor = "bg-stone-50",
   subTitleColor = "text-blue-500",
-  length = "h-52 md:w-52",
+  length = "h-52 md:w-40",
   padding = "p-4",
-  size = "w-96",
+  size = "w-80",
   className = "",
   onClick = () => {},
 }: ITimelineItemProps) {
@@ -86,7 +86,7 @@ export default function Timeline({
       animate="show"
       className={cN(
         styles.timeline,
-        "flex justify-center whitespace-nowrap w-full -mx-12"
+        "hidden justify-center whitespace-nowrap w-full -mx-12"
       )}
       style={{ "--rgb-gradient": rgbGradient } as CSSProperties}
     >

@@ -1,9 +1,7 @@
-import { motion as m } from "framer-motion"
 import dynamic from "next/dynamic"
 import { useState } from "react"
 
 import diplomaAnimation from "@/animations/diploma.json"
-import { appearFromBottom } from "@/animations/pageContainer"
 import Button from "@/components/Button"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
@@ -42,7 +40,6 @@ const TMP_DATA = [
   },
   {
     id: "freelance",
-    length: "flex-1",
     title: "Août 2023",
     subTitle: "Freelance",
     children: [
@@ -79,7 +76,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base]",
-          "overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden min-h-full",
+          "min-h-full",
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
         style={{ gridTemplateRows: "auto auto 1fr" }}
@@ -96,12 +93,12 @@ export default function Jobs({ previousRoute }: IPageProps) {
               subTitleColor="text-indigo-500"
               color="text-rose-500"
               size="w-56"
-              length="w-40"
+              length="w-32"
             >
               <div className="flex justify-center items-center">
                 <Lottie
                   animationData={diplomaAnimation}
-                  className="w-40 -m-6"
+                  className="w-32 md:w-40 -m-6"
                 />
               </div>
             </TimelineItem>
@@ -112,7 +109,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
               subTitleColor="text-indigo-500"
               color="text-rose-500"
               size="w-56"
-              length="w-40"
+              length="w-32"
             >
               <div className="flex justify-center items-center">
                 <Lottie
@@ -139,7 +136,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
           </Timeline>
         </div>
 
-        {selectedJob === "artprice" && (
+        {/* {selectedJob === "artprice" && (
           <m.div
             key="artprice"
             {...appearFromBottom}
@@ -161,7 +158,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
           >
             Soluti
           </m.div>
-        )}
+        )} */}
       </main>
     </PageTransition>
   )
