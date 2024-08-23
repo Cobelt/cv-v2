@@ -1,5 +1,4 @@
 import { motion as m } from "framer-motion"
-import dynamic from "next/dynamic"
 import { useTranslation } from "react-i18next"
 
 import { fadeInItem } from "@/animations/pageContainer"
@@ -7,8 +6,6 @@ import Title from "@/components/Title"
 import { cN } from "@/lib"
 import { type WithClassNameProps } from "@/types"
 import Link from "next/link"
-
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 export default function MailMeButton({ className }: WithClassNameProps) {
   const [t] = useTranslation()

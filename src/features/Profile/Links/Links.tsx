@@ -15,7 +15,6 @@ export default function Links({ className }: WithClassNameProps) {
   useEffect(() => {
     if (!ref.current) return
     const resizeObserver = new ResizeObserver(() => {
-      console.log("resize")
       setWidth(ref?.current?.clientWidth)
       setHeight(ref?.current?.clientHeight)
     })
