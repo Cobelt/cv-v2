@@ -19,6 +19,7 @@ interface IPageTitleProps {
     | typeof appearFromRight
   textAlign?: string
   titlePlacement?: string
+  titleClassName?: string
 }
 
 const COUNTER_ANIMATIONS = [
@@ -35,6 +36,7 @@ export default function PageTitle({
   subTitle,
   textAlign = "text-right",
   titlePlacement = "items-center justify-end",
+  titleClassName = "",
 }: IPageTitleProps) {
   const counterAnimation =
     COUNTER_ANIMATIONS.find(({ normal }) => pageAnimation === normal)
@@ -49,7 +51,12 @@ export default function PageTitle({
     >
       <Title.h1
         {...counterAnimation}
-        className={cN("flex whitespace-nowrap", textAlign, titlePlacement)}
+        className={cN(
+          "flex whitespace-nowrap",
+          textAlign,
+          titlePlacement,
+          titleClassName
+        )}
       >
         {children}
       </Title.h1>

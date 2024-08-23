@@ -36,11 +36,13 @@ export default function Projects({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-24 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] lg:template-[lg]",
-          "h-full overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden no-scrollbar",
+          "h-full",
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
       >
-        <PageTitle className="area-[pagetitle]">Mes projets</PageTitle>
+        <PageTitle className="area-[pagetitle]" titleClassName="bubbles">
+          Mes projets
+        </PageTitle>
 
         <m.div
           variants={fadeInItem}

@@ -66,7 +66,7 @@
     content: "";
     display: block;
     width: 140%;
-    height: 100%;
+    height: 140%;
     left: -20%;
     z-index: -1000;
     transition: all ease-in-out 0.5s;
@@ -127,14 +127,29 @@
       20% 20%;
     //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
   }
+
+  &:hover {
+    color: white;
+
+    &:before {
+      display: block;
+      animation: topBubbles ease-in-out 0.75s forwards;
+    }
+    &:after {
+      display: block;
+      animation: bottomBubbles ease-in-out 0.75s forwards;
+    }
+  }
 }
 
 @keyframes bounceIn {
   0% {
     transform: translate(3.6vw, -15rem);
+    opacity: 0;
   }
   15% {
     transform: translate(3vw, 0);
+    opacity: 1;
   }
   30% {
     transform: translate(2.4vw, -1.5rem);
@@ -150,10 +165,13 @@
   }
   100% {
     transform: translate(0, 0);
+    opacity: 1;
   }
 }
 .bounce-in {
-  animation: bounceIn 0.65s ease-out;
+  opacity: 0;
+  transform: translate(3.6vw, -15rem);
+  animation: bounceIn 0.65s ease-out forwards;
 }
 
 @keyframes fadeAndSlideFromTop {
@@ -179,4 +197,17 @@
   transform: translateY(0.75rem);
   transition: transform 0.1s, opacity 0.1s;
   transition-delay: 0s, 0s;
+}
+
+@keyframes removeRounded {
+  from {
+    border-radius: 50%;
+  }
+  to {
+    border-radius: 0%;
+  }
+}
+
+.remove-rounded {
+  animation: removeRounded 0.45s ease-out forwards 1.1s;
 }

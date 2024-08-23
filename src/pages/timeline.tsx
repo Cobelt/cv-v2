@@ -82,7 +82,10 @@ export default function Jobs({ previousRoute }: IPageProps) {
         style={{ gridTemplateRows: "auto auto 1fr" }}
       >
         <PageTitle className="area-[pagetitle]" subTitle="Et mes diplômes">
-          Mes expériences pro.
+          Mes expériences pro
+          <div className="bounce-in relative ![animation-delay:0.45s]">
+            <span className="remove-rounded rounded-[50%] w-1.5 md:w-2 h-1.5 md:h-2 bg-stone-50 inline-block" />
+          </div>
         </PageTitle>
 
         <div className="area-[timeline] flex flex-wrap">
@@ -93,7 +96,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
               subTitleColor="text-indigo-500"
               color="text-rose-500"
               size="w-56"
-              length="w-32"
+              length="w-28"
             >
               <div className="flex justify-center items-center">
                 <Lottie
@@ -109,7 +112,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
               subTitleColor="text-indigo-500"
               color="text-rose-500"
               size="w-56"
-              length="w-32"
+              length="w-28"
             >
               <div className="flex justify-center items-center">
                 <Lottie
