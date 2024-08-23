@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 export interface ContactDataType {
-  id: number
+  id: string
 }
 
 export const CONTACT_ME = gql`

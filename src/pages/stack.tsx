@@ -1,168 +1,26 @@
-import Button, { Colors } from "@/components/Button"
-import PageTitle from "@/components/PageTitle"
-import PageTransition from "@/components/PageTransition"
-import Title from "@/components/Title"
-import { cN } from "@/lib"
-import { IPageProps } from "@/types"
+import { useQuery } from "@apollo/client"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-const CATEGORIES = ["knowHow", "techs", "softSkills"] as const
-const SKILLS = [
-  {
-    text: "Développer un site vitrine",
-    category: "knowHow",
-  },
-  {
-    text: "Développer un site marchand",
-    category: "knowHow",
-  },
-  {
-    text: "Développer un backoffice",
-    category: "knowHow",
-  },
-  {
-    text: "Développer une app interne",
-    category: "knowHow",
-  },
-  {
-    text: "Développer une app mobile",
-    category: "knowHow",
-  },
-  {
-    text: "Maintenir et faire évoluer un projet",
-    category: "knowHow",
-  },
-  {
-    text: "Maitriser la couche métier d'un projet",
-    category: "knowHow",
-  },
-  {
-    text: "JavaScript",
-    category: "techs",
-    subCategory: "languages",
-  },
-  {
-    text: "TypeScript",
-    category: "techs",
-    subCategory: "languages",
-  },
-  {
-    text: "PHP",
-    category: "techs",
-    subCategory: "languages",
-  },
-  {
-    text: "Ruby",
-    category: "techs",
-    subCategory: "languages",
-  },
-  {
-    text: "C++",
-    category: "techs",
-    subCategory: "languages",
-  },
-  {
-    text: "React",
-    category: "techs",
-    subCategory: "framework-front",
-  },
-  {
-    text: "Next",
-    category: "techs",
-    subCategory: "framework-front",
-  },
-  {
-    text: "Svelte",
-    category: "techs",
-    subCategory: "framework-front",
-  },
-  {
-    text: "Vue 2",
-    category: "techs",
-    subCategory: "framework-front",
-  },
-  {
-    text: "Symfony",
-    category: "techs",
-    subCategory: "framework-back",
-  },
-  {
-    text: "Ruby-On-Rails",
-    category: "techs",
-    subCategory: "framework-back",
-  },
-  {
-    text: "Silex",
-    category: "techs",
-    subCategory: "framework-back",
-  },
-  {
-    text: "Sharepoint",
-    category: "techs",
-    subCategory: "framework-back",
-  },
-  {
-    text: "Cypress",
-    category: "techs",
-    subCategory: "willing-to-learn",
-  },
-  {
-    text: "Dart + Flutter",
-    category: "techs",
-    subCategory: "willing-to-learn",
-  },
-  {
-    text: "Svelte (more)",
-    category: "techs",
-    subCategory: "willing-to-learn",
-  },
-  {
-    text: "Vue (more)",
-    category: "techs",
-    subCategory: "willing-to-learn",
-  },
-  {
-    text: "Travailler en équipe de tout taille",
-    category: "softSkills",
-  },
-  {
-    text: "Communiquer avec mes collègues",
-    category: "softSkills",
-  },
-  {
-    text: "M'adapter au besoin",
-    category: "softSkills",
-  },
-  {
-    text: "Prendre du recul",
-    category: "softSkills",
-  },
-  {
-    text: "Être créatif et inventif",
-    category: "softSkills",
-  },
-  {
-    text: "Être rigoureux et précis",
-    category: "softSkills",
-  },
-  {
-    text: "Être force de proposition",
-    category: "softSkills",
-  },
-  {
-    text: "Être versatile",
-    category: "softSkills",
-  },
-  {
-    text: "Être autonome",
-    category: "softSkills",
-  },
-]
+import Button, { Colors } from "@/components/Button"
+import PageTitle from "@/components/PageTitle"
+import PageTransition from "@/components/PageTransition"
+import Feat from "@/features/Stack"
+import { cN } from "@/lib"
+import { GET_SKILLS, type SkillCategoriesDataType } from "@/queries/stack"
+import { IPageProps } from "@/types"
+
+const TECHS = "techs",
+  KNOW_HOW = "knowHow",
+  SOFT_SKILLS = "softSkills"
+const CATEGORIES = [TECHS, KNOW_HOW, SOFT_SKILLS] as const
 
 export default function Stack({ previousRoute }: IPageProps) {
   const [t] = useTranslation()
-  const [tab, setTab] = useState("knowHow")
+  const [tab, setTab] = useState(TECHS)
+
+  const { data, loading } = useQuery<SkillCategoriesDataType>(GET_SKILLS)
+  const { techs, knowHow, softSkills } = data ?? {}
 
   return (
     <PageTransition
@@ -203,22 +61,18 @@ export default function Stack({ previousRoute }: IPageProps) {
           ))}
         </div>
 
-        <section className="area-[details] flex flex-col overflow-hidden md:p-16 border-4 border-dashed rounded-lg">
-          <Title.h3
-            className="px-6 md:px-8 py-4"
-            text={t("stack.category." + tab)}
-          />
-
-          <div className="pb-8 w-full h-full">
-            <div className="py-2 px-6 md:px-8 flex flex-wrap items-center gap-4 h-[calc(100%_-_3rem)] overflow-x-hidden">
-              {SKILLS.filter((skill) => skill.category === tab).map((skill) => (
-                <span
-                  key={skill.text}
-                  className="max-h-full bg-stone-50 rounded-full py-4 px-6 md:px-8 whitespace-nowrap overflow-hidden text-ellipsis"
-                >
-                  {skill.text}
-                </span>
-              ))}
+        <section className="area-[details] flex flex-col overflow-hidden border-4 border-dashed rounded-lg">
+          <div className="w-full h-full">
+            <div className="flex flex-wrap gap-4 h-full overflow-x-hidden">
+              {tab === TECHS && techs && (
+                <Feat.Techs key={TECHS} data={techs?.data} />
+              )}
+              {tab === KNOW_HOW && knowHow && (
+                <Feat.Techs key={TECHS} data={knowHow?.data} />
+              )}
+              {tab === SOFT_SKILLS && softSkills && (
+                <Feat.Techs key={TECHS} data={softSkills?.data} />
+              )}
             </div>
           </div>
         </section>

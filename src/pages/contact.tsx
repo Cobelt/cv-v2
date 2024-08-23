@@ -93,7 +93,7 @@ export default function Contact({ previousRoute }: IPageProps) {
           <div className="area-[form] flex flex-col gap-4 items-center bg-stone-50 m-20 p-12 rounded-xl">
             <Title.h1
               className="pb-6 justify-self-center mt-auto"
-              text={`#${data?.id ?? 0 < 10 ? "0" : ""}${
+              text={`#${parseInt(data?.id ?? "0") < 10 ? "0" : ""}${
                 data?.id ?? "?"
               } - Merci d'avoir pris contact !`}
             />

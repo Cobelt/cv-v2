@@ -1,12 +1,11 @@
 import { ApolloProvider } from "@apollo/client"
-import { AnimatePresence, motion as m } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 import i18n from "i18next"
 import Backend from "i18next-http-backend"
 import { AppProps } from "next/app"
 import Head from "next/head"
 import { initReactI18next } from "react-i18next"
 
-import { container, fadeInItem } from "@/animations/pageContainer"
 import client from "@/apollo"
 import usePreviousRoute from "@/hooks/usePreviousRoute"
 import { API_URL, AUTHOR, cN, SITE_DESCRIPTION, THUMBNAIL_URL } from "@/lib"
@@ -15,7 +14,6 @@ import { IPageProps } from "@/types"
 import Arrows from "@/components/Arrows"
 import Logo from "@/components/Logo"
 import Tabs from "@/components/Tabs"
-import SVG from "@/components/svg"
 
 import "@/styles/_globals.scss"
 import "@/styles/animations.scss"
@@ -96,7 +94,7 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
         <div className="flex justify-between lg:hidden sticky z-30">
           <Logo />
 
-          <m.details variants={container}>
+          {/* <m.details variants={container}>
             <m.summary variants={fadeInItem} className="list-none">
               <SVG.flags.France className="h-8 w-8 rounded-lg" />
             </m.summary>
@@ -106,7 +104,7 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
             <m.span variants={fadeInItem}>
               <SVG.flags.Russia className="h-8 w-8 rounded-lg" />
             </m.span>
-          </m.details>
+          </m.details> */}
         </div>
         <div className="flex items-center lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30 mb-8 lg:mb-0">
           <Logo className="hidden lg:flex" />

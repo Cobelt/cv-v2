@@ -152,9 +152,10 @@ body {
       }
       &.order-1,
       &.order-5 {
-        flex: 2;
+        width: 0;
+        flex: 0;
         a {
-          transform: scale(0.7);
+          transform: scaleX(0);
         }
       }
     }

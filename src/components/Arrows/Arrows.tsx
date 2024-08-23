@@ -27,6 +27,8 @@ export default function Arrows() {
   const { push } = useRouter()
 
   const onScroll = (url: string) => (scrollDirection: number) => {
+    if (currentRoute !== "stack") return null
+
     let newScrollQty =
       Math.sign(scrollQty) === Math.sign(scrollDirection)
         ? scrollQty + Math.sign(scrollDirection)
