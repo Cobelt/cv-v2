@@ -1,5 +1,5 @@
 import useAnimatePageProps from "@/hooks/useAnimatePageProps"
-import { SITE_URL, cN } from "@/lib"
+import { DOMAIN, cN } from "@/lib"
 import { motion as m } from "framer-motion"
 import Head from "next/head"
 import { ReactNode } from "react"
@@ -37,7 +37,7 @@ export default function PageTransition({
       {...animation}
     >
       <Head>
-        <title>{headTitle ? `${headTitle} - ${SITE_URL}` : SITE_URL}</title>
+        <title>{headTitle ? `${headTitle} - ${DOMAIN}` : DOMAIN}</title>
       </Head>
 
       {children}

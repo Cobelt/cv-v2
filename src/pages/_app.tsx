@@ -9,7 +9,7 @@ import { initReactI18next } from "react-i18next"
 import { container, fadeInItem } from "@/animations/pageContainer"
 import client from "@/apollo"
 import usePreviousRoute from "@/hooks/usePreviousRoute"
-import { API_URL, cN } from "@/lib"
+import { API_URL, AUTHOR, cN, THUMBNAIL_URL } from "@/lib"
 import { IPageProps } from "@/types"
 
 import Arrows from "@/components/Arrows"
@@ -47,9 +47,46 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
   return (
     <ApolloProvider client={client}>
       <Head>
-        <meta name="description" content="CV de Paul-Emile Moreau" />
         <link rel="shortcut icon" href="/icon/favicon.ico" />
+        <meta name="description" content={} />
+        {/* Meta keywords (optionnel, moins utilisé de nos jours) */}
+        <meta
+          name="keywords"
+          content="CV en ligne, développeur Web, full-stack, front-end, React, JavaScript, TypeScript, développeur, portfolio"
+        />
+
+        {/* Auteur */}
+        <meta
+          name="author"
+          content={`${AUTHOR.firstname} ${AUTHOR.lastname}`}
+        />
+
+        {/* Open Graph (pour un meilleur partage sur les réseaux sociaux) */}
+        <meta property="og:image" content={THUMBNAIL_URL} />
+        <meta
+          property="og:title"
+          content={`${AUTHOR.firstname} ${AUTHOR.lastname} - Développeur Web spécialisé sur React`}
+        />
+        <meta
+          property="og:description"
+          content={`Découvrez le CV en ligne de ${AUTHOR.firstname} ${AUTHOR.lastname}, développeur Web Full-Stack spécialisé en React / TypeScript.`}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://polemil.dev" />
+
+        {/* Twitter Card (pour un meilleur affichage sur Twitter) */}
+        <meta name="twitter:image" content={THUMBNAIL_URL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={`${AUTHOR.firstname} ${AUTHOR.lastname} - Développeur Web spécialisé sur React`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Découvrez le CV en ligne de ${AUTHOR.firstname} ${AUTHOR.lastname}, développeur Web Full-Stack spécialisé en React / TypeScript.`}
+        />
       </Head>
+
       <div
         className={cN(
           "relative text-stone-800 font-rubikReg h-screen overflow-hidden",
