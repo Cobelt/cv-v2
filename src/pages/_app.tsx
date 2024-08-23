@@ -9,7 +9,7 @@ import { initReactI18next } from "react-i18next"
 import { container, fadeInItem } from "@/animations/pageContainer"
 import client from "@/apollo"
 import usePreviousRoute from "@/hooks/usePreviousRoute"
-import { API_URL, AUTHOR, cN, THUMBNAIL_URL } from "@/lib"
+import { API_URL, AUTHOR, cN, SITE_DESCRIPTION, THUMBNAIL_URL } from "@/lib"
 import { IPageProps } from "@/types"
 
 import Arrows from "@/components/Arrows"
@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
     <ApolloProvider client={client}>
       <Head>
         <link rel="shortcut icon" href="/icon/favicon.ico" />
-        <meta name="description" content={} />
+        <meta name="description" content={SITE_DESCRIPTION} />
         {/* Meta keywords (optionnel, moins utilisé de nos jours) */}
         <meta
           name="keywords"
