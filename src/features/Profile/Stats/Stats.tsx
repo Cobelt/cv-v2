@@ -8,6 +8,7 @@ interface IStat {
   count: number
   text: string
   href?: string
+  target?: string
   arrowColor?: string
   counterAnimDuration?: number
   animateFrom?: number
@@ -19,6 +20,7 @@ export function Stat({
   count,
   text,
   href,
+  target,
   arrowColor,
 }: IStat) {
   const ref = useRef<HTMLDivElement>(null)
@@ -59,6 +61,7 @@ export function Stat({
   return (
     <Tag
       href={href ?? ""}
+      target={href && target}
       className={cN(
         "flex-1 flex gap-1 self-end items-end justify-center",
         href && "group"
@@ -113,10 +116,15 @@ export default function Stats({ className }: WithClassNameProps) {
       <Stat
         href="/stack"
         arrowColor="text-blue-500"
-        count={25}
+        count={22}
         text="technos domptées"
       />
-      <Stat count={42} text="machin chose" />
+      <Stat
+        href="https://docs.google.com/document/d/1VQQZVnw0dl3XgDyoYZCu7IS47F7ttdg6q0J1BEOPo0g/edit?usp=sharing"
+        target="_blank"
+        count={6342}
+        text="mots"
+      />
     </div>
   )
 }
