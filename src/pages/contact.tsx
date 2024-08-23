@@ -13,6 +13,7 @@ import { cN } from "@/lib"
 import { CONTACT_ME, type ContactDataType } from "@/queries/contact"
 import { IPageProps } from "@/types"
 import { useMutation } from "@apollo/client"
+import Head from "next/head"
 import { useLocalStorage } from "usehooks-ts"
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
@@ -68,6 +69,10 @@ export default function Contact({ previousRoute }: IPageProps) {
       previousRoute={previousRoute}
       className="page:contact bg-red-400 overflow-hidden"
     >
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
+
       <m.main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
