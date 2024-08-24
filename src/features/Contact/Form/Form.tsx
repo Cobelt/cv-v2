@@ -17,7 +17,7 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
   return (
     <form
       className={cN(
-        "template-[form] grid gap-4 bg-stone-50 md:m-20 p-8 md:p-12 rounded-xl",
+        "template-[form] grid gap-4 bg-stone-50 md:mx-20 my-auto p-8 md:p-12 rounded-xl",
         className
       )}
       onSubmit={onSubmit}
