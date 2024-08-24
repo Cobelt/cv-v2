@@ -6,6 +6,7 @@ import { container, fadeInItemRapid } from "@/animations/pageContainer"
 import Title from "@/components/Title"
 import { cN } from "@/lib"
 import { GET_PROJECTS, type ProjectsDataType } from "@/queries/projects"
+import { CSSProperties } from "react"
 
 interface IDetails {
   index: number
@@ -29,7 +30,10 @@ export default function Details({ className, index }: IDetails) {
         animate="show"
         exit="hidden"
         key={index}
-        className={cN(className, "overflow-hidden flex flex-col gap-4")}
+        className={cN(
+          className,
+          "min-h-[20vh] overflow-y-auto flex flex-col gap-4 pr-3 md:pr-0"
+        )}
       >
         <m.div variants={fadeInItemRapid}>
           <Title.h1 text={t(name)} />
@@ -45,7 +49,7 @@ export default function Details({ className, index }: IDetails) {
 
         <m.p
           variants={fadeInItemRapid}
-          className="max-h-[30vh] overflow-auto text-sm sm:text-base 2xl:text-xl pr-1.5"
+          className="max-h-[30vh] min-h-20 text-sm sm:text-base 2xl:text-xl md:mb-6"
         >
           {t(description)}
         </m.p>
@@ -57,18 +61,24 @@ export default function Details({ className, index }: IDetails) {
 
         <m.div
           variants={fadeInItemRapid}
-          className="flex flex-wrap justify-between gap-2 text-xl text-stone-50"
+          className="infinite-roller text-xl text-stone-50 min-h-8"
         >
-          {skills?.data?.map?.(({ attributes: { skill, link } = {} }) => (
-            <a
-              key={skill}
-              href={link}
-              target="_blank"
-              className="text-lg md:text-2xl lg:text-3xl hover:custom-underline"
-            >
-              {t(skill ?? "")}
-            </a>
-          ))}
+          {skills?.data?.map?.(
+            ({ attributes: { key, level } = {} }, index, arr) => (
+              <div
+                key={key}
+                className="inline-block text-lg md:text-2xl lg:text-3xl whitespace-nowrap"
+                style={
+                  {
+                    "--index": index,
+                    "--itemsCount": arr?.length,
+                  } as CSSProperties
+                }
+              >
+                {t(key ?? "")}
+              </div>
+            )
+          )}
         </m.div>
       </m.div>
     </AnimatePresence>

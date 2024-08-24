@@ -7,10 +7,12 @@ interface ICardProps {
   title?: ICard["title"]
   description?: ICard["description"]
   className?: string
+  imgContainerClassName?: string
   noOverlay?: boolean
 }
 export default function Card({
   className,
+  imgContainerClassName,
   image,
   title,
   description,
@@ -24,7 +26,7 @@ export default function Card({
         gridTemplateAreas: '"img" "overlap"',
       }}
     >
-      <div className="area-[img/overlap]">
+      <div className={cN("area-[img/overlap]", imgContainerClassName)}>
         <Image
           src={image.url}
           alt={image?.alternativeText ?? image.name}

@@ -63,7 +63,7 @@ export function Stat({
       href={href ?? ""}
       target={href && target}
       className={cN(
-        "flex-1 flex gap-1 self-end items-end justify-center",
+        "flex-1 flex gap-1 self-end items-end justify-center overflow-hidden",
         href && "group"
       )}
     >

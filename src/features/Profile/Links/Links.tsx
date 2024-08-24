@@ -29,7 +29,7 @@ export default function Links({ className }: WithClassNameProps) {
       animate="show"
       className={cN(
         className,
-        "flex flex-wrap gap-x-16 gap-y-6",
+        "flex flex-wrap xl:flex-nowrap gap-x-16 gap-y-6",
         "font-rubikBold text-lg lg:text-xl xl:text-2xl"
       )}
     >

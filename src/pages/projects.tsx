@@ -4,7 +4,6 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 import { container, fadeInItem } from "@/animations/pageContainer"
-import Carousel from "@/components/Carousel"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import { BO_URL, cN } from "@/lib"
@@ -53,7 +52,7 @@ export default function Projects({ previousRoute }: IPageProps) {
 
         <Feat.Details className="area-[desc]" index={index} />
 
-        <Carousel
+        <Feat.Carousel
           className="area-[image]"
           cards={projects?.map(({ attributes }) => ({
             title: attributes?.name,

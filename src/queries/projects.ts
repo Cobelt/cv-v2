@@ -3,8 +3,8 @@ import { type ImageDataType } from "."
 
 export interface ProjectSkillDataType {
   attributes: {
-    skill: string
-    link: string
+    key: string
+    level: string
   }
 }
 
@@ -61,8 +61,8 @@ export const GET_PROJECTS = gql`
           skills {
             data {
               attributes {
-                skill
-                link
+                key
+                level
               }
             }
           }

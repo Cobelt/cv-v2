@@ -46,8 +46,9 @@ export default function Profile({ previousRoute }: IPageProps) {
           variants={fadeInItem}
           className="area-[name] flex items-end lg:hidden"
         >
-          <Title.h1 className="flex flex-col">
-            Paul-Emile <span className="text-5xl sm:text-6xl ">Moreau</span>
+          <Title.h1 className="flex flex-col gap-x-2">
+            Paul-Emile
+            <span className="text-5xl sm:text-6xl text-white">Moreau</span>
           </Title.h1>
         </m.div>
 

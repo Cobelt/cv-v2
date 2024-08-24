@@ -7,18 +7,17 @@
   	"photo     .        "
   	"photo     name     "
     "digest    digest   " 1fr
-    "stats     stats    "
     "mailBtn   mailBtn  "
+    "stats     stats    "
   / auto 1fr;
 
   /* prettier-ignore */
   --sm:
-  "photo   pagetitle"
-  "photo   name     "
-  "digest  digest   " 1fr
-  "mailBtn mailBtn  " 1fr
-  "stats     stats    "
-  / auto 1fr;
+    "mailBtn mailBtn      pagetitle pagetitle"
+    "photo name name ."
+    "digest   digest digest    digest   " 1fr
+    "stats   stats  stats     stats    " auto
+   / auto auto 1fr;
 
   /* prettier-ignore */
   --lg:

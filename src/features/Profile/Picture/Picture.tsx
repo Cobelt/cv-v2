@@ -16,8 +16,8 @@ export default function Picture({ className }: WithClassNameProps) {
     <m.div
       variants={fadeInItem}
       className={cN(
-        "flex items-end md:items-center sm:justify-end",
-        "mt-auto lg:mb-auto font-rubikBold",
+        "flex items-end md:items-center lg:justify-end",
+        "mt-auto sm:mb-auto font-rubikBold",
         className
       )}
     >
@@ -25,7 +25,7 @@ export default function Picture({ className }: WithClassNameProps) {
         <Image
           className={cN(
             "flex-1 rounded-full aspect-square object-cover overflow-hidden",
-            "group-hover:blur transition-all duration-300"
+            "group-hover:blur transition-all duration-300 min-w-30 sm:min-w-48"
           )}
           style={{ width: "var(--picture-clamp)" }}
           src={pictureOfMe}

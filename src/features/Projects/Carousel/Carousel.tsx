@@ -4,9 +4,9 @@ import { CSSProperties, useEffect, useState } from "react"
 import { container, fadeInItem } from "@/animations/pageContainer"
 import { cN } from "@/lib"
 import { type ICard } from "@/types"
-import Button, { Colors } from "../Button"
-import Card from "../Card"
-import SVG from "../svg"
+import Button, { Colors } from "../../../components/Button"
+import Card from "../../../components/Card"
+import SVG from "../../../components/svg"
 
 interface ICarousel {
   cards: ICard[]
@@ -61,6 +61,7 @@ export default function Carousel({
             <Card
               key={card.title}
               className="min-w-full min-h-full border-4 border-stone-50 border-dashed"
+              imgContainerClassName="max-h-[35vh]"
               noOverlay
               {...card}
             />
