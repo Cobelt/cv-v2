@@ -62,6 +62,8 @@ export default function Contact({ previousRoute }: IPageProps) {
     })
   }
 
+  const id = data?.createContact?.data?.id
+
   // const callApi = () => console.log("TODO: Call API discord server")
   return (
     <PageTransition
@@ -90,14 +92,14 @@ export default function Contact({ previousRoute }: IPageProps) {
             loading={loading}
           />
         ) : (
-          <div className="area-[form] flex flex-col gap-4 items-center bg-stone-50 md:m-20 p-12 rounded-xl">
+          <div className="area-[form] flex flex-col gap-4 items-center bg-stone-50 md:mx-20 my-auto p-12 rounded-xl">
             <Title.h1
               className="pb-6 justify-self-center mt-auto"
-              text={`#${parseInt(data?.id ?? "0") < 10 ? "0" : ""}${
-                data?.id ?? "?"
+              text={`#${parseInt(id ?? "0") < 10 ? "0" : ""}${
+                id ?? "?"
               } - Merci d'avoir pris contact !`}
             />
-            <div className="relative py-12 px-32 -m-4">
+            <div className="relative md:py-12 md:px-32 -m-4">
               <div className="absolute inset-0 bg-indigo-200 rounded-full blur-2xl"></div>
               <Lottie
                 animationData={mailSentAnimation}
@@ -105,17 +107,21 @@ export default function Contact({ previousRoute }: IPageProps) {
               />
             </div>
 
-            <Title.h6 className="flex items-center gap-2 mt-12">
-              {
-                ONLY_WRONG_QUESTIONS?.[
-                  Math.floor(Math.random() * ONLY_WRONG_QUESTIONS.length)
-                ]
-              }{" "}
-              Renvoyez moi un mail
-              <span className="material-icons text-3xl text-indigo-500">
-                south_west
-              </span>
-            </Title.h6>
+            <div className=" mt-12">
+              <Title.h6 className="inline mr-2">
+                {
+                  ONLY_WRONG_QUESTIONS?.[
+                    Math.floor(Math.random() * ONLY_WRONG_QUESTIONS.length)
+                  ]
+                }
+              </Title.h6>
+              <Title.h6 className="inline-flex items-center gap-2 text-left">
+                Renvoyez moi un mail
+                <span className="material-icons text-3xl text-indigo-500">
+                  south_west
+                </span>
+              </Title.h6>
+            </div>
 
             <div className="mb-auto">
               <Button
