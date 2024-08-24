@@ -17,7 +17,7 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
   return (
     <form
       className={cN(
-        "template-[form] grid gap-4 bg-stone-50 m-20 p-12 rounded-xl",
+        "template-[form] grid gap-4 bg-stone-50 md:m-20 p-8 md:p-12 rounded-xl",
         className
       )}
       onSubmit={onSubmit}
@@ -28,7 +28,10 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
       }
     >
       <Title.h1 className="area-[title] pb-6 justify-self-center">
-        Un petit formulaire rapidos
+        Un petit form
+        <span className="hidden md:inline">ulaire </span>
+        <span className="md:hidden inline">{"' "}</span>
+        rapidos
       </Title.h1>
 
       <Inputs.Text
@@ -66,7 +69,7 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
         label="Message"
       />
 
-      <div className="area-[infos] flex items-center justify-around">
+      <div className="area-[infos] flex items-center justify-around flex-col md:flex-row">
         <Title.h6>{t("contact.email.text")}</Title.h6>
         <Link
           className="group relative flex flex-col"
