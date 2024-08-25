@@ -54,10 +54,12 @@ export default function Details({ className, index }: IDetails) {
           {t(description)}
         </m.p>
 
-        <m.div
-          variants={fadeInItemRapid}
-          className="w-full h-0.5 rounded-full bg-stone-800 my-2 2xl:my-6"
-        />
+        {!!skills?.data?.length && (
+          <m.div
+            variants={fadeInItemRapid}
+            className="w-full h-0.5 rounded-full bg-stone-800 my-2 2xl:my-6"
+          />
+        )}
 
         <m.div
           variants={fadeInItemRapid}
