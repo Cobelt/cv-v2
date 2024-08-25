@@ -39,7 +39,7 @@ export default function Links({ className }: WithClassNameProps) {
         href={CV_URL}
         target="_blank"
         className={cN(
-          "relative group flex items-center",
+          "relative group flex items-center justify-center w-full md:w-auto",
           "order-2 sm:order-1",
           // "before:absolute before:inset-0 before:rounded-full before:border-2 before:border-dashed before:border-current",
           "py-3 pl-6 pr-8",
@@ -49,7 +49,7 @@ export default function Links({ className }: WithClassNameProps) {
         <DashBorder
           width={refWidth}
           height={refHeight}
-          rectClassName="[stroke-dashoffset:0] group-hover:[stroke-dashoffset:-75]"
+          rectClassName="[stroke-dashoffset:5] group-hover:[stroke-dashoffset:-80]"
         />
 
         <div className="overflow-hidden group-hover:-translate-y-2.5 transition-tran">
@@ -60,7 +60,7 @@ export default function Links({ className }: WithClassNameProps) {
         <span className="whitespace-nowrap">Télécharger mon CV</span>
       </m.a>
 
-      <div className="order-1 sm:order-2 flex gap-x-16 gap-y-6">
+      <div className="order-1 sm:order-2 flex gap-x-16 gap-y-6 justify-between md:justify-start w-full md:w-auto">
         <m.a
           variants={fadeInItem}
           href="https://www.linkedin.com/in/paul-emile-moreau/"

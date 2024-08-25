@@ -162,18 +162,11 @@ body {
   }
 }
 
-body:has(.anchor:hover) .linked\:text-stone-50 {
-  color: rgb(250 250 249 / 1);
+input.view-more:checked ~ .hidden {
+  display: flex;
 }
-body:has(.anchor:hover) .linked.bubbles,
-body:has(.anchor-2:hover) .linked-2.bubbles {
-  color: white;
-  &:before {
-    display: block;
-    animation: topBubbles ease-in-out 0.75s forwards;
-  }
-  &:after {
-    display: block;
-    animation: bottomBubbles ease-in-out 0.75s forwards;
-  }
+
+input.view-more,
+input.view-more:checked ~ .view-more-label {
+  display: none;
 }

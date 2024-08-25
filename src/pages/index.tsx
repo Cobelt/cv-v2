@@ -7,7 +7,7 @@ import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import Title from "@/components/Title"
 import Feat from "@/features/Profile"
-import { cN } from "@/lib"
+import { AUTHOR, cN } from "@/lib"
 import { type IPageProps } from "@/types"
 
 export default function Profile({ previousRoute }: IPageProps) {
@@ -31,7 +31,7 @@ export default function Profile({ previousRoute }: IPageProps) {
         )}
       >
         {/* Put it here so it gets behind every other texts */}
-        <Feat.MailMeButton className="area-[mailBtn] 2xl:area-[mailBtn/overlap]" />
+        <Feat.ContactMe className="area-[mailBtn] 2xl:area-[mailBtn/overlap]" />
 
         <PageTitle className="area-[pagetitle] 2xl:area-[overlap/pagetitle]">
           <div className="group flex gap-3">
@@ -46,9 +46,11 @@ export default function Profile({ previousRoute }: IPageProps) {
           variants={fadeInItem}
           className="area-[name] flex items-end lg:hidden"
         >
-          <Title.h1 className="flex flex-col gap-x-2">
-            Paul-Emile
-            <span className="text-5xl sm:text-6xl text-white">Moreau</span>
+          <Title.h1 className="flex flex-col gap-x-2 whitespace-nowrap">
+            {AUTHOR.firstname}
+            <span className="text-4xl sm:text-5xl md:text-6xl text-white">
+              {AUTHOR.lastname}
+            </span>
           </Title.h1>
         </m.div>
 

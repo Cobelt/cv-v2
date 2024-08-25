@@ -1,8 +1,8 @@
-import Picture from "./Picture"
+import ContactMe from "./ContactMe"
 import Digest from "./Digest"
 import Languages from "./Languages"
-import MailMeButton from "./MailMeButton"
 import Links from "./Links"
+import Picture from "./Picture"
 import Stacks from "./Stacks"
 import Stats from "./Stats"
 
@@ -10,7 +10,7 @@ const Profile = {
   Picture,
   Digest,
   Links,
-  MailMeButton,
+  ContactMe,
   Stacks,
   Stats,
   Languages,

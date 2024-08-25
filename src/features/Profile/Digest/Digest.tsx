@@ -16,7 +16,7 @@ export default function Digest({ className }: WithClassNameProps) {
       className={cN(
         className,
         "self-center sm:justify-center gap-2",
-        "font-rubikReg font-semibold text-2xl lg:text-3xl text-left mb-auto md:mb-0"
+        "font-rubikReg font-semibold text-xl md:text-2xl lg:text-3xl text-left mb-auto lg:mb-0"
       )}
     >
       <m.h2
@@ -28,20 +28,15 @@ export default function Digest({ className }: WithClassNameProps) {
       </m.h2>
 
       <div className="flex flex-col gap-2 group">
-        <m.h6
+        <m.div
           variants={fadeInItem}
           className="order-3 group-hover:push-forward"
         >
           {t("profile.xp.webdev.0")}
           <span className="hidden sm:inline"> {t("profile.xp.webdev.1")}</span>,
           spécialisé <span className="text-blue-500">Front-End</span>
-          {/* {t("common.with")}{" "}
-        <span className="text-blue-500">
-          {t("profile.xp.years.0")}
-          <span className="inline">{t("profile.xp.years.1")}</span>
-        </span> */}
-        </m.h6>
-        <m.h6
+        </m.div>
+        <m.div
           variants={fadeInItem}
           className="order-4 group-hover:push-forward"
         >
@@ -49,17 +44,17 @@ export default function Digest({ className }: WithClassNameProps) {
           <span className="text-blue-500 anchor cursor-help">React</span>{" "}
           {t("common.and")}{" "}
           <span className="text-blue-500 anchor-2 cursor-help">Typescript</span>
-        </m.h6>
-        <m.h6
+        </m.div>
+        <m.div
           variants={fadeInItem}
           className="order-5 group-hover:push-forward"
         >
           Diplômé d{"'"}un <span className="text-blue-500">BAC+3</span> en
           informatique
-        </m.h6>
+        </m.div>
       </div>
       <Feat.Links className="order-6 mt-8 mb-4 sm:mb-0 lg:mt-4" />
-      {/* <m.h6
+      {/* <m.div
         variants={fadeInItem}
         className="order-2 lg:order-5 group-hover:push-forward mb-6 lg:mb-0"
       >
@@ -83,7 +78,7 @@ export default function Digest({ className }: WithClassNameProps) {
         ) : (
           <span>{t("profile.available.false")}</span>
         )}
-      </m.h6> */}
+      </m.div> */}
 
       {/* <Languages className="order-6 sm:order-7 mr-auto 2xl:mr-0 2xl:ml-auto" /> */}
     </section>

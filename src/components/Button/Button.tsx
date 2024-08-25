@@ -17,6 +17,7 @@ interface IButton
   rounded?: boolean
   borderless?: boolean
   noPressAnim?: boolean
+  padding?: string
 }
 
 const BUTTON_COLOR = {
@@ -63,6 +64,7 @@ export default function Button({
   rounded = false,
   borderless = false,
   noPressAnim = false,
+  padding,
   className,
   ...otherProps
 }: IButton) {
@@ -71,7 +73,9 @@ export default function Button({
       {...otherProps}
       className={cN(
         "flex justify-center items-center outline-none hover:shadow-lg active:shadow-sm",
-        "font-archivo px-5 py-2.5 transition-all",
+        "font-archivo transition-all text-lg md:text-xl",
+        "overflow-hidden text-ellipsis whitespace-nowrap",
+        padding ?? "px-3 py-2 md:px-5 md:py-2.5",
         !borderless && "border-4",
         rounded && "rounded-lg",
         !noPressAnim && "active:translate-y-0.5",

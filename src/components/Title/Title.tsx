@@ -20,7 +20,7 @@ export interface ITitle {
 
 const TITLE_SIZE = {
   [Tags.h1]: "text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl",
-  [Tags.h2]: "text-xl md:text-3xl 2xl:text-4xl",
+  [Tags.h2]: "text-2xl md:text-3xl 2xl:text-4xl",
   [Tags.h3]: "text-xl md:text-2xl xl:text-3xl",
   [Tags.h4]: "text-lg lg:text-2xl",
   [Tags.h5]: "text-lg lg:text-2xl",

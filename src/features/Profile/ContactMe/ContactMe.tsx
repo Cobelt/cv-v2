@@ -7,7 +7,7 @@ import { cN } from "@/lib"
 import { type WithClassNameProps } from "@/types"
 import Link from "next/link"
 
-export default function MailMeButton({ className }: WithClassNameProps) {
+export default function ContactMe({ className }: WithClassNameProps) {
   const [t] = useTranslation()
 
   return (
@@ -23,13 +23,13 @@ export default function MailMeButton({ className }: WithClassNameProps) {
           initial={{ x: -100, y: 100, opacity: 0 }}
           animate={{ x: 0, y: 0, opacity: 1 }}
           transition={{ duration: 0.25, delay: 1.25 }}
-          className="material-icons font-bold text-6xl md:text-7xl group-hover:text-red-400 transition-all group-hover:[transform:translate(10px,-10px)_!important]"
+          className="material-icons font-bold text-4xl md:text-6xl lg:text-7xl group-hover:text-red-400 transition-all group-hover:[transform:translate(0.2em,-0.2em)_!important]"
         >
           north_east
         </m.span>
-        <Title.h1 className="group-hover:text-stone-50 transition-colors">
+        <Title.h2 className="group-hover:text-stone-50 transition-colors">
           {t("contact.me")}
-        </Title.h1>
+        </Title.h2>
       </Link>
     </m.div>
   )

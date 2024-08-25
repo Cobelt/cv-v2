@@ -42,16 +42,16 @@ export default function Stack({ previousRoute }: IPageProps) {
           </span>
         </PageTitle>
 
-        <div className="area-[tabs] flex flex-col items-stretch justify-center gap-4 md:gap-8 pt-8 pb-8 md:pt-16 md:pb-52">
+        <div className="area-[tabs] flex flex-col items-stretch justify-center gap-2 sm:gap-4 md:gap-8 pt-8 pb-8 md:pt-16 md:pb-52">
           {CATEGORIES.map((category) => (
             <Button
               key={category}
               color={Colors.BLACK}
               className={cN(
                 tab === category &&
-                  "!bg-stone-50 text-stone-800 hover:text-stone-800",
-                "px-6 py-4 md:px-16 md:py-6 text-xl"
+                  " !bg-stone-50 text-stone-800 hover:text-stone-800"
               )}
+              padding="px-3 py-2 md:px-6 md:py-4 lg:px-16 lg:py-6"
               borderless
               id={category}
               onClick={() => setTab(category)}

@@ -43,7 +43,7 @@ export default function DashBorder({
         strokeLinecap="round"
         stroke="currentColor"
         strokeWidth={weight}
-        strokeDasharray="20, 20"
+        strokeDasharray="15, 20"
         className={cN(rectClassName)}
         style={{
           width: `calc((${width ?? "100%"} - var(--width)) * 1px)`,
