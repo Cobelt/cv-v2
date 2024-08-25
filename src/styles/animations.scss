@@ -234,7 +234,6 @@
 
   > * {
     flex: 1;
-    min-width: 11rem;
     border-radius: 6px;
     transform: translateX(calc((var(--itemsCount) - var(--index)) * 100%));
     animation-name: rollToLeft;

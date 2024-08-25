@@ -67,7 +67,7 @@ export default function Details({ className, index }: IDetails) {
             ({ attributes: { key, level } = {} }, index, arr) => (
               <div
                 key={key}
-                className="inline-block text-lg md:text-2xl lg:text-3xl whitespace-nowrap"
+                className="inline-block text-lg md:text-2xl lg:text-3xl whitespace-nowrap min-w-28 md:min-w-44"
                 style={
                   {
                     "--index": index,
