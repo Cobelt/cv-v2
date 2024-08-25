@@ -49,7 +49,7 @@ export default function Details({ className, index }: IDetails) {
 
         <m.p
           variants={fadeInItemRapid}
-          className="max-h-[30vh] min-h-20 text-sm sm:text-base 2xl:text-xl md:mb-6"
+          className="text-sm sm:text-base 2xl:text-xl md:mb-6"
         >
           {t(description)}
         </m.p>
@@ -57,31 +57,31 @@ export default function Details({ className, index }: IDetails) {
         {!!skills?.data?.length && (
           <m.div
             variants={fadeInItemRapid}
-            className="w-full h-0.5 rounded-full bg-stone-800 my-2 2xl:my-6"
-          />
+            className="border-t-2 border-stone-800 pt-4 2xl:my-6"
+          >
+            <m.div
+              variants={fadeInItemRapid}
+              className="infinite-roller text-xl text-stone-50 min-h-8"
+            >
+              {skills?.data?.map?.(
+                ({ attributes: { key, level } = {} }, index, arr) => (
+                  <div
+                    key={key}
+                    className="inline-block text-lg md:text-2xl lg:text-3xl whitespace-nowrap min-w-28 md:min-w-44"
+                    style={
+                      {
+                        "--index": index,
+                        "--itemsCount": arr?.length,
+                      } as CSSProperties
+                    }
+                  >
+                    {t(key ?? "")}
+                  </div>
+                )
+              )}
+            </m.div>
+          </m.div>
         )}
-
-        <m.div
-          variants={fadeInItemRapid}
-          className="infinite-roller text-xl text-stone-50 min-h-8"
-        >
-          {skills?.data?.map?.(
-            ({ attributes: { key, level } = {} }, index, arr) => (
-              <div
-                key={key}
-                className="inline-block text-lg md:text-2xl lg:text-3xl whitespace-nowrap min-w-28 md:min-w-44"
-                style={
-                  {
-                    "--index": index,
-                    "--itemsCount": arr?.length,
-                  } as CSSProperties
-                }
-              >
-                {t(key ?? "")}
-              </div>
-            )
-          )}
-        </m.div>
       </m.div>
     </AnimatePresence>
   )
