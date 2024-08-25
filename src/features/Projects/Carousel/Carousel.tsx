@@ -60,8 +60,8 @@ export default function Carousel({
           {cards?.map((card) => (
             <Card
               key={card.title}
-              className="min-w-full min-h-full border-4 border-stone-50 border-dashed"
-              imgContainerClassName="max-h-[35vh]"
+              className="min-w-full min-h-full justify-center"
+              imgContainerClassName="max-h-[36vh] max-w-[64vh] aspect-[1280/720] border-4 border-stone-50 border-dashed rounded-lg"
               noOverlay
               {...card}
             />
