@@ -250,3 +250,25 @@
     animation-play-state: paused;
   }
 }
+
+@property --maskedBorderPercent {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+.maskedBorder {
+  @apply relative p-1 md:p-1.5;
+
+  &:before {
+    content: "";
+    @apply absolute inset-0 border-4 lg:border-8 border-blue-500 rounded-full;
+    mask-image: conic-gradient(
+      white var(--maskedBorderPercent),
+      transparent var(--maskedBorderPercent)
+    );
+    transition: --maskedBorderPercent 0.6s ease-in-out;
+  }
+  &:hover:before {
+    --maskedBorderPercent: 100%;
+  }
+}

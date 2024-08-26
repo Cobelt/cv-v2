@@ -13,7 +13,7 @@ import { cN } from "@/lib"
 import { CONTACT_ME, type ContactDataType } from "@/queries/contact"
 import { IPageProps } from "@/types"
 import { useMutation } from "@apollo/client"
-import Head from "next/head"
+import { useRouter } from "next/router"
 import { useLocalStorage } from "usehooks-ts"
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
@@ -29,9 +29,10 @@ const ONLY_WRONG_QUESTIONS = [
 export default function Contact({ previousRoute }: IPageProps) {
   const [t] = useTranslation()
   const [showThanks, setShowThanks] = useState(false)
+  const router = useRouter()
   const [lastContactId, saveLastContactId] = useLocalStorage(
     "lastContactId",
-    null
+    ""
   )
 
   useEffect(() => {
@@ -41,9 +42,12 @@ export default function Contact({ previousRoute }: IPageProps) {
   const [mutate, { data, loading, called }] =
     useMutation<ContactDataType>(CONTACT_ME)
 
+  const id = data?.createContact?.data?.id
+
   useEffect(() => {
     if (called && !loading && data) {
       setShowThanks(true)
+      if (id) saveLastContactId(id)
     }
   }, [called, data, loading])
 
@@ -62,8 +66,6 @@ export default function Contact({ previousRoute }: IPageProps) {
     })
   }
 
-  const id = data?.createContact?.data?.id
-
   // const callApi = () => console.log("TODO: Call API discord server")
   return (
     <PageTransition
@@ -71,10 +73,6 @@ export default function Contact({ previousRoute }: IPageProps) {
       previousRoute={previousRoute}
       className="page:contact bg-red-400 overflow-hidden"
     >
-      <Head>
-        <meta name="robots" content="noindex" />
-      </Head>
-
       <m.main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
@@ -84,6 +82,18 @@ export default function Contact({ previousRoute }: IPageProps) {
         )}
       >
         <PageTitle className="area-[pagetitle]">{t("contact.me")}</PageTitle>
+
+        <div className="area-[close] flex items-center ">
+          <button
+            onClick={router.back}
+            className={cN(
+              "material-icons text-4xl lg:text-5xl 2xl:text-6xl text-stone-50",
+              "maskedBorder"
+            )}
+          >
+            close
+          </button>
+        </div>
 
         {!showThanks ? (
           <Feat.Form

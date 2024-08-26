@@ -61,7 +61,7 @@ export default function PageTitle({
         {children}
       </Title.h1>
       {subTitle && (
-        <Title.h4 className="text-center lg:text-right" {...counterAnimation}>
+        <Title.h4 className="text-right" {...counterAnimation}>
           {subTitle}
         </Title.h4>
       )}

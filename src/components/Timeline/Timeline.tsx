@@ -107,7 +107,7 @@ export default function Timeline({
       <div className="flex justify-center items-center">
         <Lottie
           animationData={hammerAnimation}
-          className="flex xl:hidden w-64 max-h-64"
+          className="flex xl:hidden w-40 md:w-64 max-h-full overflow-hidden"
         />
       </div>
     </m.div>

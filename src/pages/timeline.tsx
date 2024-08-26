@@ -81,7 +81,10 @@ export default function Jobs({ previousRoute }: IPageProps) {
         )}
         style={{ gridTemplateRows: "auto auto 1fr" }}
       >
-        <PageTitle className="area-[pagetitle]" subTitle="Et mes diplômes">
+        <PageTitle
+          className="area-[pagetitle] overflow-hidden"
+          subTitle="Et mes diplômes"
+        >
           Mes expériences pro
           <div className="bounce-in relative ![animation-delay:0.45s]">
             <span className="remove-rounded rounded-[50%] w-1.5 md:w-2 h-1.5 md:h-2 bg-stone-50 inline-block" />

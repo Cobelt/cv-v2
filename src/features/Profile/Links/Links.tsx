@@ -30,7 +30,7 @@ export default function Links({ className }: WithClassNameProps) {
       className={cN(
         className,
         "flex flex-wrap xl:flex-nowrap gap-x-16 gap-y-6",
-        "font-rubikBold text-lg lg:text-xl xl:text-2xl"
+        "font-rubikBold text-base lg:text-xl xl:text-2xl"
       )}
     >
       <m.a
@@ -49,12 +49,14 @@ export default function Links({ className }: WithClassNameProps) {
         <DashBorder
           width={refWidth}
           height={refHeight}
-          rectClassName="[stroke-dashoffset:5] group-hover:[stroke-dashoffset:-80]"
+          rectClassName="[stroke-width:3] lg:[stroke-width:4] [stroke-dashoffset:5] group-hover:[stroke-dashoffset:-80]"
         />
 
         <div className="overflow-hidden group-hover:-translate-y-2.5 transition-tran">
           <m.span className="group-hover:translate-y-4 transition-transform flex items-center">
-            <span className="material-icons text-4xl">arrow_downward</span>
+            <span className="material-icons text-3xl lg:text-4xl">
+              arrow_downward
+            </span>
           </m.span>
         </div>
         <span className="whitespace-nowrap">Télécharger mon CV</span>
@@ -67,7 +69,10 @@ export default function Links({ className }: WithClassNameProps) {
           target="_blank"
           className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-color"
         >
-          <SVG.Linkedin textColor="rgb(253 186 116)" className="w-8 md:w-10" />
+          <SVG.Linkedin
+            textColor="rgb(253 186 116)"
+            className="w-6 md:w-8 lg:w-10"
+          />
           <span className="group-hover:translate-x-2 transition-transform">
             Linkedin
           </span>
@@ -78,7 +83,7 @@ export default function Links({ className }: WithClassNameProps) {
           target="_blank"
           className="group flex gap-2 hover:gap-4 md:gap-4 items-center hover:text-stone-50 transition-all"
         >
-          <SVG.Github className="w-8 md:w-10" />
+          <SVG.Github className="w-6 md:w-8 lg:w-10" />
           <span className="group-hover:translate-x-2 transition-transform">
             Github
           </span>

@@ -44,8 +44,9 @@ export default function Picture({ className }: WithClassNameProps) {
         <Image
           className={cN(
             "flex-1 rounded-full aspect-square object-cover overflow-hidden",
-            "transition-all duration-200 origin-bottom z-[4] group-hover:scale-110 group-hover:z-[6]",
-            "absolute left-0 top-0 w-full h-full [clip-path:ellipse(43.5%_48%_at_50%_50%)]"
+            "transition-all duration-300 origin-bottom z-[4] group-hover:scale-110 group-hover:z-[6]",
+            "absolute left-0 top-0 w-full h-full [clip-path:ellipse(43.5%_48%_at_50%_50%)]",
+            "ease-[cubic-bezier(.31,.06,0.2,2)]"
           )}
           src={pictureWithoutBg}
           alt={t("profile.photo.floki")}

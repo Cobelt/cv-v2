@@ -36,20 +36,21 @@ export default function Stack({ previousRoute }: IPageProps) {
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
       >
-        <PageTitle className="area-[pagetitle]">
+        <PageTitle className="area-[pagetitle] max-w-full overflow-hidden">
           <span className="hover:[letter-spacing:0.3rem] transition-all">
             Mes compétences
           </span>
         </PageTitle>
 
-        <div className="area-[tabs] flex flex-col items-stretch justify-center gap-2 sm:gap-4 md:gap-8 pt-8 pb-8 md:pt-16 md:pb-52">
+        <div className="area-[tabs] flex flex-col items-stretch justify-center gap-2 sm:gap-4 md:gap-8 pt-0 pb-0 md:pt-16 md:pb-52">
           {CATEGORIES.map((category) => (
             <Button
               key={category}
               color={Colors.BLACK}
               className={cN(
                 tab === category &&
-                  " !bg-stone-50 text-stone-800 hover:text-stone-800"
+                  " !bg-stone-50 text-stone-800 hover:text-stone-800",
+                "text-sm"
               )}
               padding="px-3 py-2 md:px-6 md:py-4 lg:px-16 lg:py-6"
               borderless

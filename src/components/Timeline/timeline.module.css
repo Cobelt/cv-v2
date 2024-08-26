@@ -28,21 +28,23 @@
     margin: 0;
     flex-direction: column;
   }
+  .timeline:before,
+  .timeline:after {
+    background-color: rgb(var(--rgb-gradient));
+    white-space: initial;
+  }
   .timeline:before {
     margin-top: 4rem;
     order: 2;
-    font-family: RubikBold;
-    font-size: 1.75rem;
+    font-family: RubikReg;
+    font-size: 1.5rem;
     content: "Désolé, cette page est encore sous le jougs des coups de marteaux qui lui forgeront un responsive adéquat. ⚒️";
-
-    background-color: rgb(var(--rgb-gradient));
-    white-space: initial;
   }
   .timeline:after {
     margin-top: 1rem;
     order: 3;
     font-family: RubikBold;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     content: "En revanche elle est accessible sur pc ou tablette !";
 
     background-color: rgb(var(--rgb-gradient));
