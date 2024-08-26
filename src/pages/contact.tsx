@@ -88,7 +88,7 @@ export default function Contact({ previousRoute }: IPageProps) {
             onClick={router.back}
             className={cN(
               "material-icons text-4xl lg:text-5xl 2xl:text-6xl text-stone-50",
-              "maskedBorder"
+              "masked-border"
             )}
           >
             close
