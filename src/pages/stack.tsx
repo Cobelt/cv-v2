@@ -49,7 +49,7 @@ export default function Stack({ previousRoute }: IPageProps) {
               color={Colors.BLACK}
               className={cN(
                 tab === category &&
-                  " !bg-stone-50 text-stone-800 hover:text-stone-800",
+                  " !bg-stone-50  after:!border-stone-200 text-stone-800 hover:text-stone-800",
                 "text-sm"
               )}
               padding="px-3 py-2 md:px-6 md:py-4 lg:px-16 lg:py-6"

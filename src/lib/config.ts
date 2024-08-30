@@ -3,7 +3,7 @@ export const SITE_URL = "https://" + DOMAIN
 export const AUTHOR = {
   firstname: "Paul-Emile",
   lastname: "Moreau",
-  email: "polemil.moro@gmail.com",
+  email: "contact@polemil.dev",
   url: "https://polemil.dev",
 }
 export const SITE_DESCRIPTION = `CV en ligne de ${AUTHOR.firstname} ${AUTHOR.lastname}, développeur Web Full-Stack spécialisé en React / TypeScript. Découvrez mes compétences, mes projets, et mon parcours professionnel.`

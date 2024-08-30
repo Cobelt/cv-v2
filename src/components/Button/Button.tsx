@@ -55,6 +55,12 @@ const BORDERLESS_BG = {
   [Colors.PURPLISH]:
     "bg-purplish-600 hover:bg-purplish-700 active:bg-purplish-800",
 }
+const SHADOW_COLOR = {
+  [Colors.BLACK]: "after:border-stone-950",
+  [Colors.INDIGO]: "after:border-indigo-700",
+  [Colors.BLUE]: "after:border-blue-700",
+  [Colors.PURPLISH]: "after:border-purplish-800",
+}
 
 export default function Button({
   children,
@@ -81,7 +87,9 @@ export default function Button({
         !noPressAnim && "active:translate-y-0.5",
         borderless ? BORDERLESS_COLOR[color] : BUTTON_COLOR[color],
         borderless ? BORDERLESS_BG[color] : BUTTON_BG[color],
-        !borderless && BUTTON_BORDER[color],
+        borderless &&
+          "relative after:absolute after:inset-0 after:border-b-4 after:border-r-4",
+        borderless ? SHADOW_COLOR[color] : BUTTON_BORDER[color],
         className
       )}
     >
