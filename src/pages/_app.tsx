@@ -1,9 +1,10 @@
 import { ApolloProvider } from "@apollo/client"
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion as m } from "framer-motion"
 import i18n from "i18next"
 import Backend from "i18next-http-backend"
 import { AppProps } from "next/app"
 import Head from "next/head"
+import Link from "next/link"
 import { initReactI18next } from "react-i18next"
 
 import client from "@/apollo"
@@ -89,25 +90,42 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
       <div
         className={cN(
           "relative text-stone-800 font-rubikReg h-screen overflow-hidden",
-          "py-6 lg:py-16 px-8 lg:px-[8vw] 2xl:px-[calc(5rem_+_3vw)] 3xl:px-[8vw]"
+          "py-6 lg:py-12 px-8 lg:px-[8vw] 2xl:px-[calc(5rem_+_3vw)] 3xl:px-[8vw]"
         )}
       >
         <div className="flex justify-between lg:hidden sticky z-30">
           <Logo />
 
-          {/* <m.details variants={container}>
-            <m.summary variants={fadeInItem} className="list-none">
-              <SVG.flags.France className="h-8 w-8 rounded-lg" />
-            </m.summary>
-            <m.span variants={fadeInItem}>
-              <SVG.flags.GreatBritain className="h-8 w-8 rounded-lg" />
-            </m.span>
-            <m.span variants={fadeInItem}>
-              <SVG.flags.Russia className="h-8 w-8 rounded-lg" />
-            </m.span>
-          </m.details> */}
+          <AnimatePresence initial={false}>
+            {router.pathname !== "/contact" && (
+              <m.span
+                key="email"
+                className="group"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 0.25 } }}
+                exit={{
+                  opacity: 0,
+                  transition: { delay: 0.45, duration: 0.15 },
+                }}
+              >
+                <div className="flex items-center justify-center relative h-full w-full">
+                  <Link href="/contact">
+                    <span
+                      className={cN(
+                        "nav-email relative w-10 h-10 text-4xl",
+                        "group-hover:rotate-[30deg] group-hover:translate-y-3 transition-all duration-500"
+                      )}
+                    >
+                      <span className="material-icons z-10">mail</span>
+                    </span>
+                  </Link>
+                </div>
+              </m.span>
+            )}
+          </AnimatePresence>
         </div>
-        <div className="flex items-center lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30 mb-8 lg:mb-0">
+
+        <div className="flex items-center lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30 mb-4 lg:mb-0">
           <Logo className="hidden lg:flex" />
           <div className="flex-1">
             <Tabs />

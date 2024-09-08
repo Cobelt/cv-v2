@@ -272,3 +272,9 @@
     --maskedBorderPercent: 100%;
   }
 }
+
+@keyframes followPath {
+  100% {
+    offset-distance: 100%;
+  }
+}
