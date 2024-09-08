@@ -18,14 +18,6 @@ export default function Tabs() {
 
   const previousTabUrl = previousTab?.attributes?.url,
     nextTabUrl = nextTab?.attributes?.url
-  console.log({
-    previousTab,
-    nextTab,
-    previousTabUrl,
-    nextTabUrl,
-    currentTab,
-    currentTabOrder,
-  })
 
   const { push } = useRouter()
   const swipeHandlers = useSwipeable({
