@@ -18,7 +18,7 @@ export default function PageTransition({
   children,
   className,
   headTitle,
-  paddingTop = "pt-20 md:pt-24 lg:pt-52",
+  paddingTop = "pt-20 md:pt-24 lg:pt-40",
   paddingBottom = "pb-32 2xl:pb-0",
   paddingHorizontal = "2xl:px-[3vw] 3xl:px-[calc(20vw-10rem)]",
   previousRoute,
@@ -28,10 +28,11 @@ export default function PageTransition({
   return (
     <m.div
       className={cN(
-        "absolute inset-0 z-[5]",
+        "absolute inset-0 pb-32 2xl:pb-0 z-[5]",
         paddingTop,
         paddingBottom,
         paddingHorizontal,
+        "page",
         className
       )}
       {...animation}

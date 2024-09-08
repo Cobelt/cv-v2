@@ -9,7 +9,8 @@ interface IStat {
   text: string
   href?: string
   target?: string
-  arrowColor?: string
+  className?: string
+  countClassName?: string
   counterAnimDuration?: number
   animateFrom?: number
 }
@@ -21,7 +22,8 @@ export function Stat({
   text,
   href,
   target,
-  arrowColor,
+  countClassName,
+  className,
 }: IStat) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true })
@@ -63,30 +65,21 @@ export function Stat({
       href={href ?? ""}
       target={href && target}
       className={cN(
-        "flex-1 flex gap-1 self-end items-end justify-center",
-        href && "group"
+        "stat flex-1 flex gap-1 self-end items-end justify-start md:justify-center",
+        href && "group",
+        className
       )}
     >
       <div className="relative">
         <div
           ref={ref}
           className={cN(
-            "text-[2rem] md:text-5xl xl:text-7xl font-rubikBold ![line-height:0.85]",
-            href && "group-hover:text-stone-50 transition-colors"
+            "count text-[2rem] md:text-5xl xl:text-7xl font-rubikBold ![line-height:0.85]",
+            href && "has-link group-hover:text-stone-50 transition-colors",
+            countClassName,
+            "group-hover:after:top-0 group-hover:after:right-full group-hover:after:opacity-100"
           )}
         />
-        {href && (
-          <div
-            className={cN(
-              "text-2xl md:text-4xl xl:text-6xl absolute material-icons font-bold",
-              "top-[0.2em] lg:top-[0.5em] right-[calc(100%+0.2em)] lg:right-[calc(100%+0.5em)] opacity-30 lg:opacity-0 ",
-              "group-hover:top-0 group-hover:right-full group-hover:opacity-100 transition-all",
-              arrowColor
-            )}
-          >
-            north_east
-          </div>
-        )}
       </div>
       <div className="font-rubikReg text-xs md:text-sm xl:text-base">
         {text.split(" ").map((word) => (

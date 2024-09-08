@@ -17,6 +17,7 @@ import Tabs from "@/components/Tabs"
 
 import "@/styles/_globals.scss"
 import "@/styles/animations.scss"
+import "@/styles/fonts.scss"
 import "@/styles/inputs.scss"
 import "@/styles/pages.scss"
 import "@/styles/transitions.scss"

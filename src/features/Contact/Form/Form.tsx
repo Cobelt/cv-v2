@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { CSSProperties, FormEventHandler } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -69,25 +68,30 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
         label="Message"
       />
 
-      <div className="area-[infos] flex items-center justify-around flex-col md:flex-row">
+      <div className="area-[infos] flex flex-wrap items-center justify-around flex-col md:flex-row mb-4">
         <Title.h6>{t("contact.email.text")}</Title.h6>
-        <Link
-          className="group relative flex flex-col"
-          href="/contact"
+        <Button
+          type="button"
+          borderless
+          color={Colors.BLUE}
+          className="ml-4 group tooltiped overflow-visible"
           onClick={() => navigator.clipboard.writeText(AUTHOR.email)}
         >
-          <Title.h4 className="text-blue-500 order-1 lg:order-2 2xl:order-1 flex gap-4 items-center transition-colors">
+          {/* <Title.h4 className="text-blue-500 order-1 lg:order-2 2xl:order-1 flex transition-colors"> */}
+
+          <div className="flex  gap-4 items-center">
             <span className="material-icons">mail</span>
-            <div className="tooltiped">
-              <span className="group-hover:custom-underline font-rubikBold whitespace-nowrap">
+            <div className="">
+              <span className="font-rubikBold whitespace-nowrap">
                 {t("contact.email.btn")}
               </span>
-              <span className="tooltip-active:bottom font-rubikReg text-base text-stone-800 ">
-                C{"'"}est copié !
-              </span>
             </div>
-          </Title.h4>
-        </Link>
+          </div>
+          <span className="tooltip-active:bottom font-rubikReg text-base text-stone-800 ">
+            {t("contact.email.copied")}
+          </span>
+          {/* </Title.h4> */}
+        </Button>
       </div>
 
       <div className="order-1 lg:order-2 2xl:order-1 flex gap-4 items-center group-hover:text-stone-50 transition-colors"></div>

@@ -80,7 +80,6 @@ export default function Button({
       className={cN(
         "flex justify-center items-center outline-none hover:shadow-lg active:shadow-sm",
         "font-archivo transition-all text-lg md:text-xl",
-        "overflow-hidden text-ellipsis whitespace-nowrap",
         padding ?? "px-3 py-2 md:px-5 md:py-2.5",
         !borderless && "border-4",
         rounded && "rounded-lg",
@@ -93,7 +92,9 @@ export default function Button({
         className
       )}
     >
-      {children}
+      <span className="overflow-hidden text-ellipsis whitespace-nowrap">
+        {children}
+      </span>
 
       <div className="flex gap-2 justify-center items-center">
         {text && <span>{text}</span>}

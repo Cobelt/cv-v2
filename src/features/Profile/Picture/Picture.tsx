@@ -17,7 +17,7 @@ export default function Picture({ className }: WithClassNameProps) {
       variants={fadeInItem}
       className={cN(
         "flex items-end md:items-center lg:justify-end",
-        "mt-auto sm:mb-auto font-rubikBold",
+        "mt-auto lg:mb-auto font-rubikBold",
         className
       )}
     >

@@ -12,10 +12,12 @@ interface ITechs {
 }
 
 const seeMoreClass = cN(
-  "relative cursor-pointer font-bold w-10 h-10 md:w-10 md:h-10",
-  "text-stone-50 hover:text-stone-800 transition-colors before:transition-transform",
-  "before:inset-0 before:absolute before:border-4 before:border-dashed before:border-current before:rounded-full hover:before:rotate-[270deg]"
+  "relative cursor-pointer w-10 h-10 md:w-10 md:h-10",
+  "text-stone-50 hover:text-stone-800 transition-colors"
+  // before:border-4 before:border-dashed before:border-current before:transition-transform before:rounded-full hover:before:rotate-[270deg]"
 )
+
+const DEFAULT_VISIBLE_COUNT = 4
 
 export default function Techs({ className, data }: ITechs) {
   const [t] = useTranslation()
@@ -23,7 +25,7 @@ export default function Techs({ className, data }: ITechs) {
   return (
     <div
       className={cN(
-        "py-2 px-6 md:px-8 lg:py-8 lg:px-12 flex flex-col gap-4",
+        " py-2 px-6 md:px-8 lg:py-8 lg:px-12 flex flex-col gap-4",
         className
       )}
     >
@@ -47,7 +49,7 @@ export default function Techs({ className, data }: ITechs) {
                     className={cN(
                       "group relative whitespace-nowrap",
                       "before:absolute before:inset-0 before:bg-stone-800 before:rounded-full",
-                      index > 2 ? "hidden" : "flex"
+                      index >= DEFAULT_VISIBLE_COUNT ? "hidden" : "flex"
                     )}
                   >
                     <span
@@ -60,41 +62,58 @@ export default function Techs({ className, data }: ITechs) {
                       {t(skill?.attributes?.key)}
                     </span>
                   </m.span>
-                  {index === 2 && arr?.length > 3 && (
-                    <>
-                      <input
-                        type="checkbox"
-                        id={"view-more-" + subCategory?.name}
-                        className="view-more"
-                      />
-                      <m.label
-                        key="moreButton"
-                        variants={fadeInItemRapid}
-                        className={cN(
-                          "view-more-label flex items-center justify-center",
-                          seeMoreClass
-                        )}
-                        htmlFor={"view-more-" + subCategory?.name}
-                        tabIndex={0}
-                      >
-                        <span className="material-icons text-xl">add</span>
-                      </m.label>
-                    </>
-                  )}
+                  {index + 1 === DEFAULT_VISIBLE_COUNT &&
+                    arr?.length > DEFAULT_VISIBLE_COUNT && (
+                      <>
+                        <input
+                          type="checkbox"
+                          id={"see-more-" + subCategory?.name}
+                          className="see-more"
+                        />
+                        <m.label
+                          key="moreButton"
+                          variants={fadeInItemRapid}
+                          className={cN(
+                            "group see-more-label flex items-center justify-center",
+                            seeMoreClass
+                          )}
+                          htmlFor={"see-more-" + subCategory?.name}
+                          tabIndex={0}
+                        >
+                          <div
+                            className={cN(
+                              "relative block material-icons text-3xl",
+                              "before:absolute before:text-lg before:-top-3 before:-right-3 before:font-[inherit] before:content-['add']",
+                              "group-hover:before:-top-4 group-hover:before:-right-4 before:transition-[top,right]"
+                            )}
+                          >
+                            visibility
+                          </div>
+                        </m.label>
+                      </>
+                    )}
                 </Fragment>
               ))}
-              {subCategory?.skills?.data?.length > 3 && (
+              {subCategory?.skills?.data?.length > DEFAULT_VISIBLE_COUNT && (
                 <m.label
                   key="moreButton"
                   variants={fadeInItemRapid}
                   className={cN(
-                    "hidden items-center justify-center",
+                    "group hidden items-center justify-center",
                     seeMoreClass
                   )}
-                  htmlFor={"view-more-" + subCategory?.name}
+                  htmlFor={"see-more-" + subCategory?.name}
                   tabIndex={0}
                 >
-                  <span className="material-icons text-xl">remove</span>
+                  <div
+                    className={cN(
+                      "relative block material-icons text-3xl",
+                      "before:absolute before:text-lg  before:-top-3 before:-right-3 before:font-[inherit] before:content-['remove']",
+                      "group-hover:before:-top-4 group-hover:before:-right-4 before:transition-[top,right]"
+                    )}
+                  >
+                    visibility
+                  </div>
                 </m.label>
               )}
             </div>

@@ -6,7 +6,6 @@ import { container, fadeInItemRapid } from "@/animations/pageContainer"
 import Title from "@/components/Title"
 import { cN } from "@/lib"
 import { GET_PROJECTS, type ProjectsDataType } from "@/queries/projects"
-import { CSSProperties } from "react"
 
 interface IDetails {
   index: number
@@ -32,13 +31,13 @@ export default function Details({ className, index }: IDetails) {
         key={index}
         className={cN(
           className,
-          "min-h-[20vh] overflow-y-auto flex flex-col gap-4 pr-3 md:pr-0"
+          "min-h-[20vh] overflow-y-auto flex flex-col gap-4 pr-4"
         )}
       >
-        <m.div variants={fadeInItemRapid}>
+        <m.div className="hidden portrait:block" variants={fadeInItemRapid}>
           <Title.h1 text={t(name)} />
         </m.div>
-        <m.div variants={fadeInItemRapid}>
+        <m.div className="hidden portrait:block" variants={fadeInItemRapid}>
           <Title.h3 text={t(subTitle ?? "")} />
         </m.div>
         {/* TODO : Chips isDev / isPaused / isDone */}
@@ -53,35 +52,6 @@ export default function Details({ className, index }: IDetails) {
         >
           {t(description)}
         </m.p>
-
-        {!!skills?.data?.length && (
-          <m.div
-            variants={fadeInItemRapid}
-            className="border-t-2 border-stone-800 pt-4 2xl:my-6"
-          >
-            <m.div
-              variants={fadeInItemRapid}
-              className="infinite-roller text-xl text-stone-50 min-h-8"
-            >
-              {skills?.data?.map?.(
-                ({ attributes: { key, level } = {} }, index, arr) => (
-                  <div
-                    key={key}
-                    className="inline-block text-lg md:text-2xl lg:text-3xl whitespace-nowrap min-w-28 md:min-w-44"
-                    style={
-                      {
-                        "--index": index,
-                        "--itemsCount": arr?.length,
-                      } as CSSProperties
-                    }
-                  >
-                    {t(key ?? "")}
-                  </div>
-                )
-              )}
-            </m.div>
-          </m.div>
-        )}
       </m.div>
     </AnimatePresence>
   )

@@ -24,6 +24,7 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^15.0.0",
     "react-slick": "^0.30.2",
+    "react-swipeable": "^7.0.1",
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {

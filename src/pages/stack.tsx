@@ -31,8 +31,8 @@ export default function Stack({ previousRoute }: IPageProps) {
       <main
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
-          "template-[base] md:template-[md]",
-          "max-w-full h-full overflow-x-hidden overflow-y-auto xl:overflow-y-hidden no-scrollbar",
+          "template-[base] lg:template-[lg]",
+          "max-w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar",
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
       >
@@ -42,7 +42,7 @@ export default function Stack({ previousRoute }: IPageProps) {
           </span>
         </PageTitle>
 
-        <div className="area-[tabs] flex flex-col items-stretch justify-center gap-2 sm:gap-4 md:gap-8 pt-0 pb-0 md:pt-16 md:pb-52">
+        <div className="area-[tabs] flex lg:flex-col items-stretch justify-center gap-2 sm:gap-4 md:gap-8 pt-0 pb-0 lg:py-auto overflow-hidden">
           {CATEGORIES.map((category) => (
             <Button
               key={category}
@@ -50,7 +50,7 @@ export default function Stack({ previousRoute }: IPageProps) {
               className={cN(
                 tab === category &&
                   " !bg-stone-50  after:!border-stone-200 text-stone-800 hover:text-stone-800",
-                "text-sm"
+                "flex-1 lg:flex-initial text-sm"
               )}
               padding="px-3 py-2 md:px-6 md:py-4 lg:px-16 lg:py-6"
               borderless

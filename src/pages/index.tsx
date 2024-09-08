@@ -17,7 +17,7 @@ export default function Profile({ previousRoute }: IPageProps) {
     <PageTransition
       headTitle={t("profile.title") + " ?"}
       previousRoute={previousRoute}
-      className="page:profile bg-orange-300 overflow-hidden"
+      className="page:profile bg-orange-300 overflow-hidden h-full"
     >
       <m.main
         variants={container}
@@ -26,13 +26,10 @@ export default function Profile({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] sm:template-[sm] lg:template-[lg] 2xl:template-[2xl]",
-          "h-full overflow-x-hidden overflow-y-auto xl:overflow-y-hidden no-scrollbar",
-          "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-4 lg:pb-0 2xl:pb-20",
+          "h-full overflow-y-auto no-scrollbar"
         )}
       >
-        {/* Put it here so it gets behind every other texts */}
-        <Feat.ContactMe className="area-[mailBtn] 2xl:area-[mailBtn/overlap]" />
-
         <PageTitle className="area-[pagetitle] 2xl:area-[overlap/pagetitle]">
           <div className="group flex gap-3">
             <div>{t("profile.title")}</div>
@@ -53,6 +50,8 @@ export default function Profile({ previousRoute }: IPageProps) {
             </span>
           </Title.h1>
         </m.div>
+
+        <Feat.ContactMe className="area-[mailBtn] 2xl:area-[mailBtn/overlap]" />
 
         <Feat.Digest className="area-[digest]" />
 

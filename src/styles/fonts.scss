@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "Bukhari";
+  src: url("../../public/BukhariScript.ttf");
+}
+@font-face {
+  font-family: "BukhariAlt";
+  src: url("../../public/BukhariScriptAlternates.ttf");
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../../public/ArchivoBlack-Regular.ttf");
+}
+@font-face {
+  font-family: "RubikBold";
+  src: url("../../public/Rubik-Bold.ttf");
+}
+@font-face {
+  font-family: "RubikReg";
+  src: url("../../public/Rubik-Regular.ttf");
+}
+
+html,
+body {
+  --default-fonts: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  padding: 0;
+  margin: 0;
+  font-family: RubikReg, var(--default-fonts);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Archivo, RubikBold, RubikReg, var(--default-fonts);
+}
+
+h4,
+h5 {
+  font-family: RubikBold, RubikReg, var(--default-fonts);
+}
+
+h6 {
+  font-family: RubikReg, var(--default-fonts);
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

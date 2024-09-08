@@ -1,79 +1,119 @@
+.page {
+  @media screen and (height < 900px) {
+    @media (width < 1024px) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    @media (width > 1024px) {
+      padding-top: 10rem;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
 .page\:profile {
   --picture-clamp: clamp(7.5rem, 15vw, 18rem);
 
   /* prettier-ignore */
   --base:
-  	"pagetitle pagetitle"
+  	"pagetitle pagetitle" minmax(4rem, auto)
   	"photo     .        "
   	"photo     name     "
     "digest    digest   " 1fr
     "mailBtn   mailBtn  "
-    "stats     stats    "
+    "stats     stats    " 8rem
   / auto 1fr;
 
   /* prettier-ignore */
   --sm:
-    "mailBtn mailBtn      pagetitle pagetitle"
-    "photo name name ."
-    "digest   digest digest    digest   " 1fr
-    "stats   stats  stats     stats    " auto
+    "mailBtn mailBtn pagetitle pagetitle"
+  	"photo   name    name      .        " 1fr
+  	"digest  digest  digest    digest   " minmax(auto, 30vh)
+  	"stats   stats   stats     stats    " auto
    / auto auto 1fr;
 
   /* prettier-ignore */
   --lg:
     "mailBtn mailBtn      pagetitle pagetitle"
-    "photo   digest digest    .   " 1fr
+    "photo   digest digest    digest   " 1fr
     "stats   stats  stats     stats    " auto
     ;
 
   /* prettier-ignore */
   --2xl:
-  	"mailBtn overlap pagetitle"
-  	"photo   digest .        "
-  	"stats   stats  stats    "
+  	"mailBtn overlap pagetitle" minmax(6rem, auto)
+  	"photo   digest .        " 1fr
+  	"stats   stats  stats    " auto
   / 1fr minmax(50rem, 1fr)  1fr;
 
-  main > div {
-    z-index: 2;
+  .stats {
+    /* prettier-ignore */
+    --stats: 
+    "s1    empty   s2"
+    "s3    empty   s4"
+    /auto 1fr     auto;
+
+    /* prettier-ignore */
+    --stats-lg: 
+    "s1   s2   s3   s4" 
+    /1fr 1fr 1fr 1fr;
   }
 }
 
 .page\:stack {
   /* prettier-ignore */
   --base:
-  	"pagetitle  "
+  	"pagetitle  " minmax(4rem, auto)
   	"tabs   " 
     "details      " 1fr
     / 1fr;
 
   /* prettier-ignore */
-  --md:
-  	"pagetitle pagetitle"
+  --lg:
+  	"pagetitle pagetitle" minmax(4rem, auto)
   	"tabs      details  " 1fr
-    ".         .        "
   / 1fr        3fr;
 }
 
 .page\:timeline {
   /* prettier-ignore */
   --base:
-  	"pagetitle pagetitle"
-  	"timeline  timeline "
-  	"details   details  " 1fr;
+  	"pagetitle pagetitle" minmax(4rem, auto)
+  	"timeline  timeline " 1fr;
 }
 
 .page\:projects {
   /* prettier-ignore */
   --base:
-  	"pagetitle"
-  	"desc     " 1fr
-  	"image    " ;
+  ".       pagetitle" minmax(4rem, auto)
+  "index   index    " 9rem
+  "desc    image    " 1fr
+  "skills  skills   " minmax(4rem, auto)
+  / 1fr minmax(24rem, 60vh);
 
   /* prettier-ignore */
-  --lg:
+  --md:
+  ".     pagetitle"
+  "index index    " 9rem
+  "desc  image    " 1fr
+  "skills  skills " minmax(6rem, auto)
+  / 1fr minmax(24rem, 60vh);
+
+  @media (orientation: portrait) {
+    /* prettier-ignore */
+    --base:
+  	"index pagetitle" minmax(4rem, auto)
+  	"desc  desc     " 1fr
+  	"image image    " 1fr
+    "skills  skills"  minmax(4rem, auto);
+
+    /* prettier-ignore */
+    --md:
   	"index pagetitle"
-  	"desc    image   " 1fr
-    / 1fr 64vh;
+  	"desc  desc     " auto
+  	"image image    " auto
+    "skills  skills" minmax(6rem, auto);
+  }
 }
 
 .page\:hobbies {
@@ -102,4 +142,11 @@
     	"submit    submit   " auto
       /1fr       1fr     ;
   }
+}
+
+.page\:error {
+  /* prettier-ignore */
+  --base:
+  	"close pagetitle"
+  	"gif   gif      " 1fr;
 }

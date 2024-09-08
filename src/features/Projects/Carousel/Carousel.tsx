@@ -4,6 +4,7 @@ import { CSSProperties, useEffect, useState } from "react"
 import { container, fadeInItem } from "@/animations/pageContainer"
 import { cN } from "@/lib"
 import { type ICard } from "@/types"
+import { useSwipeable } from "react-swipeable"
 import Button, { Colors } from "../../../components/Button"
 import Card from "../../../components/Card"
 import SVG from "../../../components/svg"
@@ -43,10 +44,16 @@ export default function Carousel({
     _setIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1))
   }
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: nextSlide,
+    onSwipedRight: prevSlide,
+  })
+
   return (
     <div className={className}>
       <m.div variants={fadeInItem} className="w-full overflow-hidden">
         <div
+          {...swipeHandlers}
           className={cN(
             "flex items-stretch justify-between transition-all duration-300"
           )}

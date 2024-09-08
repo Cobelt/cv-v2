@@ -15,21 +15,22 @@ export default function ContactMe({ className }: WithClassNameProps) {
       variants={fadeInItem}
       className={cN(
         className,
-        "flex mb-4 md:mb-0 mt-4 lg:mt-0 justify-center lg:justify-start self-center justify-self-center lg:justify-self-start"
+        "flex mb-4 md:mb-0 sm:mt-4 lg:mt-0 justify-center lg:justify-start self-center justify-self-center lg:justify-self-start"
       )}
     >
       <Link className="group relative flex gap-4 items-center" href="/contact">
         <m.span
-          initial={{ x: -100, y: 100, opacity: 0 }}
+          initial={{ x: -80, y: 80, opacity: 0 }}
           animate={{ x: 0, y: 0, opacity: 1 }}
           transition={{ duration: 0.25, delay: 1.25 }}
           className="material-icons font-bold text-4xl md:text-6xl lg:text-7xl group-hover:text-red-400 transition-all group-hover:[transform:translate(0.2em,-0.2em)_!important]"
         >
           north_east
         </m.span>
-        <Title.h2 className="group-hover:text-stone-50 transition-colors">
-          {t("contact.me")}
-        </Title.h2>
+        <Title.h2
+          className="group-hover:text-stone-50 transition-colors"
+          text={t("contact.me")}
+        />
       </Link>
     </m.div>
   )

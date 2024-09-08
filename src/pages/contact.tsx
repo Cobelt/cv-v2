@@ -49,7 +49,7 @@ export default function Contact({ previousRoute }: IPageProps) {
       setShowThanks(true)
       if (id) saveLastContactId(id)
     }
-  }, [called, data, loading])
+  }, [saveLastContactId, id, called, data, loading])
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
@@ -69,7 +69,7 @@ export default function Contact({ previousRoute }: IPageProps) {
   // const callApi = () => console.log("TODO: Call API discord server")
   return (
     <PageTransition
-      headTitle="Contactez-moi"
+      headTitle={t("contact.me")}
       previousRoute={previousRoute}
       className="page:contact bg-red-400 overflow-hidden"
     >
@@ -88,7 +88,7 @@ export default function Contact({ previousRoute }: IPageProps) {
             onClick={router.back}
             className={cN(
               "material-icons text-4xl lg:text-5xl 2xl:text-6xl text-stone-50",
-              "masked-border"
+              "masked-border before:border-blue-500"
             )}
           >
             close
@@ -118,13 +118,14 @@ export default function Contact({ previousRoute }: IPageProps) {
             </div>
 
             <div className=" mt-12">
-              <Title.h6 className="inline mr-2">
-                {
+              <Title.h6
+                className="inline mr-2"
+                text={
                   ONLY_WRONG_QUESTIONS?.[
                     Math.floor(Math.random() * ONLY_WRONG_QUESTIONS.length)
                   ]
                 }
-              </Title.h6>
+              />
               <Title.h6 className="inline-flex items-center gap-2 text-left">
                 Renvoyez moi un mail
                 <span className="material-icons text-3xl text-indigo-500">

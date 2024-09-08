@@ -76,7 +76,7 @@ export default function Jobs({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base]",
-          "min-h-full",
+          "h-full overflow-y-auto no-scrollbar",
           "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
         )}
         style={{ gridTemplateRows: "auto auto 1fr" }}
