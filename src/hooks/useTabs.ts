@@ -11,7 +11,7 @@ const useTabs = () => {
     (tab) => tab.attributes.url === currentRoute
   )
   const previousTab =
-    currentTabIndex - 1 > 0
+    currentTabIndex - 1 >= 0
       ? tabs?.[currentTabIndex - 1]
       : tabs?.[tabs?.length - 1]
   const nextTab =
