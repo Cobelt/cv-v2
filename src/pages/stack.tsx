@@ -32,8 +32,8 @@ export default function Stack({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] lg:template-[lg]",
-          "max-w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar",
-          "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-8",
+          "max-w-full h-full overflow-x-hidden overflow-y-auto no-scrollbar"
         )}
       >
         <PageTitle className="area-[pagetitle] max-w-full overflow-hidden">

@@ -1,13 +1,10 @@
 .page {
+  @apply pt-20 md:pt-24 lg:pt-36;
+  @apply pb-28 lg:pb-24 2xl:pb-12;
+
   @media screen and (height < 900px) {
-    @media (width < 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-    @media (width > 1024px) {
-      padding-top: 10rem;
-      padding-bottom: 2rem;
-    }
+    @apply pt-24 lg:pt-36;
+    @apply pb-20 lg:pb-0 2xl:pb-12;
   }
 }
 
@@ -21,7 +18,7 @@
   	"photo     name     "
     "digest    digest   " 1fr
     "mailBtn   mailBtn  "
-    "stats     stats    " 8rem
+    "stats     stats    "
   / auto 1fr;
 
   /* prettier-ignore */
@@ -29,21 +26,21 @@
     "mailBtn mailBtn pagetitle pagetitle"
   	"photo   name    name      .        " 1fr
   	"digest  digest  digest    digest   " minmax(auto, 30vh)
-  	"stats   stats   stats     stats    " auto
+  	"stats   stats   stats     stats    "
    / auto auto 1fr;
 
   /* prettier-ignore */
   --lg:
     "mailBtn mailBtn      pagetitle pagetitle"
     "photo   digest digest    digest   " 1fr
-    "stats   stats  stats     stats    " auto
+    "stats   stats  stats     stats    "
     ;
 
   /* prettier-ignore */
   --2xl:
   	"mailBtn overlap pagetitle" minmax(6rem, auto)
   	"photo   digest .        " 1fr
-  	"stats   stats  stats    " auto
+  	"stats   stats  stats    "
   / 1fr minmax(50rem, 1fr)  1fr;
 
   .stats {

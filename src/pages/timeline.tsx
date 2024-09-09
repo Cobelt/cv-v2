@@ -35,7 +35,6 @@ const TMP_DATA = [
     title: "Juin 2021",
     subTitle: "Ingénieur d'études",
     children: [
-      "Fin de l'aventure Soluti dûe à un rachat par Pentalog.",
       "Me voici employé chez Abbeal, une ESN, avec laquelle j'intègre les équipes de Cultura, avant de m'atteler à la refonte de l'app interne.",
     ],
   },
@@ -43,11 +42,8 @@ const TMP_DATA = [
     id: "freelance",
     title: "Août 2023",
     subTitle: "Freelance",
-    length: "h-60 xl:h-52 xl:w-40",
-    children: [
-      "Nouvelle aventure ! Je me lance en freelance.",
-      "N'étant pas passionné par la prospection et la recherche de client, j'atteins rapidement le bout, également dû au full remote.",
-    ],
+    length: "h-60 lg:h-52 lg:w-40",
+    children: ["Nouvelle aventure ! Je me lance en freelance."],
   },
 ]
 
@@ -67,35 +63,35 @@ export default function JobsAndEducations({ previousRoute }: IPageProps) {
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base]",
           "h-full overflow-y-auto no-scrollbar",
-          "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-8"
         )}
       >
         <PageTitle className="area-[pagetitle]" subTitle="Et mes diplômes">
           Mes expériences
-          <span className="ml-2 hidden md:inline">pro</span>
+          <span className="ml-4 mr-2 hidden md:inline">pro</span>
           <div className="bounce-in relative ![animation-delay:0.45s]">
             <span className="remove-rounded rounded-[50%] w-1.5 md:w-2 h-1.5 md:h-2 bg-stone-50 inline-block" />
           </div>
         </PageTitle>
 
         <div className="area-[timeline] overflow-y-auto lg:flex lg:items-center">
-          <Feat.Timeline rgbGradient="129 140 248" beforeLength="h-8 xl:flex-1">
+          <Feat.Timeline rgbGradient="129 140 248" beforeLength="h-8 lg:flex-1">
             <Feat.TimelineItem
               title="Juillet 2017"
               subTitle="DUT Informatique"
               subTitleColor="text-indigo-500"
               color="text-rose-500"
-              size="w-68"
-              length="xl:w-36 h-28"
+              size="w-72 lg:w-52"
+              length="lg:w-40 h-28"
               active={activeId === 0}
               onClickOnBar={() => setActiveId(0)}
               onClose={() => setActiveId(null)}
-              className="!flex-row gap-4"
+              className="!flex-row lg:!flex-col gap-4"
             >
               <div className="flex justify-center items-center h-full ">
                 <Lottie
                   animationData={diplomaAnimation}
-                  className="w-28 md:w-32 xl:w-40 my-auto -ml-8 -mr-6"
+                  className="w-28 md:w-32 lg:w-40 my-auto -ml-8 -mr-6 lg:-my-6 lg:-ml-2"
                 />
               </div>
             </Feat.TimelineItem>
@@ -105,17 +101,17 @@ export default function JobsAndEducations({ previousRoute }: IPageProps) {
               subTitle="Licence Générale Informatique"
               subTitleColor="text-indigo-500"
               color="text-rose-500"
-              size="w-68"
-              length="xl:w-36 h-28"
+              size="w-72 lg:w-52"
+              length="lg:w-12 h-28"
               active={activeId === 1}
               onClickOnBar={() => setActiveId(1)}
               onClose={() => setActiveId(null)}
-              className="!flex-row gap-4"
+              className="!flex-row lg:!flex-col gap-4"
             >
               <div className="flex justify-center items-center h-full">
                 <Lottie
                   animationData={diplomaAnimation}
-                  className="w-28 md:w-32 xl:w-40 my-auto -ml-8 -mr-6"
+                  className="w-28 md:w-32 lg:w-40 my-auto -ml-8 -mr-6 lg:-my-6 lg:-ml-2"
                 />
               </div>
             </Feat.TimelineItem>
@@ -142,7 +138,7 @@ export default function JobsAndEducations({ previousRoute }: IPageProps) {
               title={t("timeline.whats.next")}
               color="text-rose-500"
               size="w-80"
-              length="relative h-40 xl:flex-1"
+              length="relative h-40 lg:flex-1"
               active={activeId === TMP_DATA.length + 2}
               onClickOnBar={() => setActiveId(TMP_DATA.length + 2)}
               onClose={() => setActiveId(null)}

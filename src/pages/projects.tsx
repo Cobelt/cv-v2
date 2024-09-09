@@ -37,7 +37,7 @@ export default function Projects({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 xl:gap-x-18 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] md:template-[md]",
-          "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24",
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-8",
           "h-full overflow-y-auto no-scrollbar"
         )}
       >

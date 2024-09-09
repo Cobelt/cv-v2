@@ -9,7 +9,8 @@ export default function Stats({ className }: WithClassNameProps) {
     <m.div
       variants={fadeInItem}
       className={cN(
-        "overflow-hidden stats grid template-[stats] lg:template-[stats-lg] w-full pl-6 sm:px-[clamp(0rem,10vw,5rem)] lg:px-0 gap-y-6 lg:gap-x-12",
+        "stats grid template-[stats] lg:template-[stats-lg] w-full max-h-full lg:gap-x-12",
+        "pl-6 sm:px-[clamp(0rem,10vw,5rem)] lg:px-0 gap-y-6",
         className
       )}
     >

@@ -125,7 +125,7 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
           </AnimatePresence>
         </div>
 
-        <div className="flex items-center lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30 mb-4 lg:mb-0">
+        <div className="flex items-center gap-x-12 lg:w-full absolute left-0 right-0 bottom-0 lg:sticky z-30 mb-4 lg:mb-0">
           <Logo className="hidden lg:flex" />
           <div className="flex-1">
             <Tabs />

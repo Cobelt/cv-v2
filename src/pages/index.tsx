@@ -17,7 +17,7 @@ export default function Profile({ previousRoute }: IPageProps) {
     <PageTransition
       headTitle={t("profile.title") + " ?"}
       previousRoute={previousRoute}
-      className="page:profile bg-orange-300 overflow-hidden h-full"
+      className="page:profile bg-orange-300"
     >
       <m.main
         variants={container}
@@ -26,7 +26,7 @@ export default function Profile({ previousRoute }: IPageProps) {
         className={cN(
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base] sm:template-[sm] lg:template-[lg] 2xl:template-[2xl]",
-          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-4 lg:pb-0 2xl:pb-20",
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-8",
           "h-full overflow-y-auto no-scrollbar"
         )}
       >

@@ -116,7 +116,7 @@ input.see-more:checked ~ .see-more-label {
       content: "north_east" !important;
       font-family: "Material Icons Rounded";
       @apply transition-all text-stone-800;
-      @apply text-2xl md:text-4xl xl:text-6xl font-bold opacity-30 lg:opacity-0;
+      @apply text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold opacity-30 lg:opacity-0;
       @apply absolute top-[0.2em] lg:top-[0.5em] right-[calc(100%+0.2em)] lg:right-[calc(100%+0.5em)];
     }
   }
