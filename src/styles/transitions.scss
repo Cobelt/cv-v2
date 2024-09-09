@@ -88,53 +88,71 @@
   transform-origin: left;
 }
 
-.group {
-  .nav-email {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    z-index: 4;
+.group .nav-email,
+.contact-title {
+  position: relative;
+  display: flex;
+  justify-content: center;
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: 7px;
-      height: 0;
-      width: 0;
-      border-top: 0.25em solid currentColor;
-      border-left: 0.45em solid transparent;
-      border-right: 0.45em solid transparent;
-      border-radius: 0.2em;
-      z-index: 2;
-      transform-origin: top;
-      transition: rotate 0.35s;
-    }
+  &:before {
+    content: "send";
+    position: absolute;
+    bottom: 0.5em;
+    font-size: 3rem;
+    @apply text-stone-50;
+    font-family: "Material Icons Rounded";
+    opacity: 0;
+    transition: opacity 0, font-size 0;
+    offset-path: path(
+      "M 28 28 S 2.4751 -10.6104 -10.9487 16.5389 S -22.9591 88.1363 33.9913 94.3772 S 144.2 100.8 107.9373 158.0555 S 50.4 337.4 185.9389 360.3581"
+    );
+  }
+}
 
-    &:before {
-      content: "send";
-      position: absolute;
-      bottom: 0.5em;
-      font-size: 0.35em;
-      @apply text-stone-50;
-      font-family: "Material Icons Rounded";
-      rotate: -90deg;
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.35s, font-size 0.35s;
-      offset-path: path(
-        "M 0 24 S 37.2 38.4 33.9411 -9.9411 S 67.8823 -43.8823 67.8823 -43.8823"
-      );
-    }
+.group .nav-email {
+  z-index: 4;
+
+  &:before {
+    z-index: 3;
+    font-size: 0.35em;
+    rotate: -90deg;
+    offset-path: path(
+      "M 0 24 S 37.2 38.4 33.9411 -9.9411 S 67.8823 -43.8823 67.8823 -43.8823"
+    );
   }
 
-  &:hover .nav-email {
-    &:after {
-      rotate: x 180deg;
-    }
-    &:before {
-      font-size: 0.75em;
-      opacity: 1;
-      animation: followPath 1.2s forwards;
-    }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    height: 0;
+    width: 0;
+    border-top: 0.25em solid currentColor;
+    border-left: 0.45em solid transparent;
+    border-right: 0.45em solid transparent;
+    border-radius: 0.2em;
+    z-index: 2;
+    transform-origin: top;
+    transition: rotate 0.35s;
+  }
+}
+
+.group:hover .nav-email,
+.contact-title:hover {
+  &:before {
+    font-size: 2rem;
+    opacity: 1;
+    animation: followPath 2.4s ease-out forwards;
+    transition: opacity 0.35s, font-size 0.35s;
+  }
+}
+
+.group:hover .nav-email {
+  &:before {
+    font-size: 0.75em;
+    animation: followPath 1.2s forwards;
+  }
+  &:after {
+    rotate: x 180deg;
   }
 }

@@ -4,12 +4,12 @@ import { FormEventHandler, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 import mailSentAnimation from "@/animations/mailSent.json"
-import Button from "@/components/Button"
+import Button, { Colors } from "@/components/Button"
 import PageTitle from "@/components/PageTitle"
 import PageTransition from "@/components/PageTransition"
 import Title from "@/components/Title"
 import Feat from "@/features/Contact"
-import { cN } from "@/lib"
+import { AUTHOR, cN } from "@/lib"
 import { CONTACT_ME, type ContactDataType } from "@/queries/contact"
 import { IPageProps } from "@/types"
 import { useMutation } from "@apollo/client"
@@ -78,10 +78,15 @@ export default function Contact({ previousRoute }: IPageProps) {
           "grid gap-x-6 md:gap-x-10 gap-y-4 lg:gap-y-8 2xl:gap-y-10",
           "template-[base]",
           "h-full overflow-x-hidden overflow-y-auto 2xl:overflow-y-hidden no-scrollbar",
-          "px-8 lg:px-[8vw] 2xl:px-[5rem] 2xl:pb-24"
+          "px-8 lg:px-[8vw] 2xl:px-[5rem] pb-8"
         )}
       >
-        <PageTitle className="area-[pagetitle]">{t("contact.me")}</PageTitle>
+        <PageTitle
+          className="area-[pagetitle]"
+          titleClassName="contact-title before:left-0 before:top-0"
+        >
+          {t("contact.me")}
+        </PageTitle>
 
         <div className="area-[close] flex items-center ">
           <button
@@ -96,11 +101,38 @@ export default function Contact({ previousRoute }: IPageProps) {
         </div>
 
         {!showThanks ? (
-          <Feat.Form
-            className="area-[form]"
-            onSubmit={onSubmit}
-            loading={loading}
-          />
+          <>
+            <Button
+              type="button"
+              borderless
+              color={Colors.BLUE}
+              className="area-[copyBtn] justify-self-center group tooltiped overflow-visible w-full mt-4 mb-4 max-w-80"
+              onClick={() => navigator.clipboard.writeText(AUTHOR.email)}
+            >
+              <div className="flex gap-2 items-center">
+                <span className="material-icons">mail</span>
+                <div className="">
+                  <span className="font-rubikBold whitespace-nowrap">
+                    {t("contact.email.btn")}
+                  </span>
+                </div>
+              </div>
+              <span className="tooltip-active:bottom font-rubikReg text-base text-stone-800 ">
+                {t("contact.email.copied")}
+              </span>
+            </Button>
+
+            <Title.h3
+              text={t("common.or")}
+              className="area-[or] justify-self-center"
+            />
+
+            <Feat.Form
+              className="area-[form]"
+              onSubmit={onSubmit}
+              loading={loading}
+            />
+          </>
         ) : (
           <div className="area-[form] flex flex-col gap-4 items-center bg-stone-50 md:mx-20 my-auto p-12 rounded-xl">
             <Title.h1

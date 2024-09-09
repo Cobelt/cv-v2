@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import Button, { Colors } from "@/components/Button"
 import Inputs from "@/components/inputs"
 import Title from "@/components/Title"
-import { AUTHOR, cN } from "@/lib"
+import { cN } from "@/lib"
 
 interface IForm {
   loading: boolean
@@ -16,7 +16,7 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
   return (
     <form
       className={cN(
-        "template-[form] grid gap-4 bg-stone-50 md:mx-20 my-auto p-8 md:p-12 rounded-xl",
+        "template-[form] z-10 grid gap-4 bg-stone-50 md:mx-20 mb-auto p-8 md:p-12 rounded-xl",
         className
       )}
       onSubmit={onSubmit}
@@ -67,32 +67,6 @@ export default function Form({ className, onSubmit, loading = false }: IForm) {
         name="message"
         label="Message"
       />
-
-      <div className="area-[infos] flex flex-wrap items-center justify-around flex-col md:flex-row mb-4">
-        <Title.h6>{t("contact.email.text")}</Title.h6>
-        <Button
-          type="button"
-          borderless
-          color={Colors.BLUE}
-          className="ml-4 group tooltiped overflow-visible"
-          onClick={() => navigator.clipboard.writeText(AUTHOR.email)}
-        >
-          {/* <Title.h4 className="text-blue-500 order-1 lg:order-2 2xl:order-1 flex transition-colors"> */}
-
-          <div className="flex  gap-4 items-center">
-            <span className="material-icons">mail</span>
-            <div className="">
-              <span className="font-rubikBold whitespace-nowrap">
-                {t("contact.email.btn")}
-              </span>
-            </div>
-          </div>
-          <span className="tooltip-active:bottom font-rubikReg text-base text-stone-800 ">
-            {t("contact.email.copied")}
-          </span>
-          {/* </Title.h4> */}
-        </Button>
-      </div>
 
       <div className="order-1 lg:order-2 2xl:order-1 flex gap-4 items-center group-hover:text-stone-50 transition-colors"></div>
 

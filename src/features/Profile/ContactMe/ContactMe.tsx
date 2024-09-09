@@ -22,8 +22,8 @@ export default function ContactMe({ className }: WithClassNameProps) {
         <m.span
           initial={{ x: -80, y: 80, opacity: 0 }}
           animate={{ x: 0, y: 0, opacity: 1 }}
-          transition={{ duration: 0.25, delay: 1.25 }}
-          className="material-icons font-bold text-4xl md:text-6xl lg:text-7xl group-hover:text-red-400 transition-all group-hover:[transform:translate(0.2em,-0.2em)_!important]"
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="material-icons font-bold text-4xl md:text-6xl lg:text-7xl group-hover:text-red-400 transition-all group-hover:![transform:translate(0.1em,-0.1em)]"
         >
           north_east
         </m.span>

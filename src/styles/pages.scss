@@ -124,8 +124,10 @@
 .page\:contact {
   /* prettier-ignore */
   --base:
-  	"close pagetitle"
-  	"form  form     " 1fr;
+  	"close   pagetitle"
+    "copyBtn copyBtn  "
+    "or      or       "
+  	"form    form     " 1fr;
 
   /* prettier-ignore */
   form {
