@@ -30,7 +30,7 @@ export default function TimelineItem({
   color = "text-red-500",
   bgColor = "bg-stone-50",
   subTitleColor = "text-blue-500",
-  length = "h-36 xl:h-52 xl:w-40",
+  length = "h-36 lg:h-52 lg:w-40",
   size = "w-80",
   className = "",
   active = false,

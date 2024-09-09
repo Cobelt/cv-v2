@@ -70,18 +70,17 @@ export function Stat({
         className
       )}
     >
-      <div className="relative">
-        <div
-          ref={ref}
-          className={cN(
-            "count text-[2rem] md:text-5xl xl:text-7xl font-rubikBold ![line-height:0.85]",
-            href && "has-link group-hover:text-stone-50 transition-colors",
-            countClassName,
-            "group-hover:after:top-0 group-hover:after:right-full group-hover:after:opacity-100"
-          )}
-        />
-      </div>
-      <div className="font-rubikReg text-xs md:text-sm xl:text-base">
+      <div
+        ref={ref}
+        className={cN(
+          "count relative contain-layout",
+          "text-[2rem] md:text-5xl lg:text-6xl xl:text-7xl font-rubikBold ![line-height:0.85]",
+          href && "has-link group-hover:text-stone-50 transition-colors",
+          countClassName,
+          "group-hover:after:top-0 group-hover:after:right-full group-hover:after:opacity-100"
+        )}
+      />
+      <div className="font-rubikReg text-xs md:text-sm lg:text-base">
         {text.split(" ").map((word) => (
           <div key={word}>{word}</div>
         ))}

@@ -30,7 +30,7 @@ export default function Timeline({
       <ol
         className={cN(
           containerClassName,
-          "flex flex-col xl:flex-row text-stone-800 transition-all duration-1000 snap-x snap-mandatory w-full"
+          "flex flex-col lg:flex-row text-stone-800 transition-all duration-1000 snap-x snap-mandatory w-full"
         )}
       >
         <m.li variants={fadeInItem} className={cN(beforeLength, "relative")} />
