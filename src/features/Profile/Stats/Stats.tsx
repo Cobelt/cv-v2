@@ -36,7 +36,7 @@ export default function Stats({ className }: WithClassNameProps) {
         className="area-[s3]"
       />
       <Stat
-        href="https://docs.google.com/document/d/1VQQZVnw0dl3XgDyoYZCu7IS47F7ttdg6q0J1BEOPo0g/edit?usp=sharing"
+        href="https://docs.google.com/document/d/10EXKfruj-3s_1H7w2wt2i6PjiXV682pkp-26OHBYKUg/edit?usp=sharing"
         target="_blank"
         count={6342}
         text="mots"
