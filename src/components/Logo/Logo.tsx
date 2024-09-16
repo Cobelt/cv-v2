@@ -2,14 +2,13 @@ import { cN } from "@/lib"
 import { WithClassNameProps } from "@/types"
 import Link from "next/link"
 
-export default function Logo({ className }: WithClassNameProps) {
+export default function Logo({ className = "" }: WithClassNameProps) {
   return (
-    <Link href="/">
+    <Link className={className} href="/">
       <h2
         className={cN(
           "group flex text-3xl md:text-5xl font-bukhari min-w-20",
-          "underline-rounded underline-stone-50",
-          className
+          "underline-rounded underline-stone-50"
         )}
       >
         <div className="mr-2 md:mr-3">Polémil</div>
