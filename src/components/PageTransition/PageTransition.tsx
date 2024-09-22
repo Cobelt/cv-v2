@@ -25,6 +25,8 @@ export default function PageTransition({
 }: IPageTransition) {
   const animation = useAnimatePageProps(previousRoute)
 
+  const titleSuffix = `Polémil - ${DOMAIN}`
+
   return (
     <m.div
       className={cN(
@@ -38,7 +40,9 @@ export default function PageTransition({
       {...animation}
     >
       <Head>
-        <title>{headTitle ? `${headTitle} - ${DOMAIN}` : DOMAIN}</title>
+        <title>
+          {headTitle ? `${headTitle} - ${titleSuffix}` : titleSuffix}
+        </title>
       </Head>
 
       {children}

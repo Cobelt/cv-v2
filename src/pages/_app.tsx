@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
         {/* Meta keywords (optionnel, moins utilisé de nos jours) */}
         <meta
           name="keywords"
-          content="CV en ligne, développeur Web, full-stack, front-end, React, JavaScript, TypeScript, développeur, portfolio"
+          content="polemil, dev, développeur, CV en ligne, développeur Web, full-stack, front-end, React, JavaScript, TypeScript, portfolio"
         />
 
         {/* Auteur */}
@@ -65,12 +65,9 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
         <meta property="og:image" content={THUMBNAIL_URL} />
         <meta
           property="og:title"
-          content={`${AUTHOR.firstname} ${AUTHOR.lastname} - Développeur Web spécialisé sur React`}
+          content={`Polémil - Développeur Web spécialisé sur React`}
         />
-        <meta
-          property="og:description"
-          content={`Découvrez le CV en ligne de ${AUTHOR.firstname} ${AUTHOR.lastname}, développeur Web Full-Stack spécialisé en React / TypeScript.`}
-        />
+        <meta property="og:description" content={SITE_DESCRIPTION} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://polemil.dev" />
 
@@ -79,12 +76,9 @@ function MyApp({ Component, pageProps, router }: AppProps<IPageProps>) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`${AUTHOR.firstname} ${AUTHOR.lastname} - Développeur Web spécialisé sur React`}
+          content={`Polémil - Développeur Web spécialisé sur React`}
         />
-        <meta
-          name="twitter:description"
-          content={`Découvrez le CV en ligne de ${AUTHOR.firstname} ${AUTHOR.lastname}, développeur Web Full-Stack spécialisé en React / TypeScript.`}
-        />
+        <meta name="twitter:description" content={SITE_DESCRIPTION} />
       </Head>
 
       <div
