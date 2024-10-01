@@ -1,3 +1,5 @@
+import { PAGE_ANIM_MS } from "@/constants"
+
 export function animate({ transition, ...variants }: any = {}) {
   return {
     initial: "initial",
@@ -13,9 +15,13 @@ export const appearFromTop = {
   animate: {
     y: "0%",
     x: "0%",
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: PAGE_ANIM_MS / 1000, ease: "easeOut" },
   },
-  exit: { y: "0%", x: "0%", transition: { delay: 0.5, duration: 0 } },
+  exit: {
+    y: "0%",
+    x: "0%",
+    transition: { delay: PAGE_ANIM_MS / 1000, duration: 0 },
+  },
 }
 
 export const appearFromBottom = {
@@ -23,9 +29,13 @@ export const appearFromBottom = {
   animate: {
     y: "0%",
     x: "0%",
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: PAGE_ANIM_MS / 1000, ease: "easeOut" },
   },
-  exit: { y: "0%", x: "0%", transition: { delay: 0.5, duration: 0 } },
+  exit: {
+    y: "0%",
+    x: "0%",
+    transition: { delay: PAGE_ANIM_MS / 1000, duration: 0 },
+  },
 }
 
 export const appearFromLeft = {
@@ -33,9 +43,13 @@ export const appearFromLeft = {
   animate: {
     x: "0%",
     y: "0%",
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: PAGE_ANIM_MS / 1000, ease: "easeOut" },
   },
-  exit: { x: "0%", y: "0%", transition: { delay: 0.5, duration: 0 } },
+  exit: {
+    x: "0%",
+    y: "0%",
+    transition: { delay: PAGE_ANIM_MS / 1000, duration: 0 },
+  },
 }
 
 export const appearFromRight = {
@@ -43,9 +57,13 @@ export const appearFromRight = {
   animate: {
     x: "0%",
     y: "0%",
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: PAGE_ANIM_MS / 1000, ease: "easeOut" },
   },
-  exit: { x: "0%", y: "0%", transition: { delay: 0.5, duration: 0 } },
+  exit: {
+    x: "0%",
+    y: "0%",
+    transition: { delay: PAGE_ANIM_MS / 1000, duration: 0 },
+  },
 }
 
 export const fadeInItem = {

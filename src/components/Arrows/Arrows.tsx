@@ -1,16 +1,40 @@
 "use client"
 
+import { PAGE_ANIM_MS } from "@/constants"
 import useTabs from "@/hooks/useTabs"
 import { motion as m } from "framer-motion"
 import Link from "next/link"
-import { useState } from "react"
+import { useRouter } from "next/router"
+import { useEffect, useRef, useState } from "react"
 import { appearFromLeft, appearFromRight } from "../../animations/pageContainer"
 
 export default function Arrows() {
   const [scrollQty, setScrollQty] = useState(0)
   const { previousTab, currentTab, nextTab } = useTabs()
+  const { push } = useRouter()
   const previousTabUrl = previousTab?.attributes?.url
   const nextTabUrl = nextTab?.attributes?.url
+  const lastExecutionTime = useRef(0)
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const currentTime = Date.now()
+      if (currentTime - lastExecutionTime.current < PAGE_ANIM_MS) return
+
+      if (event.key === "ArrowLeft" && previousTabUrl) {
+        push(previousTabUrl)
+      } else if (event.key === "ArrowRight" && nextTabUrl) {
+        push(nextTabUrl)
+      }
+
+      lastExecutionTime.current = currentTime
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [push, previousTabUrl, nextTabUrl])
 
   if (!currentTab) return null
 
